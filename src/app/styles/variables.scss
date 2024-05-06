@@ -1,0 +1,25 @@
+$hero-text-color: #37474f;
+
+$p-font: var(--font-nbinternational);
+$heading-font: var(--font-neueplak);
+$mono-font: var(--font-nbinternational-mono);
+
+$mobile-breakpoint: 768px;
+$tablet-breakpoint: 1366px;
+
+$nav-padding-mobile: 24px;
+$nav-padding-desktop: 36px;
+
+$main-padding-mobile: 24px;
+$main-padding-desktop: clamp(24px, 5px + 5vw, 6rem);
+
+//Font Sizes
+$h1-size: clamp(2em, calc(24px + 1.5vw), 4em);
+$h2-size: clamp(1.2em, calc(18px + 0.8vw), 34px);
+$h3-size: clamp(1rem, calc(12px + 0.5vw), 24px);
+$p-size: clamp(1rem, calc(16px + 0.3vw), 24px);
+
+//Colors
+html {
+  --community-bg-color: #191919;
+}

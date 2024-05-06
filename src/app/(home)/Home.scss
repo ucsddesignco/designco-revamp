@@ -1,0 +1,134 @@
+.home_page {
+  .hero {
+    position: relative;
+    display: flex;
+    height: 600px;
+    flex-direction: column;
+    justify-content: center;
+
+    @media screen and (min-width: $mobile-breakpoint) {
+      height: 735px;
+    }
+
+    &_img {
+      object-fit: cover;
+      z-index: -1;
+    }
+  }
+
+  .hero__inner {
+    padding-inline: $main-padding-mobile;
+    max-width: 2000px;
+    width: 100%;
+    margin-inline: auto;
+    display: grid;
+    gap: 2rem;
+
+    @media screen and (min-width: $mobile-breakpoint) {
+      padding-inline: $main-padding-desktop;
+    }
+
+    h1 {
+      font-size: clamp(32px, calc(30px + 2.4vw), 80px);
+      max-width: 70rem;
+    }
+
+    p {
+      max-width: 65ch;
+    }
+  }
+
+  .main_content {
+    padding-inline: $main-padding-mobile;
+    margin-top: clamp(3rem, calc(2.5rem + 5vw), 8rem);
+    max-width: 2000px;
+    margin-inline: auto;
+
+    @media screen and (min-width: $mobile-breakpoint) {
+      padding-inline: $main-padding-desktop;
+    }
+
+    h2 {
+      margin-bottom: 2rem;
+      text-wrap: pretty;
+    }
+
+    .events_news_container {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+
+      @media screen and (min-width: $mobile-breakpoint) {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        flex: 1;
+        padding: 0;
+
+        &_events {
+          margin-bottom: 3rem;
+        }
+
+        &_news {
+          ul {
+            padding-left: 0;
+            display: grid;
+            gap: 1rem;
+
+            li {
+              list-style-type: none;
+              display: grid;
+              gap: 1rem;
+
+              a {
+                font-size: $p-size;
+                font-family: $p-font;
+              }
+            }
+          }
+
+          .date {
+            text-transform: uppercase;
+            font-size: 0.8em;
+            font-family: $mono-font;
+          }
+        }
+      }
+    }
+
+    .companies {
+      margin-block: 5rem;
+
+      h3 {
+        display: block;
+      }
+      ul {
+        display: grid;
+        gap: 2rem;
+        list-style-type: none;
+        padding-left: 0;
+        grid-template-columns: repeat(2, 1fr);
+
+        @media screen and (min-width: 480px) {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        @media screen and (min-width: 1000px) {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        li {
+          img {
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.events_page {
+  margin-inline: auto;
+  max-width: 2000px;
+
+  @media screen and (min-width: 768px) {
+    padding-inline: clamp(24px, 5px + 5vw, 6rem);
+  }
+}

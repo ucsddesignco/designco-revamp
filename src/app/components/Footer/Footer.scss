@@ -1,0 +1,42 @@
+footer {
+  text-align: center;
+  padding-inline: $nav-padding-mobile;
+  padding-bottom: 2rem;
+  margin-inline: auto;
+  max-width: 2000px;
+
+  @media screen and (min-width: 900px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: $nav-padding-desktop;
+  }
+  h3 {
+    font-size: $p-font;
+  }
+  ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+    column-gap: 0.5rem;
+    padding-left: 0;
+
+    @media screen and (min-width: $mobile-breakpoint) {
+      column-gap: 1em;
+      margin-top: 0;
+    }
+
+    li {
+      list-style: none;
+      padding: 8px;
+      a {
+        text-decoration: none;
+        font-size: $p-font;
+        font-family: $heading-font;
+        display: block;
+      }
+    }
+  }
+}

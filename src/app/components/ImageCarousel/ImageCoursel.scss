@@ -1,0 +1,52 @@
+.image_carousel {
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: e-resize;
+
+  &::-webkit-scrollbar-track,
+  &::-webkit-scrollbar-track {
+    background: rgb(238, 238, 238);
+    border-radius: 1rem;
+    margin-top: 1px;
+    margin-bottom: 1px;
+  }
+
+  &::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(182, 182, 182);
+    border-radius: 1rem;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgb(163, 163, 163);
+  }
+
+  &__container {
+    max-height: 400px;
+    padding-left: 0;
+    height: 350px;
+    display: flex;
+    gap: 2rem;
+
+    li {
+      height: 100%;
+      flex: 0 0 auto;
+      list-style-type: none;
+
+      &:nth-child(3n - 1) {
+        height: 70%;
+      }
+      &:nth-child(3n) {
+        height: 85%;
+      }
+
+      .slide {
+        height: 100%;
+        width: auto;
+      }
+    }
+  }
+}

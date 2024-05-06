@@ -1,0 +1,9 @@
+.shop_page {
+  margin-inline: auto;
+  max-width: 2000px;
+
+  .main-content {
+    padding-inline: clamp(24px, 5px + 5vw, 6rem);
+    padding-top: 500px;
+  }
+}

@@ -1,0 +1,177 @@
+.meet_the_board {
+  background-color: black;
+  color: white;
+  padding: 3rem 2rem;
+  margin-inline: calc(-1 * $main-padding-mobile); //Break out of padding
+  max-width: 1500px;
+
+  @media screen and (min-width: $mobile-breakpoint) {
+    margin-inline: auto;
+    padding: 4rem 6rem;
+  }
+
+  button {
+    border: none;
+  }
+
+  h2 {
+    text-align: center;
+    font-size: $h1-size;
+    margin: 0;
+    margin-bottom: 4rem;
+    // font-size: 2em;
+  }
+
+  .AccordionRoot {
+    background-color: black;
+    color: white;
+  }
+
+  .AccordionItem {
+    overflow: hidden;
+    border: 1px solid white;
+  }
+
+  .AccordionItem:focus-within {
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 0 2px var(--box-shadow);
+
+    .AccordionTrigger:focus-visible {
+      background-color: white;
+      color: black;
+    }
+  }
+
+  .AccordionHeader {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .AccordionTrigger {
+    font-family: $mono-font;
+    text-transform: uppercase;
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+    color: white;
+    background-color: black;
+    transition:
+      opacity 0.3s,
+      background-color 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  .AccordionContent {
+    font-size: 15px;
+    padding-top: 0;
+    gap: 3rem;
+
+    .member__container {
+      padding: 1rem;
+
+      @media screen and (min-width: $mobile-breakpoint) {
+        display: grid;
+        gap: 3rem;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        padding: 1rem 3rem 3rem 3rem;
+      }
+
+      .member {
+        aspect-ratio: 4/5;
+        margin-bottom: 1.5rem;
+
+        @media screen and (min-width: $mobile-breakpoint) {
+          margin-bottom: 0;
+        }
+
+        a {
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: relative;
+        }
+
+        h3 {
+          font-size: clamp(1.3em, calc(16px + 0.35vw), 30px);
+          padding-block: 1rem;
+        }
+
+        p {
+          font-size: clamp(1em, calc(11px + 0.35vw), 24px);
+        }
+
+        .gradyear {
+          font-family: $mono-font;
+          font-size: 12px;
+          margin-top: 0.5rem;
+        }
+
+        .member_img {
+          object-fit: contain;
+
+          &[data-loaded='false'] {
+            background-color: rgb(65, 65, 65);
+            animation: loadingPulse 1.5s infinite;
+            position: relative;
+          }
+        }
+      }
+    }
+  }
+
+  .AccordionContent[data-state='open'] {
+    animation: slideDown 0.3s cubic-bezier(0.87, 0, 0.13, 1);
+  }
+
+  .AccordionContent[data-state='closed'] {
+    animation: slideUp 0.3s cubic-bezier(0.87, 0, 0.13, 1);
+  }
+
+  .AccordionContentText {
+    padding: 15px 20px;
+  }
+
+  .icon {
+    transition: transform 0.3s cubic-bezier(0.87, 0, 0.13, 1);
+  }
+
+  .AccordionTrigger[data-state='open'] .icon {
+    transform: rotate(45deg);
+  }
+
+  @keyframes slideDown {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  @keyframes loadingPulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+}

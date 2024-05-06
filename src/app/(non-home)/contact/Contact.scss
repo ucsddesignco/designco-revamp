@@ -1,0 +1,89 @@
+.contact_page {
+  margin-inline: auto;
+  max-width: 2000px;
+  padding-inline: $main-padding-mobile;
+  margin-top: 3.5rem;
+
+  @media screen and (min-width: 768px) {
+    padding-inline: clamp(24px, 5px + 5vw, 6rem);
+  }
+
+  h1,
+  h2 {
+    font-size: $h1-size;
+  }
+
+  .social_media {
+    .social_media_links {
+      display: grid;
+      padding-left: 0;
+      margin-top: 1rem;
+      gap: 1rem;
+
+      @media screen and (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      li {
+        list-style-type: none;
+        display: grid;
+        width: fit-content;
+        a {
+          cursor: pointer;
+          color: inherit;
+          text-decoration: none;
+          font-family: $heading-font;
+          font-size: $h2-size;
+          overflow: hidden;
+          width: fit-content;
+          padding: 2rem 2rem 1rem 0rem;
+
+          @media screen and (min-width: 768px) {
+            padding: 2rem 2rem 1.5rem 0rem;
+          }
+
+          &::after {
+            content: '';
+            display: block;
+            transform: translateX(-100%);
+            width: 100%;
+            height: 4px;
+            background-color: black;
+            transition: transform 0.3s;
+          }
+
+          &:is(:hover, :focus) {
+            &::after {
+              transform: translateX(0);
+            }
+            svg {
+              transform: translateX(10px) rotate(45deg);
+            }
+          }
+
+          .link_text {
+            display: flex;
+            align-items: center;
+
+            svg {
+              transition: transform 0.3s;
+              height: 1em;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .campus {
+    margin-top: 5rem;
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 6rem;
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+  }
+}

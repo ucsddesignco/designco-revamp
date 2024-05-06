@@ -1,0 +1,10 @@
+.community_page {
+  margin-inline: auto;
+  max-width: 2000px;
+  color: white;
+  background-color: var(--community-bg-color);
+
+  @media screen and (min-width: 768px) {
+    padding-inline: clamp(24px, 5px + 5vw, 6rem);
+  }
+}
