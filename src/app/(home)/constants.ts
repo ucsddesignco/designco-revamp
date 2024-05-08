@@ -1,21 +1,3 @@
-import blue from '../../../public/images/HeroBackground/blue.webp';
-import purple from '../../../public/images/HeroBackground/purple.webp';
-import green from '../../../public/images/HeroBackground/green.webp';
-import pink from '../../../public/images/HeroBackground/pink.webp';
-import yellow from '../../../public/images/HeroBackground/yellow.webp';
-import google from '../../../public/images/Companies/google.png';
-import microsoft from '../../../public/images/Companies/microsoft.png';
-import meta from '../../../public/images/Companies/meta.png';
-import adobe from '../../../public/images/Companies/adobe.png';
-import uber from '../../../public/images/Companies/uber.png';
-import disney from '../../../public/images/Companies/disney.png';
-import slack from '../../../public/images/Companies/slack.png';
-import servicenow from '../../../public/images/Companies/servicenow.png';
-import amazon from '../../../public/images/Companies/amazon.png';
-import robinhood from '../../../public/images/Companies/robinhood.png';
-import twitch from '../../../public/images/Companies/twitch.png';
-import webflow from '../../../public/images/Companies/webflow.png';
-
 export const COLORS = [
   ['#F8BBD0', '#1A237E'],
   ['#37474F', '#FFF59D'],
@@ -24,7 +6,13 @@ export const COLORS = [
   ['#283593', '#FCE4EC']
 ];
 
-export const BACKGROUND_IMAGES = [blue, yellow, purple, green, pink];
+export const BACKGROUND_IMAGES = [
+  'https://res.cloudinary.com/design-co-ucsd/image/upload/v1715151710/designco/home/hero-plants/blue_azllpy.webp',
+  'https://res.cloudinary.com/design-co-ucsd/image/upload/v1715151714/designco/home/hero-plants/yellow_iv8aov.webp',
+  'https://res.cloudinary.com/design-co-ucsd/image/upload/v1715151715/designco/home/hero-plants/purple_unjoue.webp',
+  'https://res.cloudinary.com/design-co-ucsd/image/upload/v1715151715/designco/home/hero-plants/green_ow4dmk.webp',
+  'https://res.cloudinary.com/design-co-ucsd/image/upload/v1715151715/designco/home/hero-plants/pink_a1ryjo.webp'
+];
 
 export const NEWS_LIST = [
   {
@@ -42,16 +30,52 @@ export const NEWS_LIST = [
 ];
 
 export const COMPANIES_LIST = [
-  { img: google, name: 'Google' },
-  { img: microsoft, name: 'Microsoft' },
-  { img: meta, name: 'Meta' },
-  { img: adobe, name: 'Adobe' },
-  { img: uber, name: 'Uber' },
-  { img: disney, name: 'Disney' },
-  { img: slack, name: 'Slack' },
-  { img: servicenow, name: 'ServiceNow' },
-  { img: amazon, name: 'Amazon' },
-  { img: robinhood, name: 'Robinhood' },
-  { img: twitch, name: 'Twitch' },
-  { img: webflow, name: 'Webflow' }
+  {
+    name: 'Google',
+    img: 'https://res.cloudinary.com/design-co-ucsd/image/upload/v1715151262/designco/home/company-logos/google_n7wsz3.webp'
+  },
+  {
+    name: 'Microsoft',
+    img: 'https://res.cloudinary.com/design-co-ucsd/image/upload/v1715151260/designco/home/company-logos/microsoft_ljiv8l.webp'
+  },
+  {
+    name: 'Meta',
+    img: 'https://res.cloudinary.com/design-co-ucsd/image/upload/v1715151260/designco/home/company-logos/meta_gn0vbz.webp'
+  },
+  {
+    name: 'Adobe',
+    img: 'https://res.cloudinary.com/design-co-ucsd/image/upload/v1715151263/designco/home/company-logos/adobe_rbp3yo.webp'
+  },
+  {
+    name: 'Uber',
+    img: 'https://res.cloudinary.com/design-co-ucsd/image/upload/v1715151258/designco/home/company-logos/uber_dpdusm.webp'
+  },
+  {
+    name: 'Disney',
+    img: 'https://res.cloudinary.com/design-co-ucsd/image/upload/v1715151262/designco/home/company-logos/disney_ftnvjo.webp'
+  },
+  {
+    name: 'Slack',
+    img: 'https://res.cloudinary.com/design-co-ucsd/image/upload/v1715151258/designco/home/company-logos/slack_kpl15p.webp'
+  },
+  {
+    name: 'ServiceNow',
+    img: 'https://res.cloudinary.com/design-co-ucsd/image/upload/v1715151259/designco/home/company-logos/servicenow_lnabto.webp'
+  },
+  {
+    name: 'Amazon',
+    img: 'https://res.cloudinary.com/design-co-ucsd/image/upload/v1715151262/designco/home/company-logos/amazon_ku7mbm.webp'
+  },
+  {
+    name: 'Robinhood',
+    img: 'https://res.cloudinary.com/design-co-ucsd/image/upload/v1715151260/designco/home/company-logos/robinhood_e5cq5h.webp'
+  },
+  {
+    name: 'Twitch',
+    img: 'https://res.cloudinary.com/design-co-ucsd/image/upload/v1715151258/designco/home/company-logos/twitch_mqkagm.webp'
+  },
+  {
+    name: 'Webflow',
+    img: 'https://res.cloudinary.com/design-co-ucsd/image/upload/v1715151258/designco/home/company-logos/webflow_elyxcj.webp'
+  }
 ];

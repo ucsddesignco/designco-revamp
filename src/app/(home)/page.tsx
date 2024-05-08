@@ -12,14 +12,14 @@ import Image from 'next/image';
 import Navbar from '@/components/Navbar/Navbar';
 
 export default async function Home() {
+  // Used to cycle through color themes
   let item: number;
 
-  // Retrieve prev item
   let prevItem: number = cookies().has('prevItem')
     ? parseInt(cookies().get('prevItem')!.value)
     : 0;
 
-  item = ++prevItem % COLORS.length;
+  item = prevItem % COLORS.length;
 
   let baseColor = COLORS[item][0];
   let bgColor = COLORS[item][1];
@@ -37,12 +37,12 @@ export default async function Home() {
       <main className="home_page">
         <section className="hero" style={splashStyle}>
           <Image
-            src={bgImage.src}
+            src={bgImage}
             alt="Hero image of a plant"
             fill
             className="hero_img"
             quality={100}
-            priority
+            priority={true}
           />
           <div className="hero__inner">
             <h1>Grow with our community of student designers.</h1>
@@ -100,6 +100,8 @@ export default async function Home() {
                   <li key={index}>
                     <Image
                       src={company.img}
+                      width={540}
+                      height={276}
                       alt={`${company.name} Company Logo`}
                     />
                   </li>
