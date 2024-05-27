@@ -7,12 +7,15 @@ export const SLIDESHOW_IMAGES = [
   'https://res.cloudinary.com/design-co-ucsd/image/upload/v1715151715/designco/home/hero-plants/pink_a1ryjo.webp'
 ];
 
+import cat1 from '../../../../public/images/example-cat-1.png';
+import cat2 from '../../../../public/images/example-cat-1.png';
+
 export const ShopItems = [
   {
     name: 'PLAY^3 Embroidered Crewneck',
     price: 35,
     description:
-      "Don't be afraid to play around! It's time to play, play, play to your heart's content. Grab your pencils and crayons — on your mark, get set, design!\
+      "Don't be afraid to play around! It's time to play, play, play to your heart's content. Grab your pencils and crayons — on your mark, get set, design!\n\
       80/20 cotton/polyester blend; Alpine green\
       Embroidered front design, screen-printed back design\
       Models in order of appearance: Khoi is 5'6'' wearing size M, Brooke is 5'0'' wearing size M, Nel is 5'5'' wearing size S.\
@@ -23,7 +26,10 @@ export const ShopItems = [
       large: true,
       xlarge: true
     },
-    images: []
+    images: [
+      { image: cat1, alt: '' },
+      { image: cat2, alt: '' }
+    ]
   },
   {
     name: "It's OK to Make Mistakes Shirt",
@@ -38,7 +44,10 @@ export const ShopItems = [
       large: true,
       xlarge: true
     },
-    images: []
+    images: [
+      { image: cat1, alt: '' },
+      { image: cat2, alt: '' }
+    ]
   },
   {
     name: 'Design Co Black Holographic Logo Sticker',
@@ -52,7 +61,10 @@ export const ShopItems = [
       large: true,
       xlarge: true
     },
-    images: []
+    images: [
+      { image: cat1, alt: '' },
+      { image: cat2, alt: '' }
+    ]
   },
   {
     name: "It's Playtime! Holographic Sticker",
@@ -67,6 +79,9 @@ export const ShopItems = [
       large: true,
       xlarge: true
     },
-    images: []
+    images: [
+      { image: cat1, alt: '' },
+      { image: cat2, alt: '' }
+    ]
   }
 ];
