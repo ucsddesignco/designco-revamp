@@ -1,10 +1,14 @@
 /*eslint no-unused-vars: ["error", { "argsIgnorePattern": "^_" }]*/
 
+import './SliderArrow.scss';
+
 type SliderArrowProps = {
   disabled: boolean;
   left?: boolean;
   onClick: (_e: any) => void;
 };
+
+// TODO: replace svg with react svg element
 
 export default function SliderArrow({
   disabled,
