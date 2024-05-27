@@ -1,0 +1,59 @@
+$mobile-ratio: 1.25;
+$mobile-padding: 15px;
+$desktop-padding: 30px;
+
+//prettier-ignore
+$image-sizes: (
+  2: (375px, 245px),
+  3: (450px, 300px),
+  4: (250px, 350px),
+  5: (375px, 245px),
+  6: (450px, 300px),
+);
+
+.image-carousel {
+  --slide-width: 525px;
+  --slide-height: 350px;
+  cursor: e-resize;
+
+  ul.keen-slider {
+    padding-left: 0;
+    list-style-type: none;
+
+    li {
+      .keen-slider__slide {
+        object-fit: cover;
+        // Add mobile padding to width to account for part of image cropped from padding
+        // Padding is used instead of keen-slider spacing to prevent layout shift
+        $default-slide-width: calc(
+          var(--slide-width) / $mobile-ratio + $mobile-padding
+        );
+        $default-slide-height: calc(var(--slide-height) / $mobile-ratio);
+        width: $default-slide-width;
+        min-width: $default-slide-width;
+        height: $default-slide-height;
+        min-height: $default-slide-height;
+        padding-right: $mobile-padding;
+
+        @media (min-width: $mobile-breakpoint) {
+          width: calc(var(--slide-width) + $desktop-padding);
+          min-width: calc(var(--slide-width) + $desktop-padding);
+          height: var(--slide-height);
+          min-height: var(--slide-height);
+          padding-right: $desktop-padding;
+        }
+      }
+
+      @each $index, $sizes in $image-sizes {
+        &:nth-child(#{$index}) .keen-slider__slide {
+          --slide-width: #{nth($sizes, 1)};
+          --slide-height: #{nth($sizes, 2)};
+        }
+      }
+
+      &:last-child .keen-slider__slide {
+        padding-right: 0;
+      }
+    }
+  }
+}

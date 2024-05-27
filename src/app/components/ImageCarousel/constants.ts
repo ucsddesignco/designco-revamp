@@ -7,11 +7,11 @@ import about6 from '../../../../public/images/About/12.webp';
 import about7 from '../../../../public/images/About/13.webp';
 
 export const ABOUT_IMAGES_LIST = [
-  { img: about1, name: 'Students on their laptop at a Design Co events' },
-  { img: about2, name: 'Students on their laptop at a Design Co events' },
-  { img: about3, name: 'Students on their laptop at a Design Co events' },
-  { img: about4, name: 'Students on their laptop at a Design Co events' },
-  { img: about5, name: 'Students on their laptop at a Design Co events' },
-  { img: about6, name: 'Students on their laptop at a Design Co events' },
-  { img: about7, name: 'Students on their laptop at a Design Co events' }
+  { img: about1, alt: 'Students on their laptop at a Design Co events' },
+  { img: about2, alt: 'Students on their laptop at a Design Co events' },
+  { img: about3, alt: 'Students on their laptop at a Design Co events' },
+  { img: about4, alt: 'Students on their laptop at a Design Co events' },
+  { img: about5, alt: 'Students on their laptop at a Design Co events' },
+  { img: about6, alt: 'Students on their laptop at a Design Co events' },
+  { img: about7, alt: 'Students on their laptop at a Design Co events' }
 ];
