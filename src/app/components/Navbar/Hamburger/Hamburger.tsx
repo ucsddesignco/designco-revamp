@@ -4,7 +4,6 @@ import './Hamburger.scss';
 type HamburgerProps = {
   isHamburgerOpen: boolean;
   toggleHamburger: () => void;
-  hamburgerInnerRef: React.RefObject<HTMLSpanElement>;
   bgColor: string;
   color: string;
 };
@@ -12,7 +11,6 @@ type HamburgerProps = {
 export default function Hamburger({
   isHamburgerOpen,
   toggleHamburger,
-  hamburgerInnerRef,
   bgColor,
   color
 }: HamburgerProps) {
@@ -30,10 +28,9 @@ export default function Hamburger({
       >
         <span className="hamburger-box">
           <span
-            ref={hamburgerInnerRef}
             className="hamburger-inner"
             style={{ backgroundColor: isHamburgerOpen ? bgColor : color }}
-          ></span>
+          />
         </span>
       </button>
       <div
@@ -41,7 +38,8 @@ export default function Hamburger({
         onClick={() => {
           toggleHamburger();
         }}
-      ></div>
+        role="presentation"
+      />
     </>
   );
 }

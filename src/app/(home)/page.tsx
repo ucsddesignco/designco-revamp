@@ -2,28 +2,26 @@ import './Home.scss';
 import Button from '@/components/Button/Button';
 
 import { cookies } from 'next/headers';
+import Image from 'next/image';
+import Navbar from '@/components/Navbar/Navbar';
 import {
   BACKGROUND_IMAGES,
   COLORS,
   COMPANIES_LIST,
   NEWS_LIST
 } from './constants';
-import Image from 'next/image';
-import Navbar from '@/components/Navbar/Navbar';
 
 export default async function Home() {
   // Used to cycle through color themes
-  let item: number;
-
-  let prevItem: number = cookies().has('prevItem')
-    ? parseInt(cookies().get('prevItem')!.value)
+  const prevItem: number = cookies().has('prevItem')
+    ? parseInt(cookies().get('prevItem')!.value, 10)
     : 0;
 
-  item = prevItem % COLORS.length;
+  const item = prevItem % COLORS.length;
 
-  let baseColor = COLORS[item][0];
-  let bgColor = COLORS[item][1];
-  let bgImage = BACKGROUND_IMAGES[item];
+  const baseColor = COLORS[item][0];
+  const bgColor = COLORS[item][1];
+  const bgImage = BACKGROUND_IMAGES[item];
 
   const splashStyle = {
     backgroundColor: bgColor,
@@ -42,14 +40,14 @@ export default async function Home() {
             fill
             className="hero_img"
             quality={100}
-            priority={true}
+            priority
           />
           <div className="hero__inner">
             <h1>Grow with our community of student designers.</h1>
             <p>
-              We’re a strong and scrappy design community at UC San Diego,
+              {`We're a strong and scrappy design community at UC San Diego,
               bridging the gap between young designers and industry. Previously
-              known as Design at UCSD.
+              known as Design at UCSD.`}
             </p>
             <Button
               text="Learn More"
@@ -71,23 +69,21 @@ export default async function Home() {
             <div className="content content_news">
               <h2>News</h2>
               <ul>
-                {NEWS_LIST.map((news, index) => {
-                  return (
-                    <li key={index}>
-                      <h3>{news.title}</h3>
-                      <p>{news.description}</p>
-                      <a
-                        href={news.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`Read the full article for ${news.title}`}
-                      >
-                        Read More
-                      </a>
-                      <p className="date">{news.date}</p>
-                    </li>
-                  );
-                })}
+                {NEWS_LIST.map(news => (
+                  <li key={news.title}>
+                    <h3>{news.title}</h3>
+                    <p>{news.description}</p>
+                    <a
+                      href={news.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Read the full article for ${news.title}`}
+                    >
+                      Read More
+                    </a>
+                    <p className="date">{news.date}</p>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -95,18 +91,16 @@ export default async function Home() {
           <section className="companies">
             <h2>Our community has gone on to work at</h2>
             <ul>
-              {COMPANIES_LIST.map((company, index) => {
-                return (
-                  <li key={index}>
-                    <Image
-                      src={company.img}
-                      width={540}
-                      height={276}
-                      alt={`${company.name} Company Logo`}
-                    />
-                  </li>
-                );
-              })}
+              {COMPANIES_LIST.map(company => (
+                <li key={company.name}>
+                  <Image
+                    src={company.img}
+                    width={540}
+                    height={276}
+                    alt={`${company.name} Company Logo`}
+                  />
+                </li>
+              ))}
             </ul>
           </section>
         </section>

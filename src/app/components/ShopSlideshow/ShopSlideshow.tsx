@@ -18,8 +18,8 @@ export default function ShopSlideshow() {
   return (
     <div className="shop_slideshow">
       {SLIDESHOW_IMAGES.map((image, i) => (
-        <div key={i} className={`slide ${index === i ? 'active' : ''}`}>
-          <Image src={image} alt={`Slide ${i}`} fill />
+        <div key={image.id} className={`slide ${index === i ? 'active' : ''}`}>
+          <Image src={image.src} alt={`Slide ${i}`} fill />
         </div>
       ))}
     </div>

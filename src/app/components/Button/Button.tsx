@@ -26,6 +26,7 @@ export default function Button({
   return (
     <Link href={link} passHref legacyBehavior>
       <a
+        href={link}
         className={noShadow ? 'link-button--no-shadow' : 'link-button'}
         aria-label={ariaLabel}
         style={

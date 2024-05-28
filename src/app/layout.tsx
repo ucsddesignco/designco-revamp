@@ -44,6 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
+      lang="en"
       className={`${NeuePlak.variable} ${NBInternational.variable} ${NBInternationalMono.variable}`}
     >
       <body>{children}</body>
