@@ -2,8 +2,8 @@
 
 import * as Accordion from '@radix-ui/react-accordion';
 import './MeetTheBoardAccordion.scss';
-import { BOARD_MEMBER_LIST } from './constants';
 import Image from 'next/image';
+import { BOARD_MEMBER_LIST } from './constants';
 
 export default function MeetTheBoardAccordion() {
   return (

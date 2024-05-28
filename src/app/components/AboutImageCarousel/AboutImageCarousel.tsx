@@ -1,13 +1,13 @@
 'use client';
 
-import './ImageCarousel.scss';
+import './AboutImageCarousel.scss';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 import Image from 'next/image';
-import { ABOUT_IMAGES_LIST } from './constants';
 import React from 'react';
+import { ABOUT_IMAGES_LIST } from './constants';
 
-export default function ImageCarousel() {
+export default function AboutImageCarousel() {
   const [sliderRef] = useKeenSlider<HTMLUListElement>({
     loop: false,
     mode: 'snap',
@@ -17,13 +17,15 @@ export default function ImageCarousel() {
   return (
     <section className="image-carousel">
       <ul ref={sliderRef} className="keen-slider">
-        {ABOUT_IMAGES_LIST.map((image, index) => (
-          <li key={'about-image' + index}>
+        {ABOUT_IMAGES_LIST.map(image => (
+          <li key={image.id}>
             <Image
               alt={image.alt}
-              className={`keen-slider__slide`}
+              className="keen-slider__slide"
               src={image.img}
-              priority={true}
+              width={image.width}
+              height={image.height}
+              priority
             />
           </li>
         ))}

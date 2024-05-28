@@ -2,24 +2,21 @@
 
 import Link from 'next/link';
 import './Navbar.scss';
-import Logo from './Logos/Logo';
-import MobileLogo from './Logos/MobileLogo';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
-import Hamburger from './Hamburger/Hamburger';
 import FocusTrap from 'focus-trap-react';
+import Logo from './Logos/Logo';
+import MobileLogo from './Logos/MobileLogo';
+import Hamburger from './Hamburger/Hamburger';
 
 type NavbarProps = {
-  isHome?: boolean;
   color?: string;
   bgColor?: string;
-  isOverlaying?: boolean;
 };
 
 export default function Navbar({
   color = 'black',
-  bgColor = 'white',
-  isOverlaying = false
+  bgColor = 'white'
 }: NavbarProps) {
   const pathname = usePathname();
   const hamburgerInnerRef = React.useRef<HTMLSpanElement>(null);
@@ -31,21 +28,25 @@ export default function Navbar({
     { href: '/shop', text: 'Shop' },
     { href: '/contact', text: 'Contact' }
   ];
+  let isOverlaying = false;
+  let localColor = color;
+  let localBgColor = bgColor;
 
   if (pathname === '/') {
     isOverlaying = true;
   } else {
-    (color = 'black'), (bgColor = 'white');
+    localColor = 'black';
+    localBgColor = 'white';
   }
 
   if (pathname === '/community') {
-    color = 'white';
-    bgColor = 'var(--community-bg-color)';
+    localColor = 'white';
+    localBgColor = 'var(--community-bg-color)';
   }
 
   if (pathname === '/shop') {
-    color = 'white';
-    bgColor = 'transparent';
+    localColor = 'white';
+    localBgColor = 'transparent';
     isOverlaying = true;
   }
 
@@ -86,21 +87,22 @@ export default function Navbar({
         style={
           isOverlaying
             ? ({
-                '--color': color,
-                '--bg-color': bgColor,
+                '--color': localColor,
+                '--bg-color': localBgColor,
                 position: 'absolute',
                 zIndex: 1
               } as React.CSSProperties)
             : ({
-                '--color': color,
-                '--bg-color': bgColor
+                '--color': localColor,
+                '--bg-color': localBgColor
               } as React.CSSProperties)
         }
       >
         <Link href="/" passHref legacyBehavior>
           <a
+            href="/"
             className="logo_container"
-            style={{ color: color }}
+            style={{ color }}
             tabIndex={isHamburgerOpen ? -1 : 0}
             aria-hidden={isHamburgerOpen ? 'true' : 'false'}
           >
@@ -122,9 +124,12 @@ export default function Navbar({
             <li key={link.href}>
               <Link href={link.href} passHref legacyBehavior>
                 <a
-                  aria-current={pathname == link.href ? 'page' : undefined}
+                  href={link.href}
+                  aria-current={pathname === link.href ? 'page' : undefined}
                   onClick={() => {
-                    isHamburgerOpen ? toggleHamburger() : null;
+                    if (isHamburgerOpen) {
+                      toggleHamburger();
+                    }
                   }}
                 >
                   {link.text}

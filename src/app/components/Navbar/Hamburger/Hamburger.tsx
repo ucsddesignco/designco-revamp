@@ -33,7 +33,7 @@ export default function Hamburger({
             ref={hamburgerInnerRef}
             className="hamburger-inner"
             style={{ backgroundColor: isHamburgerOpen ? bgColor : color }}
-          ></span>
+          />
         </span>
       </button>
       <div
@@ -41,7 +41,8 @@ export default function Hamburger({
         onClick={() => {
           toggleHamburger();
         }}
-      ></div>
+        role="presentation"
+      />
     </>
   );
 }
