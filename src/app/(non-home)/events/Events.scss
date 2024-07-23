@@ -1,8 +1,15 @@
 .events_page {
   margin-inline: auto;
   max-width: 2000px;
+  margin-block: 1rem;
 
   @media screen and (min-width: 768px) {
     padding-inline: clamp(24px, 5px + 5vw, 6rem);
+
+    .events-container {
+      display: grid;
+      gap: 1px;
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }
