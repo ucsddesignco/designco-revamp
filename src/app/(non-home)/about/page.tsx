@@ -1,8 +1,9 @@
-import AboutImageCarousel from '@/components/AboutImageCarousel/AboutImageCarousel';
 import MeetTheBoardAccordion from '@/components/MeetTheBoardAccordion/MeetTheBoardAccordion';
 import './About.scss';
 import Button from '@/components/Button/Button';
 import Image from 'next/image';
+import ImageCarousel from '@/components/ImageCarousel/ImageCarousel';
+import { ABOUT_IMAGES_LIST } from './constants';
 
 export default function About() {
   return (
@@ -11,7 +12,7 @@ export default function About() {
         {`We started in a tiny classroom in 2012. Now we're a growing community of
         over 300 designers.`}
       </h1>
-      <AboutImageCarousel />
+      <ImageCarousel imageList={ABOUT_IMAGES_LIST} />
       <ul className="faq_container">
         <li>
           <h2>What is Design Co?</h2>

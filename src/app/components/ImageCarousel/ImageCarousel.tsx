@@ -1,13 +1,22 @@
 'use client';
 
-import './AboutImageCarousel.scss';
+import './ImageCarousel.scss';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 import Image from 'next/image';
 import React, { useState } from 'react';
-import { ABOUT_IMAGES_LIST } from './constants';
 
-export default function AboutImageCarousel() {
+type ImageCarouselProps = {
+  imageList: {
+    id: string;
+    img: string;
+    alt: string;
+    width: number;
+    height: number;
+  }[];
+};
+
+export default function ImageCarousel({ imageList }: ImageCarouselProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLUListElement>({
@@ -25,7 +34,7 @@ export default function AboutImageCarousel() {
   return (
     <section className="image-carousel">
       <ul ref={sliderRef} className="keen-slider">
-        {ABOUT_IMAGES_LIST.map(image => (
+        {imageList.map(image => (
           <li key={image.id}>
             <Image
               alt={image.alt}
@@ -33,6 +42,7 @@ export default function AboutImageCarousel() {
               src={image.img}
               width={image.width}
               height={image.height}
+              sizes="(max-width: 768px) 80vw, (max-width: 1200px) 45vw, 35vw"
               priority
             />
           </li>
