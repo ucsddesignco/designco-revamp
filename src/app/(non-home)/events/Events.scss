@@ -5,8 +5,14 @@
 
   @media screen and (min-width: 768px) {
     padding-inline: clamp(24px, 5px + 5vw, 6rem);
+    margin-block: 1rem;
+
+    h1 {
+      margin-block: 2rem;
+    }
 
     .events-container {
+      margin-top: 1rem;
       display: grid;
       gap: 1px;
       grid-template-columns: repeat(3, 1fr);
