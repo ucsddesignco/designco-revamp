@@ -24,7 +24,7 @@ export default function EventCard({
         <a href={event_link}>
           <Image
             src={imgLink}
-            alt={'graphic for ' + { event_title }}
+            alt={`graphic for ${{ event_title }}`}
             width="250"
             height="250"
           />
