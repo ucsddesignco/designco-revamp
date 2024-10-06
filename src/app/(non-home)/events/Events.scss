@@ -11,8 +11,30 @@
       margin-block: 2rem;
     }
 
+    .button-container {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+
+      button {
+        border-radius: 40%;
+        padding: 1rem;
+      }
+
+      .normal {
+        color: white;
+        background-color: #191919;
+      }
+
+      .clicked {
+        color: #191919;
+        background-color: white;
+      }
+    }
+
     .events-container {
-      margin-top: 1rem;
+      margin: 1rem 0;
+      margin-bottom: 1rem;
       display: grid;
       gap: 1px;
       grid-template-columns: repeat(3, 1fr);
