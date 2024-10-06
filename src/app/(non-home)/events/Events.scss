@@ -11,6 +11,16 @@
       margin-block: 2rem;
     }
 
+    .upcoming-event {
+      color: white;
+      background-color: #191919;
+      padding: 2rem 0;
+
+      h2 {
+        margin-left: 1rem;
+      }
+    }
+
     .button-container {
       display: flex;
       gap: 1rem;
