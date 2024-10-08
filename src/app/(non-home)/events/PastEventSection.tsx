@@ -6,32 +6,32 @@ import { useState } from 'react';
 import EventCard from '@/components/EventCard/EventCard';
 import { EventsList } from './EventsList';
 
+type EventFilter = 'GBMs/Socials' | 'Large-Scale Events';
+
 export default function EventSection() {
-  const [active, setActive] = useState(0);
+  const [eventType, setEventType] = useState<EventFilter>('GBMs/Socials');
 
-  const handleButtonClick = (buttonNumber: number) => {
-    setActive(buttonNumber);
-  };
+  // const handleButtonClick = (buttonNumber: number) => {
+  //   setActive(buttonNumber);
+  // };
 
-  const buttonClass = (buttonNumber: number) =>
-    active === buttonNumber ? 'normal' : 'clicked';
+  // const buttonClass = (buttonNumber: number) =>
+  //   active === buttonNumber ? 'normal' : 'clicked';
 
   return (
     <div className="past-events">
       <div className="button-container">
         <button
-          style={{ display: 'inline-block' }}
-          onClick={() => handleButtonClick(0)}
-          className={buttonClass(0)}
+          onClick={() => setEventType('GBMs/Socials')}
+          className={eventType === 'GBMs/Socials' ? 'active' : ''}
         >
-          <h4>GBMs/Socials</h4>
+          GBMs/Socials
         </button>
         <button
-          style={{ display: 'inline-block' }}
-          onClick={() => handleButtonClick(1)}
-          className={buttonClass(1)}
+          onClick={() => setEventType('Large-Scale Events')}
+          className={eventType === 'Large-Scale Events' ? 'active' : ''}
         >
-          <h4>Large-Scale Events</h4>
+          Large-Scale Events
         </button>
       </div>
       <h3>2024-2025</h3>

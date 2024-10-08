@@ -27,18 +27,22 @@
       padding: 1rem 0;
 
       button {
-        border-radius: 40%;
-        padding: 1rem;
-      }
+        --text-color: black;
+        --background-color: white;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        border: 1.5px solid var(--text-color);
+        border-radius: 40px;
+        padding: 0.4rem 1rem 0.5rem;
+        font-size: 1.1rem;
+        font-family: $heading-font;
+        font-weight: 700;
+        cursor: pointer;
 
-      .normal {
-        color: white;
-        background-color: #191919;
-      }
-
-      .clicked {
-        color: #191919;
-        background-color: white;
+        &.active {
+          --text-color: white;
+          --background-color: black;
+        }
       }
     }
 
