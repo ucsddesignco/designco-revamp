@@ -52,6 +52,7 @@
       display: grid;
       gap: 1px;
       grid-template-columns: repeat(3, 1fr);
+      row-gap: 2rem;
     }
   }
 }

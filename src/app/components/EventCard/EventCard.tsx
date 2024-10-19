@@ -23,6 +23,7 @@ export default function EventCard({
       <div className="svg-container">
         <a href={event_link}>
           <Image
+            className="event-image"
             src={imgLink}
             alt={`graphic for ${{ event_title }}`}
             width="250"
@@ -31,9 +32,13 @@ export default function EventCard({
         </a>
       </div>
       <div className="event-card-content">
-        <h3>{event_title}</h3>
-        <p>{date}</p>
-        <p>{location}</p>
+        <div className="event-card-title">
+          <h3>{event_title}</h3>
+        </div>
+        <div className="event-card-description">
+          <p>{date}</p>
+          <p>{location}</p>
+        </div>
       </div>
     </div>
   );

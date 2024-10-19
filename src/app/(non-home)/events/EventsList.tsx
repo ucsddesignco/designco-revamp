@@ -1,6 +1,7 @@
 export const EventsList = [
   {
     event_name: 'Brand Design Bootcamp',
+    event_type: '',
     imgLink: 'https://ucsddesign.co/static/media/20240605.79d99bfd.png',
     event_link: 'https://www.instagram.com/p/C5uQ6scJhxt/',
     date: 'Wednesday, April 17',
@@ -8,6 +9,7 @@ export const EventsList = [
   },
   {
     event_name: 'Design Frontiers 2024',
+    event_type: '',
     imgLink: 'https://ucsddesign.co/static/media/20240605.79d99bfd.png',
     event_link: 'https://www.instagram.com/p/C5uQ6scJhxt/',
     date: 'Wednesday, April 17',
@@ -15,6 +17,7 @@ export const EventsList = [
   },
   {
     event_name: 'Brand Design Bootcamp',
+    event_type: '',
     imgLink: 'https://ucsddesign.co/static/media/20240605.79d99bfd.png',
     event_link: 'https://www.instagram.com/p/C5uQ6scJhxt/',
     date: 'Wednesday, April 17',
@@ -22,6 +25,7 @@ export const EventsList = [
   },
   {
     event_name: 'Brand Design Bootcamp',
+    event_type: '',
     imgLink: 'https://ucsddesign.co/static/media/20240605.79d99bfd.png',
     event_link: 'https://www.instagram.com/p/C5uQ6scJhxt/',
     date: 'Wednesday, April 17',
@@ -29,6 +33,7 @@ export const EventsList = [
   },
   {
     event_name: 'Brand Design Bootcamp',
+    event_type: '',
     imgLink: 'https://ucsddesign.co/static/media/20240605.79d99bfd.png',
     event_link: 'https://www.instagram.com/p/C5uQ6scJhxt/',
     date: 'Wednesday, April 17',
