@@ -18,6 +18,10 @@ export default function EventSection() {
   // const buttonClass = (buttonNumber: number) =>
   //   active === buttonNumber ? 'normal' : 'clicked';
 
+  const filteredEvents = EventsList.filter(
+    event => event.event_type === eventType
+  );
+
   return (
     <div className="past-events">
       <div className="button-container">
@@ -40,7 +44,7 @@ export default function EventSection() {
       </div>
       <h3>2023-2024</h3>
       <div className="events-container">
-        {EventsList.map(item => (
+        {filteredEvents.map(item => (
           <EventCard
             key={item.event_name}
             event_title={item.event_name}
