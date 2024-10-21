@@ -13,11 +13,6 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
         pathname: '/design-co-ucsd/**'
-      },
-      {
-        protocol: 'https',
-        hostname: 'ucsddesign.co',
-        pathname: '/static/media/**'
       }
     ]
   }
