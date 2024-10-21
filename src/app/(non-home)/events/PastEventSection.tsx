@@ -24,6 +24,7 @@ export default function EventSection() {
 
   return (
     <div className="past-events">
+      <h2>Past Events</h2>
       <div className="button-container">
         <button
           onClick={() => setEventType('GBMs/Socials')}
@@ -38,11 +39,11 @@ export default function EventSection() {
           Large-Scale Events
         </button>
       </div>
-      <h3>2024-2025</h3>
+      <h3 className="year">2024-2025</h3>
       <div className="events-container">
         <h4>Events coming soon!</h4>
       </div>
-      <h3>2023-2024</h3>
+      <h3 className="year">2023-2024</h3>
       <div className="events-container">
         {filteredEvents.map(item => (
           <EventCard

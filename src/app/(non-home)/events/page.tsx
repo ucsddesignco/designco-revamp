@@ -11,7 +11,6 @@ export default function Events() {
         workshops, socials, and large-scale events.
       </h1>
       {/* <UpcomingEvent /> */}
-      <h2>Past Events</h2>
       <PastEventSection />
     </main>
   );
