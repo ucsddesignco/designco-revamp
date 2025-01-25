@@ -16,6 +16,13 @@
     display: flex;
     gap: 1rem;
     margin-block: 1rem;
+
+    .button {
+      --text-color: black;
+      --background-color: white;
+      color: var(--text-color);
+      padding: 0.4rem 1rem 0.5rem;
+    }
   }
 }
 
