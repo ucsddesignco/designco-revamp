@@ -1,9 +1,8 @@
 import Image from 'next/image';
 import './CommunityGallery.scss';
 import Sticker from '@/components/Sticker/Sticker';
-import OrangeSmileySVG from '../community-assets/orange-smiley.svg';
-import GreenSmileySVG from '../community-assets/green-smiley.svg';
-import DCOStickerSVG from '../community-assets/dco-sticker.svg';
+import DCOLogo from '@/components/ColorStickers/DCOLogo';
+import Smiley from '@/components/ColorStickers/Smiley';
 
 type CommunityGalleryProps = {
   handleStickerDrag: () => void;
@@ -20,39 +19,27 @@ export default function CommunityGallery({
           onStart={handleStickerDrag}
           style={{ left: '-3rem', top: '-2rem' }}
         >
-          <Image
-            src={OrangeSmileySVG}
-            alt="Orange smiley face sticker"
-            height={120}
-            width={120}
-            draggable={false}
-          />
+          <Smiley color="orange" />
         </Sticker>
 
         <Sticker
           onStart={handleStickerDrag}
           style={{ left: '6%', top: '-6.5rem' }}
         >
-          <Image
-            src={GreenSmileySVG}
-            alt="Green smiley face sticker"
-            height={120}
-            width={120}
-            draggable={false}
-          />
+          <Smiley color="green" variation="1" />
         </Sticker>
 
         <Sticker
           onStart={handleStickerDrag}
-          style={{ top: '40%', left: '-2rem' }}
+          style={{ top: '38%', left: '-6.5rem' }}
         >
-          <Image
-            src={DCOStickerSVG}
-            alt="DCO Logo sticker"
-            height={100}
-            width={100}
-            draggable={false}
-          />
+          <DCOLogo color="green" />
+        </Sticker>
+        <Sticker
+          onStart={handleStickerDrag}
+          style={{ top: '40%', left: '3rem' }}
+        >
+          <DCOLogo color="orange" />
         </Sticker>
       </div>
 

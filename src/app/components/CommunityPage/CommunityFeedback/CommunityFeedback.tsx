@@ -1,7 +1,6 @@
-import RedPlantSVG from '@/components/CommunityPage/community-assets/red-plant.svg';
 import './CommunityFeedback.scss';
-import Image from 'next/image';
 import Sticker from '@/components/Sticker/Sticker';
+import DCOPlant from '@/components/ColorStickers/DCOPlant';
 import CommunityCTA from '../CommunityCTA/CommunityCTA';
 
 type CommunityFeedbackProps = {
@@ -21,19 +20,20 @@ export default function CommunityFeedback({
         buttonText="Share Feedback"
         link="https://forms.gle/4YjxjCWBxV1u5WW9A"
       />
-      <div id="community-feedback-sticker">
-        <Sticker
-          onStart={handleStickerDrag}
-          style={{ top: '0%', left: '-4rem', rotate: '-16deg' }}
-        >
-          <Image
-            src={RedPlantSVG}
-            alt="Red plant sticker"
-            height={221}
-            width={101}
-          />
-        </Sticker>
-      </div>
+      <Sticker
+        onStart={handleStickerDrag}
+        style={{ top: '0%', left: '-4rem', rotate: '-16deg' }}
+        className="community-feedback-sticker-desktop"
+      >
+        <DCOPlant color="orange" />
+      </Sticker>
+      <Sticker
+        onStart={handleStickerDrag}
+        style={{ top: '-25%', right: '-2rem', scale: '0.8' }}
+        className="community-feedback-sticker-mobile"
+      >
+        <DCOPlant color="green" />
+      </Sticker>
     </div>
   );
 }

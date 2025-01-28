@@ -15,10 +15,16 @@ import Image from 'next/image';
 type StickerProps = {
   onStart?: () => void;
   children: ReactNode;
+  className?: string;
   style?: CSSProperties;
 };
 
-export default function Sticker({ onStart, children, style }: StickerProps) {
+export default function Sticker({
+  onStart,
+  children,
+  className,
+  style
+}: StickerProps) {
   const draggableRef = useRef<HTMLImageElement>(null);
 
   // Adds fields if it knows it's an image
@@ -35,7 +41,11 @@ export default function Sticker({ onStart, children, style }: StickerProps) {
 
   return (
     <Draggable onStart={onStart} nodeRef={draggableRef}>
-      <div ref={draggableRef} className="draggable" style={style}>
+      <div
+        ref={draggableRef}
+        className={`draggable ${className}`}
+        style={style}
+      >
         {renderChildren()}
       </div>
     </Draggable>

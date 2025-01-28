@@ -5,10 +5,11 @@
     flex-direction: column;
     padding-top: 9rem;
     text-align: center;
-    gap: 3rem;
+    gap: 6rem;
 
     @media (min-width: $mobile-breakpoint) {
       padding-top: 12rem;
+      gap: 2.5rem;
     }
 
     .community_blurb__section {

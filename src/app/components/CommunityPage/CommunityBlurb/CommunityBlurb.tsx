@@ -4,10 +4,8 @@ import Button from '@/components/Button/Button';
 import './CommunityBlurb.scss';
 import Image from 'next/image';
 import Sticker from '@/components/Sticker/Sticker';
-import BlueSmileySVG from '../community-assets/blue-smiley.svg';
-import GreenSmileySVG from '../community-assets/green-smiley.svg';
-import OrangeSmileySVG from '../community-assets/orange-smiley.svg';
-import GreenPlantSVG from '../community-assets/green-plant.svg';
+import DCOPlant from '@/components/ColorStickers/DCOPlant';
+import Smiley from '@/components/ColorStickers/Smiley';
 import MoveMeSVG from '../community-assets/move-me-arrow.svg';
 
 type CommunityBlurbProps = {
@@ -55,59 +53,37 @@ export default function CommunityBlurb({
           <p>MOVE ME!</p>
         </div>
       )}
-      <div className="community-stickers__desktop">
-        <Sticker
-          onStart={handleStickerDrag}
-          style={{ top: '3rem', right: '3rem' }}
-        >
-          <Image
-            src={BlueSmileySVG}
-            alt="Blue smiley face sticker"
-            height={137}
-            width={137}
-            priority
-          />
-        </Sticker>
-        <Sticker
-          onStart={handleStickerDrag}
-          style={{ top: '-4.5rem', right: '-4.5rem' }}
-        >
-          <Image
-            src={GreenPlantSVG}
-            alt="Green plant sticker"
-            height={200}
-            width={105}
-            priority
-          />
-        </Sticker>
-      </div>
+      {/* Desktop Stickers */}
+      <Sticker
+        onStart={handleStickerDrag}
+        style={{ top: '3rem', right: '3rem' }}
+        className="community-stickers__desktop"
+      >
+        <Smiley color="blue" />
+      </Sticker>
+      <Sticker
+        onStart={handleStickerDrag}
+        style={{ top: '-4.5rem', right: '-4.5rem' }}
+        className="community-stickers__desktop"
+      >
+        <DCOPlant color="green" />
+      </Sticker>
 
-      <div className="community-stickers__mobile">
-        <Sticker
-          onStart={handleStickerDrag}
-          style={{ left: '32%', top: '3.5rem' }}
-        >
-          <Image
-            src={OrangeSmileySVG}
-            alt="Orange smiley face sticker"
-            height={70}
-            width={70}
-            priority
-          />
-        </Sticker>
-        <Sticker
-          onStart={handleStickerDrag}
-          style={{ left: '50%', top: '1rem' }}
-        >
-          <Image
-            src={GreenSmileySVG}
-            alt="Green smiley face sticker"
-            height={70}
-            width={70}
-            priority
-          />
-        </Sticker>
-      </div>
+      {/* Mobile Stickers */}
+      <Sticker
+        onStart={handleStickerDrag}
+        style={{ left: '25%', top: '1.5rem' }}
+        className="community-stickers__mobile"
+      >
+        <Smiley color="orange" style={{ scale: 0.5 }} />
+      </Sticker>
+      <Sticker
+        onStart={handleStickerDrag}
+        style={{ left: '45%', top: '-1rem' }}
+        className="community-stickers__mobile"
+      >
+        <Smiley color="green" variation="1" style={{ scale: 0.5 }} />
+      </Sticker>
     </section>
   );
 }

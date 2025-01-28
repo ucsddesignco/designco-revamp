@@ -1,8 +1,7 @@
-import BlueSmileySVG from '@/components/CommunityPage/community-assets/blue-smiley.svg';
-import DCOStickerSVG from '@/components/CommunityPage/community-assets/dco-sticker.svg';
 import './CommunityDiscord.scss';
-import Image from 'next/image';
 import Sticker from '@/components/Sticker/Sticker';
+import DCOLogo from '@/components/ColorStickers/DCOLogo';
+import Smiley from '@/components/ColorStickers/Smiley';
 import CommunityCTA from '../CommunityCTA/CommunityCTA';
 
 type CommunityDiscordProps = {
@@ -24,14 +23,9 @@ export default function CommunityDiscord({
       <div id="community-discord-sticker-mobile">
         <Sticker
           onStart={handleStickerDrag}
-          style={{ top: '-1rem', right: '0' }}
+          style={{ top: '-1rem', right: '-1rem' }}
         >
-          <Image
-            src={BlueSmileySVG}
-            alt="Blue smiley face sticker"
-            height={70}
-            width={70}
-          />
+          <Smiley color="blue" style={{ scale: 0.5 }} />
         </Sticker>
       </div>
       <div id="community-discord-sticker-desktop">
@@ -39,12 +33,7 @@ export default function CommunityDiscord({
           onStart={handleStickerDrag}
           style={{ top: '21%', right: '-4%' }}
         >
-          <Image
-            src={DCOStickerSVG}
-            alt="Blue Design Co sticker"
-            height={133}
-            width={124}
-          />
+          <DCOLogo color="blue" />
         </Sticker>
       </div>
     </div>
