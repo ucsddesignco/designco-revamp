@@ -43,6 +43,7 @@
   cursor: pointer;
   z-index: 0;
   border: 1px solid var(--color);
+  border-color: var(--border-color);
   color: var(--color);
   background-color: var(--background-color);
   transition:
@@ -51,7 +52,7 @@
 
   &:is(:hover, :focus-visible) {
     outline: none;
-    border: 1px solid var(--color);
+    // border: 1px solid var(--color);
     color: var(--background-color);
     background-color: var(--color);
   }

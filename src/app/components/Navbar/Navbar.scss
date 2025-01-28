@@ -1,146 +1,149 @@
 $mobile-breakpoint: 768px;
 
 nav {
-  --nav-padding-block: 1.6rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-block: var(--nav-padding-block);
-  padding-inline: $nav-padding-mobile;
-  font-family: $heading-font;
-  font-size: 18px;
-  color: var(--color);
   background-color: var(--bg-color);
-  height: fit-content;
-  inset: 0;
-  margin-inline: auto;
-  max-width: 2000px; //Max width for larger screen sizes
 
-  @media screen and (min-width: $mobile-breakpoint) {
-    --nav-padding-block: 2.6rem;
-    padding-inline: $nav-padding-desktop;
-  }
-
-  &.home {
-    background: transparent;
-  }
-
-  &.overlaying {
-    background: transparent;
-    position: absolute;
-    z-index: 1;
-  }
-
-  a {
-    text-decoration: none;
-    font-size: 2.5rem;
+  #nav-container {
+    --nav-padding-block: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: var(--nav-padding-block);
+    padding-inline: $nav-padding-mobile;
+    font-family: $heading-font;
+    font-size: 18px;
+    color: var(--color);
+    height: fit-content;
+    inset: 0;
+    margin-inline: auto;
+    max-width: 2000px; //Max width for larger screen sizes
 
     @media screen and (min-width: $mobile-breakpoint) {
-      font-size: 18px;
+      --nav-padding-block: 2.6rem;
+      padding-inline: $nav-padding-desktop;
     }
-  }
 
-  .logo_container {
-    height: fit-content;
-    text-decoration: inherit;
-    color: inherit;
-    opacity: 1;
-    display: grid;
-    place-items: center;
+    &.home {
+      background: transparent;
+    }
 
-    .logo {
-      transition: opacity 0.3s;
-      color: inherit;
-      height: 0.9em;
-      display: none;
+    &.overlaying {
+      background: transparent;
+      position: absolute;
+      z-index: 1;
+    }
+
+    a {
+      text-decoration: none;
+      font-size: 2.5rem;
 
       @media screen and (min-width: $mobile-breakpoint) {
-        display: block;
-      }
-      &:hover {
-        opacity: 0.5;
+        font-size: 18px;
       }
     }
 
-    .mobile-logo {
-      display: none;
+    .logo_container {
+      height: fit-content;
+      text-decoration: inherit;
       color: inherit;
-      width: 30px;
-      height: 30px;
-      display: block;
+      opacity: 1;
+      display: grid;
+      place-items: center;
 
-      @media screen and (min-width: $mobile-breakpoint) {
+      .logo {
+        transition: opacity 0.3s;
+        color: inherit;
+        height: 0.9em;
         display: none;
+
+        @media screen and (min-width: $mobile-breakpoint) {
+          display: block;
+        }
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+
+      .mobile-logo {
+        display: none;
+        color: inherit;
+        width: 30px;
+        height: 30px;
+        display: block;
+
+        @media screen and (min-width: $mobile-breakpoint) {
+          display: none;
+        }
       }
     }
-  }
 
-  .dark_overlay {
-    visibility: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: black;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.3s ease-out;
-
-    &.is-active {
-      visibility: visible;
-      opacity: 0.5;
-      transition: opacity 0.3s ease-out;
-    }
-  }
-
-  ul {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-
-    @media screen and (max-width: $mobile-breakpoint) {
-      position: fixed;
-      top: 0;
-      right: 0;
-      display: flex;
-      flex-direction: column;
-      text-align: right;
-      height: 100vh;
-      width: 90%;
-      padding-top: 6rem;
-      padding-right: 2rem;
-      list-style: none;
-      gap: 2.5rem;
-      z-index: 2;
-      background-color: var(--color);
-      color: var(--bg-color);
-      transform: translateX(100%);
+    .dark_overlay {
       visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: black;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s ease-out;
 
-      &.panel-open {
-        transform: translateX(0%);
-        transition: 0.3s ease-out;
+      &.is-active {
         visibility: visible;
-      }
-
-      &.panel-close {
-        transform: translateX(100%);
-        visibility: visible;
-        transition: 0.3s ease-out;
+        opacity: 0.5;
+        transition: opacity 0.3s ease-out;
       }
     }
 
-    li {
-      line-height: 1.2;
-      transition: opacity 0.3s;
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
 
-      &:hover {
-        opacity: 0.5;
+      @media screen and (max-width: $mobile-breakpoint) {
+        position: fixed;
+        top: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        height: 100vh;
+        width: 90%;
+        padding-top: 6rem;
+        padding-right: 2rem;
+        list-style: none;
+        gap: 2.5rem;
+        z-index: 2;
+        background-color: var(--color);
+        color: var(--bg-color);
+        transform: translateX(100%);
+        visibility: hidden;
+
+        &.panel-open {
+          transform: translateX(0%);
+          transition: 0.3s ease-out;
+          visibility: visible;
+        }
+
+        &.panel-close {
+          transform: translateX(100%);
+          visibility: visible;
+          transition: 0.3s ease-out;
+        }
       }
 
-      a[aria-current='page'] {
-        opacity: 0.5;
+      li {
+        line-height: 1.2;
+        transition: opacity 0.3s;
+
+        &:hover {
+          opacity: 0.5;
+        }
+
+        a[aria-current='page'] {
+          opacity: 0.5;
+        }
       }
     }
   }

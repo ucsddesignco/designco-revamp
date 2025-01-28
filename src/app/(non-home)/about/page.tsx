@@ -35,12 +35,11 @@ export default function About() {
             everyone.
           </p>
           <Button
-            noShadow={true}
             text="Join Our Commununity"
             link="community"
             bgColor="white"
-            color="black"
             borderColor="black"
+            color="black"
             style={{ fontSize: '14px' }}
           />
         </li>

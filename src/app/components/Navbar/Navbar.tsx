@@ -87,9 +87,7 @@ export default function Navbar({
           isOverlaying
             ? ({
                 '--color': color,
-                '--bg-color': bgColor,
-                position: 'absolute',
-                zIndex: 1
+                '--bg-color': bgColor
               } as React.CSSProperties)
             : ({
                 '--color': color,
@@ -97,42 +95,47 @@ export default function Navbar({
               } as React.CSSProperties)
         }
       >
-        <Link href="/" passHref legacyBehavior>
-          <a
-            className="logo_container"
-            style={{ color: color }}
-            tabIndex={isHamburgerOpen ? -1 : 0}
-            aria-hidden={isHamburgerOpen ? 'true' : 'false'}
-          >
-            <Logo />
-            <MobileLogo />
-          </a>
-        </Link>
-        <Hamburger
-          isHamburgerOpen={isHamburgerOpen}
-          toggleHamburger={toggleHamburger}
-          hamburgerInnerRef={hamburgerInnerRef}
-          bgColor={bgColor}
-          color={color}
-        />
-        <ul
-          className={isHamburgerOpen ? 'panel-open is-active' : 'panel-close'}
+        <div
+          id="nav-container"
+          style={isOverlaying ? { position: 'absolute', zIndex: 1 } : {}}
         >
-          {links.map(link => (
-            <li key={link.href}>
-              <Link href={link.href} passHref legacyBehavior>
-                <a
-                  aria-current={pathname == link.href ? 'page' : undefined}
-                  onClick={() => {
-                    isHamburgerOpen ? toggleHamburger() : null;
-                  }}
-                >
-                  {link.text}
-                </a>
-              </Link>
-            </li>
-          ))}
-        </ul>
+          <Link href="/" passHref legacyBehavior>
+            <a
+              className="logo_container"
+              style={{ color: color }}
+              tabIndex={isHamburgerOpen ? -1 : 0}
+              aria-hidden={isHamburgerOpen ? 'true' : 'false'}
+            >
+              <Logo />
+              <MobileLogo />
+            </a>
+          </Link>
+          <Hamburger
+            isHamburgerOpen={isHamburgerOpen}
+            toggleHamburger={toggleHamburger}
+            hamburgerInnerRef={hamburgerInnerRef}
+            bgColor={bgColor}
+            color={color}
+          />
+          <ul
+            className={isHamburgerOpen ? 'panel-open is-active' : 'panel-close'}
+          >
+            {links.map(link => (
+              <li key={link.href}>
+                <Link href={link.href} passHref legacyBehavior>
+                  <a
+                    aria-current={pathname == link.href ? 'page' : undefined}
+                    onClick={() => {
+                      isHamburgerOpen ? toggleHamburger() : null;
+                    }}
+                  >
+                    {link.text}
+                  </a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </nav>
     </FocusTrap>
   );

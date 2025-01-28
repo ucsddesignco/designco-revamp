@@ -1,50 +1,19 @@
-.community_page {
-  margin-inline: auto;
-  max-width: 2000px;
-  color: white;
+#community_page {
+  $large-text: 3rem;
   background-color: var(--community-bg-color);
+  overflow: hidden;
 
-  display: flex;
-  flex-direction: column;
-
-  @media screen and (min-width: 768px) {
-    padding-inline: clamp(24px, 5px + 5vw, 6rem);
-  }
-
-  .hero {
+  .community_container {
+    padding-top: 5.5rem;
+    margin-inline: auto;
+    max-width: 2000px;
+    color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-  }
+    padding-inline: $main-padding-mobile;
 
-  .hero-text {
-    text-align: center;
-  }
-
-  .creatives,
-  .affordance-finders,
-  .problem-solvers {
-    display: flex;
-  }
-
-  .creatives::after {
-    content: url(../community/community-images/Curly-Arrow.svg);
-    position: absolute;
-    bottom: -1.4rem;
-    left: 0.4rem;
-  }
-
-  .affordance-finders::after {
-    content: url(../community/community-images/Red-Line.svg);
-    position: absolute;
-    bottom: -1.4rem;
-    left: 0.4rem;
-  }
-
-  .problem-solvers::after {
-    content: url(../community/community-images/Green-Zigzag.svg);
-    position: absolute;
-    bottom: -1.4rem;
-    left: 0.4rem;
+    @media screen and (min-width: 768px) {
+      padding-inline: $main-padding-desktop;
+    }
   }
 }

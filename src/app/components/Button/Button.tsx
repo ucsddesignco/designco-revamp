@@ -7,9 +7,10 @@ type ButtonProps = {
   link: string;
   color?: string;
   bgColor?: string;
-  noShadow?: boolean;
+  hasShadow?: boolean;
   borderColor?: string;
   ariaLabel?: string;
+  newTab?: boolean;
   style?: CSSProperties;
 };
 
@@ -18,15 +19,17 @@ export default function Button({
   link,
   color = 'white',
   bgColor = 'black',
-  noShadow = false,
+  hasShadow = false,
   borderColor = bgColor,
   ariaLabel,
+  newTab,
   style
 }: ButtonProps) {
   return (
     <Link href={link} passHref legacyBehavior>
       <a
-        className={noShadow ? 'link-button--no-shadow' : 'link-button'}
+        className={hasShadow ? 'link-button' : 'link-button--no-shadow'}
+        target={newTab ? '_blank' : ''}
         aria-label={ariaLabel}
         style={
           {

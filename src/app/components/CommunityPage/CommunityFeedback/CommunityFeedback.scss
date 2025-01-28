@@ -1,0 +1,21 @@
+#community_page {
+  #community_feedback {
+    position: relative;
+    padding-block: 3rem;
+    #community-feedback-sticker {
+      img {
+        // style={{ top: '-5rem', left: '-5%' }}
+        top: -10rem;
+        right: -6%;
+        scale: 0.7;
+        rotate: 16deg;
+
+        @media (min-width: $mobile-breakpoint) {
+          top: -5rem;
+          left: -5%;
+          scale: 1;
+        }
+      }
+    }
+  }
+}

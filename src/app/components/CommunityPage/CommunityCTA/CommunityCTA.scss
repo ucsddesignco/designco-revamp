@@ -1,0 +1,33 @@
+#community_page {
+  .community_CTA {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-block: 3.5rem;
+    gap: 2rem;
+    max-width: 75ch;
+    text-align: center;
+    margin-inline: auto;
+
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    a {
+      width: 100%;
+    }
+
+    @media (min-width: $mobile-breakpoint) {
+      padding-block: 5rem;
+
+      h3 {
+        font-size: 3rem;
+      }
+
+      a {
+        width: fit-content;
+      }
+    }
+  }
+}

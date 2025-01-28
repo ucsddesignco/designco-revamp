@@ -1,0 +1,11 @@
+.draggable {
+  position: absolute;
+
+  &:hover {
+    cursor: grab;
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+}
