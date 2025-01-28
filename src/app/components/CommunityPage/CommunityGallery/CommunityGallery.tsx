@@ -14,34 +14,38 @@ export default function CommunityGallery({
   return (
     <section className="community_gallery">
       <h2>View Our Community</h2>
-      <div id="community-gallery-sticker">
-        <Sticker
-          onStart={handleStickerDrag}
-          style={{ left: '-3rem', top: '-2rem' }}
-        >
-          <Smiley color="orange" />
-        </Sticker>
+      {/* Top Stickers */}
+      <Sticker
+        className="community-gallery-sticker"
+        onStart={handleStickerDrag}
+        style={{ left: '-3rem', top: '-2rem' }}
+      >
+        <Smiley color="orange" />
+      </Sticker>
 
-        <Sticker
-          onStart={handleStickerDrag}
-          style={{ left: '6%', top: '-6.5rem' }}
-        >
-          <Smiley color="green" variation="1" />
-        </Sticker>
+      <Sticker
+        className="community-gallery-sticker"
+        onStart={handleStickerDrag}
+        style={{ left: '6%', top: '-6.5rem' }}
+      >
+        <Smiley color="green" variation="1" />
+      </Sticker>
 
-        <Sticker
-          onStart={handleStickerDrag}
-          style={{ top: '38%', left: '-6.5rem' }}
-        >
-          <DCOLogo color="green" />
-        </Sticker>
-        <Sticker
-          onStart={handleStickerDrag}
-          style={{ top: '40%', left: '3rem' }}
-        >
-          <DCOLogo color="orange" />
-        </Sticker>
-      </div>
+      {/* Middle Stickers */}
+      <Sticker
+        className="community-gallery-sticker"
+        onStart={handleStickerDrag}
+        style={{ top: '38%', left: '-6.5rem' }}
+      >
+        <DCOLogo color="green" />
+      </Sticker>
+      <Sticker
+        className="community-gallery-sticker"
+        onStart={handleStickerDrag}
+        style={{ top: '40%', left: '3rem' }}
+      >
+        <DCOLogo color="orange" />
+      </Sticker>
 
       <div className="community_gallery_container">
         <Image

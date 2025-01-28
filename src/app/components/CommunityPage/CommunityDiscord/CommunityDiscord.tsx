@@ -12,7 +12,7 @@ export default function CommunityDiscord({
   handleStickerDrag
 }: CommunityDiscordProps) {
   return (
-    <div style={{ position: 'relative' }}>
+    <section style={{ position: 'relative' }}>
       <CommunityCTA
         title="Join Our Discord"
         paragraph="Chat with other designers, get advice on classes to take, or find a
@@ -20,22 +20,20 @@ export default function CommunityDiscord({
         buttonText="Discord Invite"
         link="https://discord.gg/jpzznvhX3x"
       />
-      <div id="community-discord-sticker-mobile">
-        <Sticker
-          onStart={handleStickerDrag}
-          style={{ top: '-1rem', right: '-1rem' }}
-        >
-          <Smiley color="blue" style={{ scale: 0.5 }} />
-        </Sticker>
-      </div>
-      <div id="community-discord-sticker-desktop">
-        <Sticker
-          onStart={handleStickerDrag}
-          style={{ top: '21%', right: '-4%' }}
-        >
-          <DCOLogo color="blue" />
-        </Sticker>
-      </div>
-    </div>
+      <Sticker
+        className="community-discord-sticker-mobile"
+        onStart={handleStickerDrag}
+        style={{ top: '-1rem', right: '-1rem' }}
+      >
+        <Smiley color="blue" style={{ scale: 0.5 }} />
+      </Sticker>
+      <Sticker
+        className="community-discord-sticker-desktop"
+        onStart={handleStickerDrag}
+        style={{ top: '21%', right: '-4%' }}
+      >
+        <DCOLogo color="blue" />
+      </Sticker>
+    </section>
   );
 }

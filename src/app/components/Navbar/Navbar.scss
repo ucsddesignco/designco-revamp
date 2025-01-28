@@ -20,7 +20,7 @@ nav {
     max-width: 2000px; //Max width for larger screen sizes
 
     @media screen and (min-width: $mobile-breakpoint) {
-      --nav-padding-block: 2.6rem;
+      --nav-padding-block: 2.25rem;
       padding-inline: $nav-padding-desktop;
     }
 

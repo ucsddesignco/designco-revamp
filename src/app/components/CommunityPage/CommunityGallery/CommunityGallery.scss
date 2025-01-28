@@ -26,11 +26,16 @@
       gap: 1.5rem;
     }
 
-    #community-gallery-sticker {
+    .community-gallery-sticker {
       display: none;
 
       @media (min-width: $mobile-breakpoint) {
+        scale: 0.7;
         display: block;
+      }
+
+      @media (min-width: 1000px) {
+        scale: 1;
       }
     }
 

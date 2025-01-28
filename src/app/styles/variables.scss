@@ -11,7 +11,7 @@ $nav-padding-mobile: 24px;
 $nav-padding-desktop: 36px;
 
 $main-padding-mobile: clamp(1rem, 0.5rem + 6vw, 5rem);
-$main-padding-desktop: clamp(24px, 1rem + 8vw, 12rem);
+$main-padding-desktop: clamp(24px, 0.5rem + 8vw, 10rem);
 
 //Font Sizes
 $h1-size: clamp(2em, calc(24px + 1.5vw), 4rem);

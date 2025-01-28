@@ -22,7 +22,7 @@ type StickerProps = {
 export default function Sticker({
   onStart,
   children,
-  className,
+  className = '',
   style
 }: StickerProps) {
   const draggableRef = useRef<HTMLImageElement>(null);
@@ -43,7 +43,7 @@ export default function Sticker({
     <Draggable onStart={onStart} nodeRef={draggableRef}>
       <div
         ref={draggableRef}
-        className={`draggable ${className}`}
+        className={className ? `draggable ${className}` : 'draggable'}
         style={style}
       >
         {renderChildren()}
