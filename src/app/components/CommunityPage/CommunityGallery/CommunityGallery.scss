@@ -9,10 +9,9 @@
 
     h2 {
       margin-bottom: 2rem;
-    }
 
-    @media (min-width: $mobile-breakpoint) {
-      h2 {
+      @media (min-width: $mobile-breakpoint) {
+        margin-bottom: 5rem;
         font-size: 3rem;
       }
     }
