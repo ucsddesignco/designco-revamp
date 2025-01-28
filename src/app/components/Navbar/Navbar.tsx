@@ -81,7 +81,6 @@ export default function Navbar({
                 <Link passHref legacyBehavior href={link.href}>
                   <a
                     href={link.href}
-                    tabIndex={isHamburgerOpen ? 0 : -1}
                     onClick={() => {
                       if (isHamburgerOpen) {
                         toggleHamburger();
