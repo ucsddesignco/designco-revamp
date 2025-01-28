@@ -2,13 +2,13 @@
 
 import Button from '@/components/Button/Button';
 import './CommunityBlurb.scss';
+import Image from 'next/image';
+import Sticker from '@/components/Sticker/Sticker';
 import BlueSmileySVG from '../community-assets/blue-smiley.svg';
 import GreenSmileySVG from '../community-assets/green-smiley.svg';
 import OrangeSmileySVG from '../community-assets/orange-smiley.svg';
 import GreenPlantSVG from '../community-assets/green-plant.svg';
 import MoveMeSVG from '../community-assets/move-me-arrow.svg';
-import Image from 'next/image';
-import Sticker from '@/components/Sticker/Sticker';
 
 type CommunityBlurbProps = {
   hasDragged: boolean;

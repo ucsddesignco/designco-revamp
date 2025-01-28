@@ -1,9 +1,9 @@
-import CommunityCTA from '../CommunityCTA/CommunityCTA';
 import BlueSmileySVG from '@/components/CommunityPage/community-assets/blue-smiley.svg';
 import DCOStickerSVG from '@/components/CommunityPage/community-assets/dco-sticker.svg';
 import './CommunityDiscord.scss';
 import Image from 'next/image';
 import Sticker from '@/components/Sticker/Sticker';
+import CommunityCTA from '../CommunityCTA/CommunityCTA';
 
 type CommunityDiscordProps = {
   handleStickerDrag: () => void;

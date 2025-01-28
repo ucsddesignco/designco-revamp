@@ -1,8 +1,8 @@
-import CommunityCTA from '../CommunityCTA/CommunityCTA';
 import RedPlantSVG from '@/components/CommunityPage/community-assets/red-plant.svg';
 import './CommunityFeedback.scss';
 import Image from 'next/image';
 import Sticker from '@/components/Sticker/Sticker';
+import CommunityCTA from '../CommunityCTA/CommunityCTA';
 
 type CommunityFeedbackProps = {
   handleStickerDrag: () => void;

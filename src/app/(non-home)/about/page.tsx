@@ -1,8 +1,9 @@
-import ImageCarousel from '@/components/ImageCarousel/ImageCarousel';
+import MeetTheBoardAccordion from '@/components/MeetTheBoardAccordion/MeetTheBoardAccordion';
 import './About.scss';
 import Button from '@/components/Button/Button';
-import MeetTheBoardAccordion from '@/components/MeetTheBoardAccordion/MeetTheBoardAccordion';
 import Image from 'next/image';
+import ImageCarousel from '@/components/ImageCarousel/ImageCarousel';
+import { ABOUT_IMAGES_LIST } from './constants';
 
 export default function About() {
   return (
@@ -11,7 +12,7 @@ export default function About() {
         {`We started in a tiny classroom in 2012. Now we're a growing community of
         over 300 designers.`}
       </h1>
-      <ImageCarousel />
+      <ImageCarousel imageList={ABOUT_IMAGES_LIST} />
       <ul className="faq_container">
         <li>
           <h2>What is Design Co?</h2>
@@ -47,13 +48,13 @@ export default function About() {
           <h2>So what do you have for me?</h2>
           <p>
             {` By combining workshops, events, and other career growth
-            opportunities, we’re tackling the challenges of breaking into
+            opportunities, we're tackling the challenges of breaking into
             industry head-on and building a strong design community while we're
             at it. And yes, it includes you too.`}
           </p>
         </li>
         <li>
-          <h2>{`I’m sold — how do I join?`}</h2>
+          <h2>{`I'm sold — how do I join?`}</h2>
           <p>
             Anyone can be a member of our community. We host events weekly, on
             Wednesdays at 6:30pm at the Design & Innovation Building Room 208.
@@ -98,7 +99,6 @@ export default function About() {
               height={320}
               width={816}
               quality={100}
-              // fill
               style={{ width: '100%', objectFit: 'contain', height: 'auto' }}
               alt="Design Co Walkman"
             />

@@ -25,7 +25,7 @@ export default function Footer() {
   }
 
   return (
-    <footer style={{ color: color, backgroundColor: bgColor }}>
+    <footer style={{ color, backgroundColor: bgColor }}>
       <h3>Design Co © 2025</h3>
       <ul>
         {links.map(link => (

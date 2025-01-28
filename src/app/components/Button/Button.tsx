@@ -28,6 +28,7 @@ export default function Button({
   return (
     <Link href={link} passHref legacyBehavior>
       <a
+        href={link}
         className={hasShadow ? 'link-button' : 'link-button--no-shadow'}
         target={newTab ? '_blank' : ''}
         aria-label={ariaLabel}

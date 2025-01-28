@@ -34,6 +34,7 @@
     }
 
     p {
+      font-size: clamp(1rem, calc(16px + 0.3vw), 24px);
       max-width: 65ch;
     }
   }

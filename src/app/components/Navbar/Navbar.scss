@@ -2,6 +2,7 @@ $mobile-breakpoint: 768px;
 
 nav {
   background-color: var(--bg-color);
+  width: 100%;
 
   #nav-container {
     --nav-padding-block: 1.6rem;
@@ -116,7 +117,7 @@ nav {
         gap: 2.5rem;
         z-index: 2;
         background-color: var(--color);
-        color: var(--bg-color);
+        color: var(--mobile-bg-color, --bg-color);
         transform: translateX(100%);
         visibility: hidden;
 
@@ -134,7 +135,6 @@ nav {
       }
 
       li {
-        line-height: 1.2;
         transition: opacity 0.3s;
 
         &:hover {

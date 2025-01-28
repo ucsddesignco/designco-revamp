@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import './CommunityGallery.scss';
+import Sticker from '@/components/Sticker/Sticker';
 import OrangeSmileySVG from '../community-assets/orange-smiley.svg';
 import GreenSmileySVG from '../community-assets/green-smiley.svg';
 import DCOStickerSVG from '../community-assets/dco-sticker.svg';
-import Sticker from '@/components/Sticker/Sticker';
 
 type CommunityGalleryProps = {
   handleStickerDrag: () => void;

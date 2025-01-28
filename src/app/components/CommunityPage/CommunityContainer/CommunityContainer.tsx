@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import CommunityHero from '../CommunityHero/CommunityHero';
 import CommunityBlurb from '../CommunityBlurb/CommunityBlurb';
