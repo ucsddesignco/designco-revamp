@@ -10,6 +10,7 @@ import CommunityDiscord from '../CommunityDiscord/CommunityDiscord';
 export default function CommunityContainer() {
   const [hasDragged, setHasDragged] = useState(false);
 
+  // Used to
   const handleStickerDrag = () => {
     if (!hasDragged) {
       setHasDragged(true);
@@ -22,9 +23,7 @@ export default function CommunityContainer() {
         hasDragged={hasDragged}
         handleStickerDrag={handleStickerDrag}
       />
-
       <CommunityDiscord handleStickerDrag={handleStickerDrag} />
-
       <CommunityGallery handleStickerDrag={handleStickerDrag} />
       <CommunityFeedback handleStickerDrag={handleStickerDrag} />
     </div>
