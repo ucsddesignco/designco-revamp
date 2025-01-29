@@ -1,15 +1,18 @@
-.link-button {
+.link-button,
+.link-button--no-shadow {
   text-decoration: none;
   width: fit-content;
   font-family: $mono-font;
   text-transform: uppercase;
-  padding: 1.2em 1.9em;
+  padding: 1.2em 1.8em;
   font-size: 12px;
   position: relative;
   cursor: pointer;
   color: var(--color);
   background-color: var(--background-color);
+}
 
+.link-button {
   &:is(:hover, :focus) {
     &::before {
       opacity: 0.2;
@@ -32,26 +35,15 @@
 }
 
 .link-button--no-shadow {
-  text-decoration: none;
-  display: inline;
-  width: fit-content;
-  font-family: $mono-font;
-  text-transform: uppercase;
-  padding: 1.2em 1.8em;
-  font-size: 12px;
-  position: relative;
-  cursor: pointer;
   z-index: 0;
   border: 1px solid var(--color);
-  color: var(--color);
-  background-color: var(--background-color);
+  border-color: var(--border-color);
   transition:
     background-color 0.3s,
     color 0.3s;
 
   &:is(:hover, :focus-visible) {
     outline: none;
-    border: 1px solid var(--color);
     color: var(--background-color);
     background-color: var(--color);
   }

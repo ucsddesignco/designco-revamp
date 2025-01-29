@@ -1,0 +1,20 @@
+#community_page {
+  .community-discord-sticker-mobile {
+    @media (min-width: $mobile-breakpoint) {
+      display: none;
+    }
+  }
+
+  .community-discord-sticker-desktop {
+    display: none;
+
+    @media (min-width: $mobile-breakpoint) {
+      scale: 0.8;
+      display: block;
+    }
+
+    @media (min-width: 1000px) {
+      scale: 1;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+.gallery-image {
+  transition: scale 0.2s;
+  &:hover {
+    cursor: pointer;
+    scale: 0.99;
+  }
+}

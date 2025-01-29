@@ -1,0 +1,95 @@
+#community_page {
+  #community-hero {
+    .hero-text {
+      // font-size: 1.8rem;
+      font-size: clamp(1.5em, calc(1.5rem + 0.8vw), 3rem);
+      text-align: center;
+      max-width: 32ch;
+      margin-inline: auto;
+
+      @media (min-width: $mobile-breakpoint) {
+        font-size: $h1-size;
+      }
+    }
+
+    .community-hero-text {
+      position: relative;
+      display: inline-block;
+      width: fit-content;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 100%;
+        background-repeat: no-repeat;
+      }
+    }
+
+    .community-mobile-text {
+      @media (min-width: $mobile-breakpoint) {
+        display: none;
+      }
+    }
+
+    .community-desktop-text {
+      display: none;
+
+      @media (min-width: $mobile-breakpoint) {
+        display: inline-block;
+      }
+    }
+
+    #affordance-text-mobile,
+    #finders-text-mobile {
+      &::after {
+        background-image: url(../community-assets/red-line.svg);
+        bottom: 0;
+        height: 2px;
+      }
+    }
+
+    #problem-text-mobile,
+    #solvers-text-mobile {
+      &::after {
+        background-image: url(../community-assets/green-zigzag-mobile.svg);
+        bottom: -2px;
+        width: 100%;
+        height: 5px;
+      }
+    }
+
+    // Connect the 2 SVGs if they are on the same line
+    #problem-text-mobile::after {
+      background-position-x: 4.5px;
+    }
+    #solvers-text-mobile::after {
+      background-position-x: -1.2px;
+    }
+
+    #creatives-text::after {
+      background-image: url(../community-assets/blue-squiggly-mobile.svg);
+      bottom: -3px;
+      height: 6px;
+
+      @media (min-width: $mobile-breakpoint) {
+        background-image: url(../community-assets/blue-squiggly.svg);
+        bottom: -12px;
+        height: 13px;
+      }
+    }
+
+    #affordance-text-desktop::after {
+      background-image: url(../community-assets/red-line.svg);
+      bottom: -5px;
+      height: 4px;
+    }
+
+    #problem-text-desktop::after {
+      background-image: url(../community-assets/green-zigzag.svg);
+      bottom: -10px;
+      height: 13px;
+      width: 100%;
+    }
+  }
+}

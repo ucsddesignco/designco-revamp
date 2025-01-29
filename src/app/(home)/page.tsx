@@ -55,6 +55,7 @@ export default async function Home() {
               ariaLabel="Learn more about Design Co's history, board and more!"
               bgColor={baseColor}
               color={bgColor}
+              hasShadow
             />
           </div>
         </section>

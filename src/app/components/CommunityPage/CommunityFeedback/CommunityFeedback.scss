@@ -1,0 +1,20 @@
+#community_page {
+  #community_feedback {
+    position: relative;
+    padding-block: 3rem;
+
+    .community-feedback-sticker-desktop {
+      display: none;
+      @media (min-width: $mobile-breakpoint) {
+        display: block;
+      }
+    }
+
+    .community-feedback-sticker-mobile {
+      display: block;
+      @media (min-width: $mobile-breakpoint) {
+        display: none;
+      }
+    }
+  }
+}
