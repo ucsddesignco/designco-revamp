@@ -1,5 +1,6 @@
 .draggable {
   position: absolute;
+  z-index: 1;
 
   &:hover {
     cursor: grab;
