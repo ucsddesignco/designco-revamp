@@ -1,8 +1,8 @@
-import React from 'react';
 import Image from 'next/image';
 import './GalleryImage.scss';
+import { ComponentProps } from 'react';
 
-type GalleryImageProps = React.ComponentProps<typeof Image>;
+type GalleryImageProps = ComponentProps<typeof Image>;
 
 export default function GalleryImage({
   src,
