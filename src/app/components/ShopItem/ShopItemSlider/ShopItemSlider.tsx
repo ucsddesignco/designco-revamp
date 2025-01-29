@@ -9,6 +9,7 @@ import './ShopItemSlider.scss';
 import type { MyImage } from '../ShopItem';
 import SliderArrow from './SliderArrow/SliderArrow';
 import { useState, MutableRefObject } from 'react';
+import Image from 'next/image';
 
 type SliderImages = { SliderImages: Array<MyImage> };
 
@@ -73,16 +74,25 @@ export default function ShopItemSlider(_SliderImages: SliderImages) {
     [ThumbnailPlugin(instanceRef)]
   );
 
+  console.log(_SliderImages.SliderImages);
+
   return (
     <div className="shop-item-slider-root">
       <div className="nav-wrapper">
         <div ref={sliderRef} className="keen-slider">
-          <div className="keen-slider__slide number-slide1">1</div>
-          <div className="keen-slider__slide number-slide2">2</div>
-          <div className="keen-slider__slide number-slide3">3</div>
-          <div className="keen-slider__slide number-slide4">4</div>
-          <div className="keen-slider__slide number-slide5">5</div>
-          <div className="keen-slider__slide number-slide6">6</div>
+          {_SliderImages.SliderImages.map((image, _index) => (
+            <div
+              key={_index}
+              className={`keen-slider__slide number-slide${_index}`}
+            >
+              <Image
+                src={image.image}
+                alt={image.alt}
+                height={275}
+                width={275}
+              />
+            </div>
+          ))}
         </div>
 
         <SliderArrow
@@ -103,12 +113,19 @@ export default function ShopItemSlider(_SliderImages: SliderImages) {
       </div>
       <div className="thumbnail-container">
         <div ref={thumbnailRef} className="keen-slider thumbnail">
-          <div className="keen-slider__slide number-slide1">1</div>
-          <div className="keen-slider__slide number-slide2">2</div>
-          <div className="keen-slider__slide number-slide3">3</div>
-          <div className="keen-slider__slide number-slide4">4</div>
-          <div className="keen-slider__slide number-slide5">5</div>
-          <div className="keen-slider__slide number-slide6">6</div>
+          {_SliderImages.SliderImages.map((image, _index) => (
+            <div
+              key={_index}
+              className={`keen-slider__slide number-slide${_index}`}
+            >
+              <Image
+                src={image.image}
+                alt={image.alt}
+                height={275}
+                width={275}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>

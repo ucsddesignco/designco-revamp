@@ -2,8 +2,34 @@
   margin-inline: auto;
   max-width: 2000px;
 
+  background-color: $black;
+
+  h1 {
+    font-size: $h2-size;
+    color: $white;
+    margin-block: $main-padding-mobile;
+  }
+
   .main-content {
     padding-inline: clamp(24px, 5px + 5vw, 6rem);
     padding-top: 500px;
+    width: 100%;
+
+    display: grid;
+    place-items: center;
+
+    .shop-gallery-title {
+      padding-block: 24px;
+    }
+
+    .shop-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 1200px;
+
+      padding-bottom: 144px;
+    }
   }
 }

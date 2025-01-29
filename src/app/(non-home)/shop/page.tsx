@@ -8,17 +8,21 @@ export default function Contact() {
     <main className="shop_page">
       <ShopSlideshow />
       <section className="main-content">
-        <h1>Shop</h1>
-        {ShopItems.map(item => (
-          <ShopItem
-            key={item.name}
-            name={item.name}
-            price={item.price}
-            description={item.description}
-            sizesAvailable={item.sizesAvailable}
-            images={item.images}
-          />
-        ))}
+        <h1 className="shop-gallery-title">
+          Playtime Club for Designers Collection
+        </h1>
+        <div className="shop-gallery">
+          {ShopItems.map(item => (
+            <ShopItem
+              key={item.name}
+              name={item.name}
+              price={item.price}
+              description={item.description}
+              sizesAvailable={item.sizesAvailable}
+              images={item.images}
+            />
+          ))}
+        </div>
       </section>
     </main>
   );
