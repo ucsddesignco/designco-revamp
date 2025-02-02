@@ -6,6 +6,7 @@ import { EventsList } from '@/(non-home)/events/EventsList';
 import EventCard from '@/components/EventCard/EventCard';
 
 import { Accordion } from '@base-ui-components/react';
+import './EventAccordion.scss';
 
 function PlusIcon(props: React.ComponentProps<'svg'>) {
   return (
@@ -48,9 +49,17 @@ export default function EventAccordion() {
             </Accordion.Trigger>
           </Accordion.Header>
           <Accordion.Panel className="Panel">
-            <div className="Content">
-              Base UI is a library of high-quality unstyled React components for
-              design systems and web apps.
+            <div className="events-container">
+              {EventsList.map(item => (
+                <EventCard
+                  key={item.title}
+                  event_title={item.title}
+                  imgLink={item.imageURL}
+                  event_link={item.link}
+                  date={formatDate(item.date)}
+                  location={item.location}
+                />
+              ))}
             </div>
           </Accordion.Panel>
         </Accordion.Item>
@@ -73,7 +82,20 @@ export default function EventAccordion() {
         <Accordion.Item className="Item">
           <Accordion.Header className="Header">
             <Accordion.Trigger className="Trigger">
-              Can I use it for my project?
+              2022-2023
+              <PlusIcon className="TriggerIcon" />
+            </Accordion.Trigger>
+          </Accordion.Header>
+          <Accordion.Panel className="Panel">
+            <div className="Content">
+              Of course! Base UI is free and open source.
+            </div>
+          </Accordion.Panel>
+        </Accordion.Item>
+        <Accordion.Item className="Item">
+          <Accordion.Header className="Header">
+            <Accordion.Trigger className="Trigger">
+              Archive
               <PlusIcon className="TriggerIcon" />
             </Accordion.Trigger>
           </Accordion.Header>
@@ -84,23 +106,6 @@ export default function EventAccordion() {
           </Accordion.Panel>
         </Accordion.Item>
       </Accordion.Root>
-      <h3 className="year">2024-2025</h3>
-      <div className="events-container">
-        <h4>Events coming soon!</h4>
-      </div>
-      <h3 className="year">2023-2024</h3>
-      <div className="events-container">
-        {EventsList.map(item => (
-          <EventCard
-            key={item.title}
-            event_title={item.title}
-            imgLink={item.imageURL}
-            event_link={item.link}
-            date={formatDate(item.date)}
-            location={item.location}
-          />
-        ))}
-      </div>
     </div>
   );
 }
