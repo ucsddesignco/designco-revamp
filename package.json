@@ -12,7 +12,9 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@base-ui-components/react": "1.0.0-alpha.5",
     "@radix-ui/react-accordion": "^1.1.2",
+    "baseui": "0.0.0-next-2113e1821",
     "eslint-config-airbnb": "^19.0.4",
     "focus-trap-react": "^10.2.3",
     "keen-slider": "^6.8.6",

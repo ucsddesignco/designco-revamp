@@ -1,4 +1,17 @@
-export const EventsList = [
+type EventItem = {
+  title: string;
+  link: string;
+  image: string;
+  date: number;
+  time: number;
+  location: string;
+  slidelink?: string;
+  videolink?: string;
+  description?: string;
+  imageURL: string;
+};
+
+export const EventsList: EventItem[] = [
   {
     title: 'Fall Kickoff - Intro to Design',
     link: 'https://www.instagram.com/p/CF3HxwKnQWH/?igshid=YmMyMTA2M2Y=',
