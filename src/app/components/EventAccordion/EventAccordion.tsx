@@ -39,119 +39,117 @@ export default function EventAccordion() {
   });
 
   return (
-    <div>
-      <Accordion.Root className="Accordion" hiddenUntilFound>
-        <Accordion.Item className="Item">
-          <Accordion.Header className="Header">
-            <Accordion.Trigger className="Trigger">
-              2024-2025
-              <PlusIcon className="TriggerIcon" />
-            </Accordion.Trigger>
-          </Accordion.Header>
-          <Accordion.Panel className="Panel">
-            <div className="events-container">
-              {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
-                if (item.date >= 20241002) {
-                  acc.push(
-                    <EventCard
-                      key={item.title}
-                      event_title={item.title}
-                      imgLink={item.imageURL}
-                      event_link={item.link}
-                      date={formatDate(item.date)}
-                      location={item.location}
-                    />
-                  );
-                }
-                return acc;
-              }, [])}
-            </div>
-          </Accordion.Panel>
-        </Accordion.Item>
+    <Accordion.Root className="Accordion" hiddenUntilFound>
+      <Accordion.Item className="Item">
+        <Accordion.Header className="Header">
+          <Accordion.Trigger className="Trigger">
+            2024-2025
+            <PlusIcon className="TriggerIcon" />
+          </Accordion.Trigger>
+        </Accordion.Header>
+        <Accordion.Panel className="Panel">
+          <div className="events-container">
+            {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
+              if (item.date >= 20241002) {
+                acc.push(
+                  <EventCard
+                    key={item.title}
+                    event_title={item.title}
+                    imgLink={item.imageURL}
+                    event_link={item.link}
+                    date={formatDate(item.date)}
+                    location={item.location}
+                  />
+                );
+              }
+              return acc;
+            }, [])}
+          </div>
+        </Accordion.Panel>
+      </Accordion.Item>
 
-        <Accordion.Item className="Item">
-          <Accordion.Header className="Header">
-            <Accordion.Trigger className="Trigger">
-              2023-2024
-              <PlusIcon className="TriggerIcon" />
-            </Accordion.Trigger>
-          </Accordion.Header>
-          <Accordion.Panel className="Panel">
-            <div className="events-container">
-              {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
-                if (item.date >= 20231004 && item.date <= 20240605) {
-                  acc.push(
-                    <EventCard
-                      key={item.title}
-                      event_title={item.title}
-                      imgLink={item.imageURL}
-                      event_link={item.link}
-                      date={formatDate(item.date)}
-                      location={item.location}
-                    />
-                  );
-                }
-                return acc;
-              }, [])}
-            </div>
-          </Accordion.Panel>
-        </Accordion.Item>
+      <Accordion.Item className="Item">
+        <Accordion.Header className="Header">
+          <Accordion.Trigger className="Trigger">
+            2023-2024
+            <PlusIcon className="TriggerIcon" />
+          </Accordion.Trigger>
+        </Accordion.Header>
+        <Accordion.Panel className="Panel">
+          <div className="events-container">
+            {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
+              if (item.date >= 20231004 && item.date <= 20240605) {
+                acc.push(
+                  <EventCard
+                    key={item.title}
+                    event_title={item.title}
+                    imgLink={item.imageURL}
+                    event_link={item.link}
+                    date={formatDate(item.date)}
+                    location={item.location}
+                  />
+                );
+              }
+              return acc;
+            }, [])}
+          </div>
+        </Accordion.Panel>
+      </Accordion.Item>
 
-        <Accordion.Item className="Item">
-          <Accordion.Header className="Header">
-            <Accordion.Trigger className="Trigger">
-              2022-2023
-              <PlusIcon className="TriggerIcon" />
-            </Accordion.Trigger>
-          </Accordion.Header>
-          <Accordion.Panel className="Panel">
-            <div className="events-container">
-              {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
-                if (item.date >= 20220928 && item.date <= 20230609) {
-                  acc.push(
-                    <EventCard
-                      key={item.title}
-                      event_title={item.title}
-                      imgLink={item.imageURL}
-                      event_link={item.link}
-                      date={formatDate(item.date)}
-                      location={item.location}
-                    />
-                  );
-                }
-                return acc;
-              }, [])}
-            </div>
-          </Accordion.Panel>
-        </Accordion.Item>
-        <Accordion.Item className="Item">
-          <Accordion.Header className="Header">
-            <Accordion.Trigger className="Trigger">
-              Archive
-              <PlusIcon className="TriggerIcon" />
-            </Accordion.Trigger>
-          </Accordion.Header>
-          <Accordion.Panel className="Panel">
-            <div className="events-container">
-              {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
-                if (item.date <= 20220804) {
-                  acc.push(
-                    <EventCard
-                      key={item.title}
-                      event_title={item.title}
-                      imgLink={item.imageURL}
-                      event_link={item.link}
-                      date={formatDate(item.date)}
-                      location={item.location}
-                    />
-                  );
-                }
-                return acc;
-              }, [])}
-            </div>
-          </Accordion.Panel>
-        </Accordion.Item>
-      </Accordion.Root>
-    </div>
+      <Accordion.Item className="Item">
+        <Accordion.Header className="Header">
+          <Accordion.Trigger className="Trigger">
+            2022-2023
+            <PlusIcon className="TriggerIcon" />
+          </Accordion.Trigger>
+        </Accordion.Header>
+        <Accordion.Panel className="Panel">
+          <div className="events-container">
+            {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
+              if (item.date >= 20220928 && item.date <= 20230609) {
+                acc.push(
+                  <EventCard
+                    key={item.title}
+                    event_title={item.title}
+                    imgLink={item.imageURL}
+                    event_link={item.link}
+                    date={formatDate(item.date)}
+                    location={item.location}
+                  />
+                );
+              }
+              return acc;
+            }, [])}
+          </div>
+        </Accordion.Panel>
+      </Accordion.Item>
+      <Accordion.Item className="Item">
+        <Accordion.Header className="Header">
+          <Accordion.Trigger className="Trigger">
+            Archive
+            <PlusIcon className="TriggerIcon" />
+          </Accordion.Trigger>
+        </Accordion.Header>
+        <Accordion.Panel className="Panel">
+          <div className="events-container">
+            {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
+              if (item.date <= 20220804) {
+                acc.push(
+                  <EventCard
+                    key={item.title}
+                    event_title={item.title}
+                    imgLink={item.imageURL}
+                    event_link={item.link}
+                    date={formatDate(item.date)}
+                    location={item.location}
+                  />
+                );
+              }
+              return acc;
+            }, [])}
+          </div>
+        </Accordion.Panel>
+      </Accordion.Item>
+    </Accordion.Root>
   );
 }

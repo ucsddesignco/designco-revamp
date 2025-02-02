@@ -1,7 +1,6 @@
 import './Events.scss';
 
 import PastEventSection from './PastEventSection';
-// import UpcomingEvent from './UpcomingEvent';
 
 export default function Events() {
   return (
@@ -10,7 +9,6 @@ export default function Events() {
         Build your design skills and connect with fellow designers at our
         workshops, socials, and large-scale events.
       </h1>
-      {/* <UpcomingEvent /> */}
       <PastEventSection />
     </main>
   );

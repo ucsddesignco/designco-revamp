@@ -14,14 +14,26 @@
 
   .button-container {
     display: flex;
-    gap: 1rem;
-    margin-block: 1rem;
+    flex-direction: column;
+    margin-block: 2rem;
 
-    .button {
+    button {
       --text-color: black;
       --background-color: white;
       color: var(--text-color);
+      background-color: var(--background-color);
+      border: 1.5px solid var(--text-color);
+      border-radius: 40px;
       padding: 0.4rem 1rem 0.5rem;
+      font-size: 1.1rem;
+      font-family: $heading-font;
+      font-weight: 700;
+      cursor: pointer;
+
+      &.active {
+        --text-color: white;
+        --background-color: black;
+      }
     }
   }
 }
@@ -32,70 +44,55 @@
     max-width: 2000px;
     margin-block: 1rem;
 
-    @media screen and (max-width: 767px) {
-      .events-container {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 1rem;
-      }
+    h1 {
+      padding-block: 5rem;
+    }
 
-      .button-container {
-        display: flex;
-        gap: 1rem;
+    padding-inline: clamp(24px, 5px + 5vw, 6rem);
+    margin-block: 1rem;
+
+    .upcoming-event {
+      color: white;
+      background-color: #191919;
+      padding: 2rem 0;
+
+      h2 {
+        margin-left: 1rem;
       }
     }
 
-    @media screen and (min-width: 768px) {
-      padding-inline: clamp(24px, 5px + 5vw, 6rem);
-      margin-block: 1rem;
+    .button-container {
+      display: flex;
+      gap: 1rem;
+      padding: 2rem 0;
 
-      h1 {
-        margin-block: 2rem;
-      }
+      button {
+        --text-color: black;
+        --background-color: white;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        border: 1.5px solid var(--text-color);
+        border-radius: 40px;
+        padding: 0.4rem 1rem 0.5rem;
+        font-size: 1.1rem;
+        font-family: $heading-font;
+        font-weight: 700;
+        cursor: pointer;
 
-      .upcoming-event {
-        color: white;
-        background-color: #191919;
-        padding: 2rem 0;
-
-        h2 {
-          margin-left: 1rem;
+        &.active {
+          --text-color: white;
+          --background-color: black;
         }
       }
+    }
 
-      .button-container {
-        display: flex;
-        gap: 1rem;
-        padding: 1rem 0;
-
-        button {
-          --text-color: black;
-          --background-color: white;
-          color: var(--text-color);
-          background-color: var(--background-color);
-          border: 1.5px solid var(--text-color);
-          border-radius: 40px;
-          padding: 0.4rem 1rem 0.5rem;
-          font-size: 1.1rem;
-          font-family: $heading-font;
-          font-weight: 700;
-          cursor: pointer;
-
-          &.active {
-            --text-color: white;
-            --background-color: black;
-          }
-        }
-      }
-
-      .events-container {
-        margin: 1rem 0;
-        margin-bottom: 1rem;
-        display: grid;
-        gap: 1px;
-        grid-template-columns: repeat(3, 1fr);
-        row-gap: 2rem;
-      }
+    .events-container {
+      margin: 1rem 0;
+      margin-bottom: 1rem;
+      display: grid;
+      gap: 1px;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 2rem;
     }
   }
 }
