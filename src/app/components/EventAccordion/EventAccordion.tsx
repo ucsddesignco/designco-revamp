@@ -50,16 +50,21 @@ export default function EventAccordion() {
           </Accordion.Header>
           <Accordion.Panel className="Panel">
             <div className="events-container">
-              {EventsList.map(item => (
-                <EventCard
-                  key={item.title}
-                  event_title={item.title}
-                  imgLink={item.imageURL}
-                  event_link={item.link}
-                  date={formatDate(item.date)}
-                  location={item.location}
-                />
-              ))}
+              {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
+                if (item.date >= 20241002) {
+                  acc.push(
+                    <EventCard
+                      key={item.title}
+                      event_title={item.title}
+                      imgLink={item.imageURL}
+                      event_link={item.link}
+                      date={formatDate(item.date)}
+                      location={item.location}
+                    />
+                  );
+                }
+                return acc;
+              }, [])}
             </div>
           </Accordion.Panel>
         </Accordion.Item>
@@ -72,9 +77,22 @@ export default function EventAccordion() {
             </Accordion.Trigger>
           </Accordion.Header>
           <Accordion.Panel className="Panel">
-            <div className="Content">
-              Head to the “Quick start” guide in the docs. If you’ve used
-              unstyled libraries before, you’ll feel at home.
+            <div className="events-container">
+              {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
+                if (item.date >= 20231004 && item.date <= 20240605) {
+                  acc.push(
+                    <EventCard
+                      key={item.title}
+                      event_title={item.title}
+                      imgLink={item.imageURL}
+                      event_link={item.link}
+                      date={formatDate(item.date)}
+                      location={item.location}
+                    />
+                  );
+                }
+                return acc;
+              }, [])}
             </div>
           </Accordion.Panel>
         </Accordion.Item>
@@ -87,8 +105,22 @@ export default function EventAccordion() {
             </Accordion.Trigger>
           </Accordion.Header>
           <Accordion.Panel className="Panel">
-            <div className="Content">
-              Of course! Base UI is free and open source.
+            <div className="events-container">
+              {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
+                if (item.date >= 20220928 && item.date <= 20230609) {
+                  acc.push(
+                    <EventCard
+                      key={item.title}
+                      event_title={item.title}
+                      imgLink={item.imageURL}
+                      event_link={item.link}
+                      date={formatDate(item.date)}
+                      location={item.location}
+                    />
+                  );
+                }
+                return acc;
+              }, [])}
             </div>
           </Accordion.Panel>
         </Accordion.Item>
@@ -100,8 +132,22 @@ export default function EventAccordion() {
             </Accordion.Trigger>
           </Accordion.Header>
           <Accordion.Panel className="Panel">
-            <div className="Content">
-              Of course! Base UI is free and open source.
+            <div className="events-container">
+              {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
+                if (item.date <= 20220804) {
+                  acc.push(
+                    <EventCard
+                      key={item.title}
+                      event_title={item.title}
+                      imgLink={item.imageURL}
+                      event_link={item.link}
+                      date={formatDate(item.date)}
+                      location={item.location}
+                    />
+                  );
+                }
+                return acc;
+              }, [])}
             </div>
           </Accordion.Panel>
         </Accordion.Item>

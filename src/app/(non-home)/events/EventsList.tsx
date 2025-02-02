@@ -1,4 +1,4 @@
-type EventItem = {
+export type EventItem = {
   title: string;
   link: string;
   image: string;
