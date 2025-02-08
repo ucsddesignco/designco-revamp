@@ -1,11 +1,20 @@
 @media screen and (max-width: 767px) {
   .events_page {
+    margin-inline: auto;
+    max-width: 2000px;
+    margin-block: 1rem;
+
     h1 {
       margin-block: 2.5rem;
     }
 
     .events-container {
-      margin-block: 1rem;
+      margin: 1rem 0;
+      margin-bottom: 1rem;
+      display: grid;
+      gap: 2.5rem;
+      grid-template-columns: repeat(1, 1fr);
+      row-gap: 1rem;
     }
 
     margin-inline: 1.5rem;
@@ -90,9 +99,9 @@
       margin: 1rem 0;
       margin-bottom: 1rem;
       display: grid;
-      gap: 1px;
+      gap: 2.5rem;
       grid-template-columns: repeat(3, 1fr);
-      row-gap: 2rem;
+      row-gap: 1rem;
     }
   }
 }
