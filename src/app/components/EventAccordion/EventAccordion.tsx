@@ -39,7 +39,12 @@ export default function EventAccordion() {
   });
 
   return (
-    <Accordion.Root className="Accordion" hiddenUntilFound>
+    <Accordion.Root
+      className="Accordion active"
+      hiddenUntilFound
+      openMultiple
+      defaultValue={[0]}
+    >
       <Accordion.Item className="Item">
         <Accordion.Header className="Header">
           <Accordion.Trigger className="Trigger">
