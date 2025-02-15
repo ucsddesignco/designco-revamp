@@ -1,22 +1,57 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 import * as React from 'react';
+import { Accordion } from 'radix-ui';
+import classNames from 'classnames';
+import { ChevronDownIcon } from '@radix-ui/react-icons';
 
 import { EventsList } from '@/(non-home)/events/EventsList';
 import EventCard from '@/components/EventCard/EventCard';
 
-import { Accordion } from '@base-ui-components/react';
 import './EventAccordion.scss';
 
-function PlusIcon(props: React.ComponentProps<'svg'>) {
-  return (
-    <svg viewBox="0 0 12 12" fill="currentcolor" {...props}>
-      <path d="M6.75 0H5.25V5.25H0V6.75L5.25 6.75V12H6.75V6.75L12 6.75V5.25H6.75V0Z" />
-    </svg>
-  );
-}
+type AccordionTriggerProps = {
+  children: React.ReactNode;
+  className?: string;
+};
 
-/* date <= 20220804 */
+type AccordionContentProps = {
+  children: React.ReactNode;
+  className?: string;
+};
+
+const AccordionTrigger = React.forwardRef<
+  HTMLButtonElement,
+  AccordionTriggerProps
+>(({ children, className, ...props }, forwardedRef) => (
+  <Accordion.Header className="AccordionHeader">
+    <Accordion.Trigger
+      className={classNames('AccordionTrigger', className)}
+      {...props}
+      ref={forwardedRef}
+    >
+      {children}
+      <ChevronDownIcon className="AccordionChevron" aria-hidden />
+    </Accordion.Trigger>
+  </Accordion.Header>
+));
+
+AccordionTrigger.displayName = 'AccordionTrigger';
+
+const AccordionContent = React.forwardRef<
+  HTMLDivElement,
+  AccordionContentProps
+>(({ children, className, ...props }, forwardedRef) => (
+  <Accordion.Content
+    className={classNames('AccordionContent', className)}
+    {...props}
+    ref={forwardedRef}
+  >
+    <div className="AccordionContentText">{children}</div>
+  </Accordion.Content>
+));
+
+AccordionContent.displayName = 'AccordionContent';
 
 export default function EventAccordion() {
   function formatDate(dateInt: number) {
@@ -40,19 +75,13 @@ export default function EventAccordion() {
 
   return (
     <Accordion.Root
-      className="Accordion active"
-      hiddenUntilFound
-      openMultiple
-      defaultValue={[0]}
+      className="AccordionRoot"
+      type="multiple"
+      defaultValue={['item-1', 'item-2', 'item-3', 'item-4']}
     >
-      <Accordion.Item className="Item">
-        <Accordion.Header className="Header">
-          <Accordion.Trigger className="Trigger">
-            2024-2025
-            <PlusIcon className="TriggerIcon" />
-          </Accordion.Trigger>
-        </Accordion.Header>
-        <Accordion.Panel className="Panel">
+      <Accordion.Item className="AccordionItem" value="item-1">
+        <AccordionTrigger>2024-2025</AccordionTrigger>
+        <AccordionContent>
           <div className="events-container">
             {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
               if (item.date >= 20241002) {
@@ -70,17 +99,12 @@ export default function EventAccordion() {
               return acc;
             }, [])}
           </div>
-        </Accordion.Panel>
+        </AccordionContent>
       </Accordion.Item>
 
-      <Accordion.Item className="Item">
-        <Accordion.Header className="Header">
-          <Accordion.Trigger className="Trigger">
-            2023-2024
-            <PlusIcon className="TriggerIcon" />
-          </Accordion.Trigger>
-        </Accordion.Header>
-        <Accordion.Panel className="Panel">
+      <Accordion.Item className="AccordionItem" value="item-2">
+        <AccordionTrigger>2023-2024</AccordionTrigger>
+        <AccordionContent>
           <div className="events-container">
             {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
               if (item.date >= 20231004 && item.date <= 20240605) {
@@ -98,17 +122,12 @@ export default function EventAccordion() {
               return acc;
             }, [])}
           </div>
-        </Accordion.Panel>
+        </AccordionContent>
       </Accordion.Item>
 
-      <Accordion.Item className="Item">
-        <Accordion.Header className="Header">
-          <Accordion.Trigger className="Trigger">
-            2022-2023
-            <PlusIcon className="TriggerIcon" />
-          </Accordion.Trigger>
-        </Accordion.Header>
-        <Accordion.Panel className="Panel">
+      <Accordion.Item className="AccordionItem" value="item-3">
+        <AccordionTrigger>2022-2023</AccordionTrigger>
+        <Accordion.Content className="AccordionContent">
           <div className="events-container">
             {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
               if (item.date >= 20220928 && item.date <= 20230609) {
@@ -126,16 +145,11 @@ export default function EventAccordion() {
               return acc;
             }, [])}
           </div>
-        </Accordion.Panel>
+        </Accordion.Content>
       </Accordion.Item>
-      <Accordion.Item className="Item">
-        <Accordion.Header className="Header">
-          <Accordion.Trigger className="Trigger">
-            Archive
-            <PlusIcon className="TriggerIcon" />
-          </Accordion.Trigger>
-        </Accordion.Header>
-        <Accordion.Panel className="Panel">
+      <Accordion.Item className="AccordionItem" value="item-4">
+        <AccordionTrigger>Archive</AccordionTrigger>
+        <Accordion.Content className="AccordionContent">
           <div className="events-container">
             {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
               if (item.date <= 20220804) {
@@ -153,7 +167,7 @@ export default function EventAccordion() {
               return acc;
             }, [])}
           </div>
-        </Accordion.Panel>
+        </Accordion.Content>
       </Accordion.Item>
     </Accordion.Root>
   );
