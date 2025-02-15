@@ -1,9 +1,7 @@
 @import '@radix-ui/colors/black-alpha.css';
 @import '@radix-ui/colors/mauve.css';
 
-/* reset */
-button,
-h3 {
+button {
   all: unset;
 }
 
@@ -31,38 +29,33 @@ h3 {
 
 .AccordionTrigger {
   background-color: transparent;
-  padding: 0 20px;
-  height: 45px;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: white;
+  cursor: pointer;
 }
 
-.AccordionTrigger:hover {
-  background-color: var(--mauve-2);
+.AccordionChevron {
+  transition: transform 300ms cubic-bezier(0.87, 0, 0.13, 1);
+  width: 40px;
+  height: 40px;
+}
+
+.AccordionTrigger[data-state='open'] > .AccordionChevron {
+  transform: rotate(180deg);
 }
 
 .AccordionContent {
   overflow: hidden;
 }
+
 .AccordionContent[data-state='open'] {
   animation: slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1);
 }
 .AccordionContent[data-state='closed'] {
   animation: slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1);
-}
-
-.AccordionContentText {
-  padding: 15px 20px;
-}
-
-.AccordionChevron {
-  transition: transform 300ms cubic-bezier(0.87, 0, 0.13, 1);
-}
-.AccordionTrigger[data-state='open'] > .AccordionChevron {
-  transform: rotate(180deg);
 }
 
 @keyframes slideDown {
