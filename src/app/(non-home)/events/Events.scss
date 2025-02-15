@@ -5,7 +5,7 @@
     margin-block: 1rem;
 
     h1 {
-      margin-block: 2.5rem;
+      margin-block: 5rem;
     }
 
     .events-container {
@@ -33,6 +33,7 @@
       background-color: var(--background-color);
       border: 1.5px solid var(--text-color);
       border-radius: 40px;
+      text-align: center;
       padding: 0.4rem 1rem 0.5rem;
       font-size: 1.1rem;
       font-family: $heading-font;
