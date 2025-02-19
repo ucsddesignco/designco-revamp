@@ -65,9 +65,10 @@ export default function ShopItemSlider(_SliderImages: SliderImages) {
   const [thumbnailRef] = useKeenSlider<HTMLDivElement>(
     {
       initial: 0,
+      loop: false,
       slides: {
-        perView: 4,
-        spacing: 10
+        perView: 'auto',
+        spacing: 24
       },
       vertical: true
     },
@@ -85,12 +86,7 @@ export default function ShopItemSlider(_SliderImages: SliderImages) {
               key={_index}
               className={`keen-slider__slide number-slide${_index}`}
             >
-              <Image
-                src={image.image}
-                alt={image.alt}
-                height={275}
-                width={275}
-              />
+              <Image src={image.image} alt={image.alt} fill />
             </div>
           ))}
         </div>
@@ -112,7 +108,11 @@ export default function ShopItemSlider(_SliderImages: SliderImages) {
         />
       </div>
       <div className="thumbnail-container">
-        <div ref={thumbnailRef} className="keen-slider thumbnail">
+        <div
+          ref={thumbnailRef}
+          className="keen-slider thumbnail"
+          data-keen-slider-scrollable
+        >
           {_SliderImages.SliderImages.map((image, _index) => (
             <div
               key={_index}

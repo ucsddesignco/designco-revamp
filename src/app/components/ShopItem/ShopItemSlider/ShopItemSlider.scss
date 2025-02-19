@@ -20,24 +20,52 @@
   //   touch-action: pan-y;
   //   user-select: none;
   width: 100%;
+
+  .keen-slider__slide img {
+    object-fit: cover;
+  }
+}
+
+.DialogContent {
+  gap: 3rem;
+
+  & > div {
+    flex: 1;
+    overflow: hidden;
+  }
 }
 
 .thumbnail .keen-slider__slide {
-  font-size: 30px;
-  height: 100px;
-}
-.thumbnail .keen-slider__slide {
   cursor: pointer;
-}
-.thumbnail .keen-slider__slide.active {
-  border: 2px dashed black;
+  --height: calc(150px);
+  --width: calc(150px);
+
+  width: var(--width) !important;
+  min-width: var(--width) !important;
+  max-width: var(--width) !important;
+  height: var(--height) !important;
+  min-height: var(--height) !important;
+  max-height: var(--height) !important;
+
+  position: relative;
+
+  img {
+    object-fit: contain;
+    display: block;
+    aspect-ratio: 1;
+  }
+
+  &.active {
+    border: 2px dashed black;
+  }
 }
 
 .shop-item-slider-root {
   display: flex;
   flex-direction: row-reverse;
-  height: 500px;
-  max-width: 300px;
+  height: 100%;
+  width: 100%;
+  gap: 1.5rem;
 }
 
 .thumbnail-container {

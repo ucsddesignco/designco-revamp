@@ -72,7 +72,7 @@ export default function ShopItem({
         <Dialog.Overlay className="DialogOverlay" />
         <Dialog.Content className="DialogContent">
           <div>
-            <ShopItemSlider SliderImages={images}></ShopItemSlider>
+            <ShopItemSlider SliderImages={images} />
           </div>
 
           <div>
