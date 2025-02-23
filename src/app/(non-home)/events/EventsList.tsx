@@ -9,6 +9,7 @@ export type EventItem = {
   videolink?: string;
   description?: string;
   imageURL: string;
+  year?: number;
 };
 
 export const EventsList: EventItem[] = [

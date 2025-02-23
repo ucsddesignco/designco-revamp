@@ -5,7 +5,7 @@ import { Accordion } from 'radix-ui';
 import classNames from 'classnames';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 
-import { EventsList } from '@/(non-home)/events/EventsList';
+import { EventItem } from '@/(non-home)/events/EventsList';
 import EventCard from '@/components/EventCard/EventCard';
 
 import './EventAccordion.scss';
@@ -53,7 +53,7 @@ const AccordionContent = React.forwardRef<
 
 AccordionContent.displayName = 'AccordionContent';
 
-export default function EventAccordion() {
+export default function EventAccordion({ events }: { events: EventItem[] }) {
   function formatDate(dateInt: number) {
     const dateStr = dateInt.toString();
     const year = parseInt(dateStr.slice(0, 4), 10);
@@ -68,7 +68,7 @@ export default function EventAccordion() {
     });
   }
 
-  EventsList.sort((a, b) => {
+  events.sort((a, b) => {
     if (a.date === b.date) return a.time < b.time ? 1 : -1;
     return a.date < b.date ? 1 : -1;
   });
@@ -83,11 +83,11 @@ export default function EventAccordion() {
         <AccordionTrigger>2024-2025</AccordionTrigger>
         <AccordionContent>
           <div className="events-container">
-            {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
+            {events.reduce<React.JSX.Element[]>((acc, item) => {
               if (item.date >= 20241002) {
                 acc.push(
                   <EventCard
-                    key={item.title}
+                    key={item.imageURL}
                     event_title={item.title}
                     imgLink={item.imageURL}
                     event_link={item.link}
@@ -106,11 +106,11 @@ export default function EventAccordion() {
         <AccordionTrigger>2023-2024</AccordionTrigger>
         <AccordionContent>
           <div className="events-container">
-            {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
+            {events.reduce<React.JSX.Element[]>((acc, item) => {
               if (item.date >= 20231004 && item.date <= 20240605) {
                 acc.push(
                   <EventCard
-                    key={item.title}
+                    key={item.imageURL}
                     event_title={item.title}
                     imgLink={item.imageURL}
                     event_link={item.link}
@@ -129,11 +129,11 @@ export default function EventAccordion() {
         <AccordionTrigger>2022-2023</AccordionTrigger>
         <Accordion.Content className="AccordionContent">
           <div className="events-container">
-            {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
+            {events.reduce<React.JSX.Element[]>((acc, item) => {
               if (item.date >= 20220928 && item.date <= 20230609) {
                 acc.push(
                   <EventCard
-                    key={item.title}
+                    key={item.imageURL}
                     event_title={item.title}
                     imgLink={item.imageURL}
                     event_link={item.link}
@@ -151,11 +151,11 @@ export default function EventAccordion() {
         <AccordionTrigger>Archive</AccordionTrigger>
         <Accordion.Content className="AccordionContent">
           <div className="events-container">
-            {EventsList.reduce<React.JSX.Element[]>((acc, item) => {
+            {events.reduce<React.JSX.Element[]>((acc, item) => {
               if (item.date <= 20220804) {
                 acc.push(
                   <EventCard
-                    key={item.title}
+                    key={item.imageURL}
                     event_title={item.title}
                     imgLink={item.imageURL}
                     event_link={item.link}
