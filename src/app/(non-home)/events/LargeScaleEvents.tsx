@@ -1,4 +1,4 @@
-export type EventItem = {
+export type LargeScaleEventItem = {
   title: string;
   link: string;
   image: string;
@@ -12,7 +12,7 @@ export type EventItem = {
   year?: number;
 };
 
-export const LargeScaleEvents: EventItem[] = [
+export const LargeScaleEvents: LargeScaleEventItem[] = [
   {
     title: 'Design Frontiers',
     link: 'https://frontiers2021.ucsddesign.co/',
