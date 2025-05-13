@@ -10,7 +10,6 @@ import EventCard from '@/components/EventCard/EventCard';
 
 import './EventAccordion.scss';
 import { LargeScaleEventItem } from '@/(non-home)/events/LargeScaleEvents';
-import { useEffect } from 'react';
 
 type AccordionTriggerProps = {
   children: React.ReactNode;
@@ -76,34 +75,19 @@ export default function EventAccordion({
     });
   }
 
-  useEffect(() => {
-    if (events.length > 0) {
-      const sorted = [...events];
+  // Sort events (most recent first by date + time)
+  const sortedEvents = [...events].sort((a, b) => {
+    const dateA = typeof a.date === 'string' ? parseInt(a.date, 10) : a.date;
+    const dateB = typeof b.date === 'string' ? parseInt(b.date, 10) : b.date;
 
-      const isEventItem = (item: any): item is EventItem =>
-        typeof item.time === 'number' && typeof item.location === 'string';
-
-      // Check what kind of items are in the list
-      const isEvent = isEventItem(events[0]);
-
-      sorted.sort((a, b) => {
-        const dateA =
-          typeof a.date === 'string' ? new Date(a.date).getTime() : a.date;
-        const dateB =
-          typeof b.date === 'string' ? new Date(b.date).getTime() : b.date;
-
-        if (dateA === dateB) {
-          const timeA = isEvent && typeof a.time === 'number' ? a.time : 0;
-          const timeB = isEvent && typeof b.time === 'number' ? b.time : 0;
-          return timeA < timeB ? 1 : -1;
-        }
-
-        return dateA < dateB ? 1 : -1;
-      });
+    if (dateA === dateB) {
+      const timeA = typeof a.time === 'number' ? a.time : 0;
+      const timeB = typeof b.time === 'number' ? b.time : 0;
+      return timeB - timeA;
     }
-  }, [events]);
 
-  // console.log(eventSource);
+    return dateB - dateA;
+  });
 
   return (
     <Accordion.Root
@@ -116,7 +100,7 @@ export default function EventAccordion({
         <AccordionContent>
           <div className="events-container">
             {eventSource === 'GBMs'
-              ? events.reduce<React.JSX.Element[]>((acc, item) => {
+              ? sortedEvents.reduce<React.JSX.Element[]>((acc, item) => {
                   const dateInt =
                     typeof item.date === 'string'
                       ? parseInt(item.date, 10)
@@ -147,7 +131,7 @@ export default function EventAccordion({
         <AccordionContent>
           <div className="events-container">
             {eventSource === 'GBMs'
-              ? events.reduce<React.JSX.Element[]>((acc, item) => {
+              ? sortedEvents.reduce<React.JSX.Element[]>((acc, item) => {
                   const dateInt =
                     typeof item.date === 'string'
                       ? parseInt(item.date, 10)
@@ -177,7 +161,7 @@ export default function EventAccordion({
         <Accordion.Content className="AccordionContent">
           <div className="events-container">
             {eventSource === 'GBMs'
-              ? events.reduce<React.JSX.Element[]>((acc, item) => {
+              ? sortedEvents.reduce<React.JSX.Element[]>((acc, item) => {
                   const dateInt =
                     typeof item.date === 'string'
                       ? parseInt(item.date, 10)
@@ -206,7 +190,7 @@ export default function EventAccordion({
         <Accordion.Content className="AccordionContent">
           <div className="events-container">
             {eventSource === 'GBMs'
-              ? events.reduce<React.JSX.Element[]>((acc, item) => {
+              ? sortedEvents.reduce<React.JSX.Element[]>((acc, item) => {
                   const dateInt =
                     typeof item.date === 'string'
                       ? parseInt(item.date, 10)
