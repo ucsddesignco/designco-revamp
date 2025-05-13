@@ -4,7 +4,7 @@ export type EventItem = {
   image: string;
   date: number;
   time: number;
-  location: string;
+  location?: string;
   slidelink?: string;
   videolink?: string;
   description?: string;

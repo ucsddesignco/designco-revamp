@@ -9,6 +9,8 @@ import { EventItem } from '@/(non-home)/events/EventsList';
 import EventCard from '@/components/EventCard/EventCard';
 
 import './EventAccordion.scss';
+import { LargeScaleEventItem } from '@/(non-home)/events/LargeScaleEvents';
+import { useEffect } from 'react';
 
 type AccordionTriggerProps = {
   children: React.ReactNode;
@@ -53,7 +55,13 @@ const AccordionContent = React.forwardRef<
 
 AccordionContent.displayName = 'AccordionContent';
 
-export default function EventAccordion({ events }: { events: EventItem[] }) {
+export default function EventAccordion({
+  events,
+  eventSource
+}: {
+  events: EventItem[] | LargeScaleEventItem[];
+  eventSource: string;
+}) {
   function formatDate(dateInt: number) {
     const dateStr = dateInt.toString();
     const year = parseInt(dateStr.slice(0, 4), 10);
@@ -68,10 +76,34 @@ export default function EventAccordion({ events }: { events: EventItem[] }) {
     });
   }
 
-  events.sort((a, b) => {
-    if (a.date === b.date) return a.time < b.time ? 1 : -1;
-    return a.date < b.date ? 1 : -1;
-  });
+  useEffect(() => {
+    if (events.length > 0) {
+      const sorted = [...events];
+
+      const isEventItem = (item: any): item is EventItem =>
+        typeof item.time === 'number' && typeof item.location === 'string';
+
+      // Check what kind of items are in the list
+      const isEvent = isEventItem(events[0]);
+
+      sorted.sort((a, b) => {
+        const dateA =
+          typeof a.date === 'string' ? new Date(a.date).getTime() : a.date;
+        const dateB =
+          typeof b.date === 'string' ? new Date(b.date).getTime() : b.date;
+
+        if (dateA === dateB) {
+          const timeA = isEvent && typeof a.time === 'number' ? a.time : 0;
+          const timeB = isEvent && typeof b.time === 'number' ? b.time : 0;
+          return timeA < timeB ? 1 : -1;
+        }
+
+        return dateA < dateB ? 1 : -1;
+      });
+    }
+  }, [events]);
+
+  // console.log(eventSource);
 
   return (
     <Accordion.Root
@@ -83,21 +115,29 @@ export default function EventAccordion({ events }: { events: EventItem[] }) {
         <AccordionTrigger>2024-2025</AccordionTrigger>
         <AccordionContent>
           <div className="events-container">
-            {events.reduce<React.JSX.Element[]>((acc, item) => {
-              if (item.date >= 20241002) {
-                acc.push(
-                  <EventCard
-                    key={item.imageURL}
-                    event_title={item.title}
-                    imgLink={item.imageURL}
-                    event_link={item.link}
-                    date={formatDate(item.date)}
-                    location={item.location}
-                  />
-                );
-              }
-              return acc;
-            }, [])}
+            {eventSource === 'GBMs'
+              ? events.reduce<React.JSX.Element[]>((acc, item) => {
+                  const dateInt =
+                    typeof item.date === 'string'
+                      ? parseInt(item.date, 10)
+                      : item.date;
+
+                  if (dateInt >= 20241002) {
+                    acc.push(
+                      <EventCard
+                        key={item.imageURL}
+                        event_title={item.title}
+                        imgLink={item.imageURL}
+                        event_link={item.link}
+                        date={formatDate(dateInt)}
+                        location={item.location ?? 'TBD'}
+                      />
+                    );
+                  }
+
+                  return acc;
+                }, [])
+              : ''}
           </div>
         </AccordionContent>
       </Accordion.Item>
@@ -106,21 +146,28 @@ export default function EventAccordion({ events }: { events: EventItem[] }) {
         <AccordionTrigger>2023-2024</AccordionTrigger>
         <AccordionContent>
           <div className="events-container">
-            {events.reduce<React.JSX.Element[]>((acc, item) => {
-              if (item.date >= 20231004 && item.date <= 20240605) {
-                acc.push(
-                  <EventCard
-                    key={item.imageURL}
-                    event_title={item.title}
-                    imgLink={item.imageURL}
-                    event_link={item.link}
-                    date={formatDate(item.date)}
-                    location={item.location}
-                  />
-                );
-              }
-              return acc;
-            }, [])}
+            {eventSource === 'GBMs'
+              ? events.reduce<React.JSX.Element[]>((acc, item) => {
+                  const dateInt =
+                    typeof item.date === 'string'
+                      ? parseInt(item.date, 10)
+                      : item.date;
+
+                  if (dateInt >= 20231004 && dateInt <= 20240605) {
+                    acc.push(
+                      <EventCard
+                        key={item.imageURL}
+                        event_title={item.title}
+                        imgLink={item.imageURL}
+                        event_link={item.link}
+                        date={formatDate(dateInt)}
+                        location={item.location ?? 'TBD'}
+                      />
+                    );
+                  }
+                  return acc;
+                }, [])
+              : ''}
           </div>
         </AccordionContent>
       </Accordion.Item>
@@ -129,21 +176,28 @@ export default function EventAccordion({ events }: { events: EventItem[] }) {
         <AccordionTrigger>2022-2023</AccordionTrigger>
         <Accordion.Content className="AccordionContent">
           <div className="events-container">
-            {events.reduce<React.JSX.Element[]>((acc, item) => {
-              if (item.date >= 20220928 && item.date <= 20230609) {
-                acc.push(
-                  <EventCard
-                    key={item.imageURL}
-                    event_title={item.title}
-                    imgLink={item.imageURL}
-                    event_link={item.link}
-                    date={formatDate(item.date)}
-                    location={item.location}
-                  />
-                );
-              }
-              return acc;
-            }, [])}
+            {eventSource === 'GBMs'
+              ? events.reduce<React.JSX.Element[]>((acc, item) => {
+                  const dateInt =
+                    typeof item.date === 'string'
+                      ? parseInt(item.date, 10)
+                      : item.date;
+
+                  if (dateInt >= 20220928 && dateInt <= 20230609) {
+                    acc.push(
+                      <EventCard
+                        key={item.imageURL}
+                        event_title={item.title}
+                        imgLink={item.imageURL}
+                        event_link={item.link}
+                        date={formatDate(dateInt)}
+                        location={item.location ?? 'TBD'}
+                      />
+                    );
+                  }
+                  return acc;
+                }, [])
+              : ''}
           </div>
         </Accordion.Content>
       </Accordion.Item>
@@ -151,21 +205,28 @@ export default function EventAccordion({ events }: { events: EventItem[] }) {
         <AccordionTrigger>Archive</AccordionTrigger>
         <Accordion.Content className="AccordionContent">
           <div className="events-container">
-            {events.reduce<React.JSX.Element[]>((acc, item) => {
-              if (item.date <= 20220804) {
-                acc.push(
-                  <EventCard
-                    key={item.imageURL}
-                    event_title={item.title}
-                    imgLink={item.imageURL}
-                    event_link={item.link}
-                    date={formatDate(item.date)}
-                    location={item.location}
-                  />
-                );
-              }
-              return acc;
-            }, [])}
+            {eventSource === 'GBMs'
+              ? events.reduce<React.JSX.Element[]>((acc, item) => {
+                  const dateInt =
+                    typeof item.date === 'string'
+                      ? parseInt(item.date, 10)
+                      : item.date;
+
+                  if (dateInt <= 20220804) {
+                    acc.push(
+                      <EventCard
+                        key={item.imageURL}
+                        event_title={item.title}
+                        imgLink={item.imageURL}
+                        event_link={item.link}
+                        date={formatDate(dateInt)}
+                        location={item.location ?? 'TBD'}
+                      />
+                    );
+                  }
+                  return acc;
+                }, [])
+              : ''}
           </div>
         </Accordion.Content>
       </Accordion.Item>

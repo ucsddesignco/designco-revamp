@@ -3,22 +3,13 @@
 import './Events.scss';
 
 import { EventsList } from '@/(non-home)/events/EventsList';
-// import { LargeScaleEvents } from "@/(non-home)/events/LargeScaleEvents";
+import { LargeScaleEvents } from '@/(non-home)/events/LargeScaleEvents';
 
 import EventAccordion from '@/components/EventAccordion/EventAccordion';
 import { useState } from 'react';
 
 export default function EventSection() {
-  // const handleButtonClick = (buttonNumber: number) => {
-  //   setActive(buttonNumber);
-  // };
-
-  // const buttonClass = (buttonNumber: number) =>
-  //   active === buttonNumber ? 'normal' : 'clicked';
-
   const [eventSource, setEventSource] = useState<'GBMs' | 'LargeScale'>('GBMs');
-
-  // const filteredEvents = eventSource === 'GBMs' ? EventsList : LargeScaleEvents;
 
   return (
     <div className="past-events">
@@ -37,7 +28,8 @@ export default function EventSection() {
           Large-Scale Events
         </button>
       </div>
-      <EventAccordion events={EventsList} />
+      <EventAccordion events={EventsList} eventSource={eventSource} />
+      <EventAccordion events={LargeScaleEvents} eventSource={eventSource} />
     </div>
   );
 }
