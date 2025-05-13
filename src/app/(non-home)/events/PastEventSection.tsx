@@ -28,8 +28,12 @@ export default function EventSection() {
           Large-Scale Events
         </button>
       </div>
-      <EventAccordion events={EventsList} eventSource={eventSource} />
-      <EventAccordion events={LargeScaleEvents} eventSource={eventSource} />
+
+      {eventSource === 'GBMs' ? (
+        <EventAccordion events={EventsList} eventSource={eventSource} />
+      ) : (
+        <EventAccordion events={LargeScaleEvents} eventSource={eventSource} />
+      )}
     </div>
   );
 }
