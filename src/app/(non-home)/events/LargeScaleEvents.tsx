@@ -115,7 +115,7 @@ export const LargeScaleEvents: LargeScaleEventItem[] = [
   {
     title: 'UP-Grade',
     link: 'https://upgrade24.ucsddesign.co/',
-    image: '20240701',
+    image: '20240702',
     date: 'July - Sept 2024',
     year: 2024,
     imageURL:
@@ -124,7 +124,7 @@ export const LargeScaleEvents: LargeScaleEventItem[] = [
   {
     title: 'Stride',
     link: 'https://stride24.ucsddesign.co/',
-    image: '20240701',
+    image: '20241002',
     date: 'November 2024',
     year: 2025,
     imageURL:

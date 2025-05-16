@@ -10,6 +10,7 @@ import EventCard from '@/components/EventCard/EventCard';
 
 import './EventAccordion.scss';
 import { LargeScaleEventItem } from '@/(non-home)/events/LargeScaleEvents';
+import LargeScaleEventCard from '../LargeScaleEventCard/LargeScaleEventCard';
 
 type AccordionTriggerProps = {
   children: React.ReactNode;
@@ -121,7 +122,26 @@ export default function EventAccordion({
 
                   return acc;
                 }, [])
-              : ''}
+              : sortedEvents
+                  .slice()
+                  .sort((a, b) => parseInt(b.image, 10) - parseInt(a.image, 10))
+                  .reduce<React.JSX.Element[]>((acc, item) => {
+                    const dateInt = parseInt(item.image, 10);
+
+                    if (dateInt >= 20241002) {
+                      acc.push(
+                        <LargeScaleEventCard
+                          key={item.imageURL}
+                          event_title={item.title}
+                          imgLink={item.imageURL}
+                          event_link={item.link}
+                          date={item.date}
+                        />
+                      );
+                    }
+
+                    return acc;
+                  }, [])}
           </div>
         </AccordionContent>
       </Accordion.Item>
@@ -137,7 +157,7 @@ export default function EventAccordion({
                       ? parseInt(item.date, 10)
                       : item.date;
 
-                  if (dateInt >= 20231004 && dateInt <= 20240605) {
+                  if (dateInt >= 20231004 && dateInt <= 20240702) {
                     acc.push(
                       <EventCard
                         key={item.imageURL}
@@ -151,7 +171,26 @@ export default function EventAccordion({
                   }
                   return acc;
                 }, [])
-              : ''}
+              : sortedEvents
+                  .slice()
+                  .sort((a, b) => parseInt(b.image, 10) - parseInt(a.image, 10))
+                  .reduce<React.JSX.Element[]>((acc, item) => {
+                    const dateInt = parseInt(item.image, 10);
+
+                    if (dateInt >= 20231004 && dateInt <= 20240702) {
+                      acc.push(
+                        <LargeScaleEventCard
+                          key={item.imageURL}
+                          event_title={item.title}
+                          imgLink={item.imageURL}
+                          event_link={item.link}
+                          date={item.date}
+                        />
+                      );
+                    }
+
+                    return acc;
+                  }, [])}
           </div>
         </AccordionContent>
       </Accordion.Item>
@@ -167,7 +206,7 @@ export default function EventAccordion({
                       ? parseInt(item.date, 10)
                       : item.date;
 
-                  if (dateInt >= 20220928 && dateInt <= 20230609) {
+                  if (dateInt >= 20220928 && dateInt <= 20230702) {
                     acc.push(
                       <EventCard
                         key={item.imageURL}
@@ -181,7 +220,26 @@ export default function EventAccordion({
                   }
                   return acc;
                 }, [])
-              : ''}
+              : sortedEvents
+                  .slice()
+                  .sort((a, b) => parseInt(b.image, 10) - parseInt(a.image, 10))
+                  .reduce<React.JSX.Element[]>((acc, item) => {
+                    const dateInt = parseInt(item.image, 10);
+
+                    if (dateInt >= 20220928 && dateInt <= 20230702) {
+                      acc.push(
+                        <LargeScaleEventCard
+                          key={item.imageURL}
+                          event_title={item.title}
+                          imgLink={item.imageURL}
+                          event_link={item.link}
+                          date={item.date}
+                        />
+                      );
+                    }
+
+                    return acc;
+                  }, [])}
           </div>
         </Accordion.Content>
       </Accordion.Item>
@@ -210,7 +268,26 @@ export default function EventAccordion({
                   }
                   return acc;
                 }, [])
-              : ''}
+              : sortedEvents
+                  .slice()
+                  .sort((a, b) => parseInt(b.image, 10) - parseInt(a.image, 10))
+                  .reduce<React.JSX.Element[]>((acc, item) => {
+                    const dateInt = parseInt(item.image, 10);
+
+                    if (dateInt <= 20220804) {
+                      acc.push(
+                        <LargeScaleEventCard
+                          key={item.imageURL}
+                          event_title={item.title}
+                          imgLink={item.imageURL}
+                          event_link={item.link}
+                          date={item.date}
+                        />
+                      );
+                    }
+
+                    return acc;
+                  }, [])}
           </div>
         </Accordion.Content>
       </Accordion.Item>
