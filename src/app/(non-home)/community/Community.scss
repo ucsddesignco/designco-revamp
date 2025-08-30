@@ -1,10 +1,19 @@
-.community_page {
-  margin-inline: auto;
-  max-width: 2000px;
-  color: white;
+#community_page {
+  $large-text: 3rem;
   background-color: var(--community-bg-color);
+  overflow: hidden;
 
-  @media screen and (min-width: 768px) {
-    padding-inline: clamp(24px, 5px + 5vw, 6rem);
+  .community_container {
+    padding-top: 5.5rem;
+    margin-inline: auto;
+    max-width: 2000px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding-inline: $main-padding-mobile;
+
+    @media screen and (min-width: 768px) {
+      padding-inline: $main-padding-desktop;
+    }
   }
 }

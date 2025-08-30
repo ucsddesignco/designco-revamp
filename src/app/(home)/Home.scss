@@ -2,11 +2,15 @@
   .hero {
     position: relative;
     display: flex;
-    height: 600px;
     flex-direction: column;
     justify-content: center;
 
+    @media (min-width: 350px) {
+      height: 80vh;
+    }
+
     @media screen and (min-width: $mobile-breakpoint) {
+      padding-top: 0;
       height: 735px;
     }
 
@@ -23,17 +27,22 @@
     margin-inline: auto;
     display: grid;
     gap: 2rem;
+    padding-top: 8rem;
+    padding-bottom: 5rem;
 
     @media screen and (min-width: $mobile-breakpoint) {
       padding-inline: $main-padding-desktop;
+      padding-top: 0;
+      padding-bottom: 0;
     }
 
     h1 {
       font-size: clamp(32px, calc(30px + 2.4vw), 80px);
-      max-width: 70rem;
+      max-width: 18ch;
     }
 
     p {
+      font-size: clamp(1rem, calc(16px + 0.3vw), 24px);
       max-width: 65ch;
     }
   }
