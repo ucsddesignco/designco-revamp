@@ -1,0 +1,41 @@
+'use client';
+
+import Image from 'next/image';
+
+interface LargeScaleEventCardProps {
+  event_title: string;
+  imgLink: string;
+  event_link: string;
+  date: string | number;
+}
+
+export default function LargeScaleEventCard({
+  event_title,
+  imgLink,
+  event_link,
+  date
+}: LargeScaleEventCardProps) {
+  return (
+    <div className="event-card">
+      <div className="svg-container">
+        <a href={event_link}>
+          <Image
+            className="event-image"
+            src={imgLink}
+            alt={`graphic for ${{ event_title }}`}
+            width="500"
+            height="500"
+          />
+        </a>
+      </div>
+      <div className="event-card-content">
+        <div className="event-card-title">
+          <h3>{event_title}</h3>
+        </div>
+        <div className="event-card-description">
+          <p>{date}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
