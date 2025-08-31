@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import './EventCard.scss';
 
@@ -25,7 +23,7 @@ export default function EventCard({
           <Image
             className="event-image"
             src={imgLink}
-            alt={`graphic for ${{ event_title }}`}
+            alt={`graphic for ${event_title}`}
             width="500"
             height="500"
           />

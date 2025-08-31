@@ -1,5 +1,3 @@
-'use client';
-
 import './Events.scss';
 
 export default function UpcomingEvent() {

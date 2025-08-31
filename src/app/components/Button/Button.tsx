@@ -26,23 +26,22 @@ export default function Button({
   style
 }: ButtonProps) {
   return (
-    <Link href={link} passHref legacyBehavior>
-      <a
-        href={link}
-        className={hasShadow ? 'link-button' : 'link-button--no-shadow'}
-        target={newTab ? '_blank' : ''}
-        aria-label={ariaLabel}
-        style={
-          {
-            ...style,
-            '--color': color,
-            '--background-color': bgColor,
-            '--border-color': borderColor
-          } as CSSProperties
-        }
-      >
-        {text}
-      </a>
+    <Link
+      href={link}
+      passHref
+      className={hasShadow ? 'link-button' : 'link-button--no-shadow'}
+      target={newTab ? '_blank' : ''}
+      aria-label={ariaLabel}
+      style={
+        {
+          ...style,
+          '--color': color,
+          '--background-color': bgColor,
+          '--border-color': borderColor
+        } as CSSProperties
+      }
+    >
+      {text}
     </Link>
   );
 }

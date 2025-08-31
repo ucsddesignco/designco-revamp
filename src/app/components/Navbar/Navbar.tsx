@@ -55,17 +55,15 @@ export default function Navbar({
           id="nav-container"
           style={isOverlaying ? { position: 'absolute', zIndex: 1 } : {}}
         >
-          <Link href="/" passHref legacyBehavior>
-            <a
-              href="/"
-              className="logo_container"
-              style={{ color: navColor }}
-              tabIndex={isHamburgerOpen ? -1 : 0}
-              aria-hidden={isHamburgerOpen ? 'true' : 'false'}
-            >
-              <Logo />
-              <MobileLogo />
-            </a>
+          <Link
+            href="/"
+            className="logo_container"
+            style={{ color: navColor }}
+            tabIndex={isHamburgerOpen ? -1 : 0}
+            aria-hidden={isHamburgerOpen ? 'true' : 'false'}
+          >
+            <Logo />
+            <MobileLogo />
           </Link>
           <Hamburger
             isHamburgerOpen={isHamburgerOpen}
@@ -78,18 +76,17 @@ export default function Navbar({
           >
             {NAV_LINKS.map(link => (
               <li key={link.href}>
-                <Link passHref legacyBehavior href={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={() => {
-                      if (isHamburgerOpen) {
-                        toggleHamburger();
-                      }
-                    }}
-                    aria-current={pathname === link.href ? 'page' : undefined}
-                  >
-                    {link.text}
-                  </a>
+                <Link
+                  passHref
+                  href={link.href}
+                  onClick={() => {
+                    if (isHamburgerOpen) {
+                      toggleHamburger();
+                    }
+                  }}
+                  aria-current={pathname === link.href ? 'page' : undefined}
+                >
+                  {link.text}
                 </Link>
               </li>
             ))}

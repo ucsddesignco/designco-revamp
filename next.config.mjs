@@ -5,7 +5,7 @@ import path from 'path';
 const nextConfig = {
   sassOptions: {
     includePaths: [path.join(process.cwd(), 'src', 'app', 'styles')],
-    additionalData: `@import "variables.scss";`
+    additionalData: `@use "variables" as *;`
   },
   images: {
     remotePatterns: [
@@ -14,7 +14,8 @@ const nextConfig = {
         hostname: 'res.cloudinary.com',
         pathname: '/design-co-ucsd/**'
       }
-    ]
+    ],
+    qualities: [50, 100]
   }
 };
 

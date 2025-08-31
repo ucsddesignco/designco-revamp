@@ -32,14 +32,14 @@ export default function Smiley({ color, style, variation = '0' }: SmileyProps) {
     >
       <mask id="path-1-inside-1_906_858" fill="white">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M73.2334 21.2082C88.9178 24.0027 102.451 35.4032 107.177 51.7418C113.806 74.6559 100.605 98.6053 77.6906 105.234C54.7765 111.863 30.8271 98.6616 24.1981 75.7476C21.7255 67.2007 22.0119 58.5097 24.5322 50.6273L73.2334 21.2082Z"
         />
       </mask>
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M73.2334 21.2082C88.9178 24.0027 102.451 35.4032 107.177 51.7418C113.806 74.6559 100.605 98.6053 77.6906 105.234C54.7765 111.863 30.8271 98.6616 24.1981 75.7476C21.7255 67.2007 22.0119 58.5097 24.5322 50.6273L73.2334 21.2082Z"
         fill={currentColor}
       />
@@ -59,23 +59,23 @@ export default function Smiley({ color, style, variation = '0' }: SmileyProps) {
         <path
           d="M83.9946 71.6768C82.103 76.9307 74.8435 86.6642 60.939 83.5673C47.0344 80.4704 44.9849 68.6635 45.6982 63.1471"
           stroke="#E3F2FD"
-          stroke-width="2.99343"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2.99343"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M82.905 70.0174L86.3554 73.4462"
           stroke="#E3F2FD"
-          stroke-width="2.99343"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2.99343"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M47.9319 62.2258L43.3525 63.8661"
           stroke="#E3F2FD"
-          stroke-width="2.99343"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2.99343"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <ellipse
           rx="3.63488"
@@ -91,8 +91,8 @@ export default function Smiley({ color, style, variation = '0' }: SmileyProps) {
         />
       </g>
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M24.6429 50.5606L73.5012 21.0465C71.5651 27.2002 68.2153 33.0126 63.4418 37.9791C53.0473 48.7938 38.3773 53.0221 24.6429 50.5606Z"
         fill="#E3F2FD"
       />

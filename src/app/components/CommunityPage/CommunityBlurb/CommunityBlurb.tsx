@@ -1,5 +1,3 @@
-'use client';
-
 import Button from '@/components/Button/Button';
 import './CommunityBlurb.scss';
 import Image from 'next/image';

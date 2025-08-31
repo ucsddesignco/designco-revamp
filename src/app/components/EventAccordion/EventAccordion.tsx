@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
-
 import * as React from 'react';
 import { Accordion } from 'radix-ui';
 import classNames from 'classnames';

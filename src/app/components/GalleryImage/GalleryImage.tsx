@@ -22,7 +22,6 @@ export default function GalleryImage({
       className={className ? `${className} gallery-image` : 'gallery-image'}
       src={src}
       alt={alt}
-      // eslint-disable-next-line react/jsx-props-no-spreading
       {...props}
     />
   );

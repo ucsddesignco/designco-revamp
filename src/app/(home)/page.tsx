@@ -13,8 +13,8 @@ import {
 
 export default async function Home() {
   // Used to cycle through color themes
-  const prevItem: number = cookies().has('prevItem')
-    ? parseInt(cookies().get('prevItem')!.value, 10)
+  const prevItem: number = (await cookies()).has('prevItem')
+    ? parseInt((await cookies()).get('prevItem')!.value, 10)
     : 0;
 
   const item = prevItem % COLORS.length;
