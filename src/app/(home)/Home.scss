@@ -124,7 +124,7 @@
         padding-left: 0;
         grid-template-columns: repeat(2, 1fr);
 
-        @media screen and (min-width: 480px) {
+        @media screen and (min-width: 500px) {
           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         }
 

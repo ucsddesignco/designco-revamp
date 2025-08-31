@@ -8,10 +8,6 @@
     padding-inline: $main-padding-desktop;
   }
 
-  h2 {
-    font-size: clamp(1.2em, calc(16px + 1.3vw), 32px);
-  }
-
   h1 {
     text-align: center;
     text-wrap: balance;
@@ -23,6 +19,10 @@
       text-wrap: wrap;
       max-width: 80%;
     }
+  }
+
+  h2 {
+    font-size: clamp(1.2em, calc(18px + 1.3vw), 32px);
   }
 
   .faq_container {
