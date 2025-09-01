@@ -1,11 +1,23 @@
+'use client';
+
 import Button from '@/components/Button/Button';
 import './Contact.scss';
 import { CONTACT_LINKS } from './constants';
 
 export default function Contact() {
+  const testRevalidate = async () => {
+    const res = await fetch('/api/revalidateEvents', {
+      method: 'POST',
+      body: JSON.stringify({ token: 'test' })
+    });
+    const data = await res.json();
+    console.log(data);
+  };
+
   return (
     <main className="contact_page">
       <section className="social_media">
+        <button onClick={testRevalidate}>Test Revalidate</button>
         <h1>Get in touch with us:</h1>
         <ul className="social_media_links">
           {CONTACT_LINKS.map(link => (
@@ -55,7 +67,3 @@ export default function Contact() {
     </main>
   );
 }
-
-export const metadata = {
-  title: 'Contact | Design Co'
-};
