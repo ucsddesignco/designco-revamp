@@ -5,7 +5,7 @@ export async function POST(req: Request) {
   try {
     const { token } = await req.json();
 
-    if (token !== 'test') {
+    if (token !== process.env.REVALIDATE_SECRET) {
       return NextResponse.json(
         { revalidated: false, message: 'Invalid token' },
         { status: 401 }
