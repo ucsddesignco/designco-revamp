@@ -2,19 +2,20 @@
 
 import './Events.scss';
 
-import { Suspense, use, useState } from 'react';
-import { AllEventsPromise } from './page';
+import { useState } from 'react';
 import EventAccordion from '@/components/EventAccordion/EventAccordion';
 import { LargeEvent, NormalEvent } from './types';
 
 export type EventSource = 'GBMs' | 'LargeScale';
 
 interface PastEventSectionProps {
-  allEventsPromise: any;
+  normalEvents: NormalEvent[];
+  largeEvents: LargeEvent[];
 }
 
 export default function EventSection({
-  allEventsPromise
+  normalEvents,
+  largeEvents
 }: PastEventSectionProps) {
   const [eventSource, setEventSource] = useState<EventSource>('GBMs');
   return (
@@ -35,28 +36,6 @@ export default function EventSection({
         </button>
       </div>
 
-      <Suspense fallback={null}>
-        <EventAccordionWrapper
-          eventSource={eventSource}
-          allEventsPromise={allEventsPromise}
-        />
-      </Suspense>
-    </div>
-  );
-}
-
-const EventAccordionWrapper = ({
-  eventSource,
-  allEventsPromise
-}: {
-  eventSource: EventSource;
-  allEventsPromise: AllEventsPromise;
-}) => {
-  const { normalPromise, largePromise } = allEventsPromise;
-  const normalEvents = use(normalPromise);
-  const largeEvents = use(largePromise);
-  return (
-    <>
       {eventSource === 'GBMs' ? (
         <EventAccordion
           events={normalEvents as NormalEvent[]}
@@ -68,6 +47,6 @@ const EventAccordionWrapper = ({
           eventSource={eventSource}
         />
       )}
-    </>
+    </div>
   );
-};
+}

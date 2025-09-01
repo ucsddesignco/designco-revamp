@@ -18,7 +18,7 @@ const NAV_LINKS = [
   { href: '/about', text: 'About' },
   { href: '/events', text: 'Events' },
   { href: '/community', text: 'Community' },
-  { href: '/shop', text: 'Shop' },
+  // { href: '/shop', text: 'Shop' },
   { href: '/contact', text: 'Contact' }
 ];
 

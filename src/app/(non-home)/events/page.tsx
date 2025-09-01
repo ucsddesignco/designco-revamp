@@ -2,6 +2,8 @@ import client from '@/lib/mongodb';
 import './Events.scss';
 
 import PastEventSection from './PastEventSection';
+import { LargeEvent, NormalEvent } from './types';
+import { serializeDocs } from '@/lib/serializeDocs';
 
 export interface AllEventsPromise {
   normalPromise: Promise<
@@ -18,39 +20,27 @@ export interface AllEventsPromise {
 
 export default async function Events() {
   const db = client.db('DCo-Events');
-  const normalCollection = db.collection('events');
-  const largeCollection = db.collection('large-events');
-  const normalEventsPromise = normalCollection
-    .find()
-    .toArray()
-    .then(docs =>
-      docs.map(doc => ({
-        ...doc,
-        _id: doc._id.toString()
-      }))
-    );
+  const normalCollection = db.collection<NormalEvent>('events');
+  const largeCollection = db.collection<LargeEvent>('large-events');
+  const normalEventsPromise = normalCollection.find().toArray();
 
-  const largeEventsPromise = largeCollection
-    .find()
-    .toArray()
-    .then(docs =>
-      docs.map(doc => ({
-        ...doc,
-        _id: doc._id.toString()
-      }))
-    );
+  const largeEventsPromise = largeCollection.find().toArray();
 
-  const allEventsPromise = {
-    normalPromise: normalEventsPromise,
-    largePromise: largeEventsPromise
-  };
+  const [normalEvents, largeEvents] = await Promise.all([
+    normalEventsPromise,
+    largeEventsPromise
+  ]);
+
   return (
     <main className="events_page">
       <h1>
         Build your design skills and connect with fellow designers at our
         workshops, socials, and large-scale events.
       </h1>
-      <PastEventSection allEventsPromise={allEventsPromise} />
+      <PastEventSection
+        normalEvents={serializeDocs<NormalEvent>(normalEvents)}
+        largeEvents={serializeDocs<LargeEvent>(largeEvents)}
+      />
     </main>
   );
 }
