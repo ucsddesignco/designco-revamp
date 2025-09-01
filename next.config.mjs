@@ -15,6 +15,7 @@ const nextConfig = {
         pathname: '/design-co-ucsd/**'
       }
     ],
+    minimumCacheTTL: 2678400,
     qualities: [50, 100]
   }
 };
