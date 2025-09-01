@@ -22,7 +22,7 @@
     margin-bottom: 1rem;
     display: grid;
     gap: 2.5rem;
-    row-gap: 1rem;
+    row-gap: 4rem;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
     // Prevents it from expanding to 4 cards per row

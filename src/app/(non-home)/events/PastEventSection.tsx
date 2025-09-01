@@ -2,15 +2,21 @@
 
 import './Events.scss';
 
-import { EventsList } from '@/(non-home)/events/EventsList';
-import { LargeScaleEvents } from '@/(non-home)/events/LargeScaleEvents';
-
+import { Suspense, use, useState } from 'react';
+import { AllEventsPromise } from './page';
 import EventAccordion from '@/components/EventAccordion/EventAccordion';
-import { useState } from 'react';
+import { LargeEvent, NormalEvent } from './types';
 
-export default function EventSection() {
-  const [eventSource, setEventSource] = useState<'GBMs' | 'LargeScale'>('GBMs');
+export type EventSource = 'GBMs' | 'LargeScale';
 
+interface PastEventSectionProps {
+  allEventsPromise: any;
+}
+
+export default function EventSection({
+  allEventsPromise
+}: PastEventSectionProps) {
+  const [eventSource, setEventSource] = useState<EventSource>('GBMs');
   return (
     <div className="past-events">
       <h2>Past Events</h2>
@@ -29,11 +35,39 @@ export default function EventSection() {
         </button>
       </div>
 
-      {eventSource === 'GBMs' ? (
-        <EventAccordion events={EventsList} eventSource={eventSource} />
-      ) : (
-        <EventAccordion events={LargeScaleEvents} eventSource={eventSource} />
-      )}
+      <Suspense fallback={null}>
+        <EventAccordionWrapper
+          eventSource={eventSource}
+          allEventsPromise={allEventsPromise}
+        />
+      </Suspense>
     </div>
   );
 }
+
+const EventAccordionWrapper = ({
+  eventSource,
+  allEventsPromise
+}: {
+  eventSource: EventSource;
+  allEventsPromise: AllEventsPromise;
+}) => {
+  const { normalPromise, largePromise } = allEventsPromise;
+  const normalEvents = use(normalPromise);
+  const largeEvents = use(largePromise);
+  return (
+    <>
+      {eventSource === 'GBMs' ? (
+        <EventAccordion
+          events={normalEvents as NormalEvent[]}
+          eventSource={eventSource}
+        />
+      ) : (
+        <EventAccordion
+          events={largeEvents as LargeEvent[]}
+          eventSource={eventSource}
+        />
+      )}
+    </>
+  );
+};

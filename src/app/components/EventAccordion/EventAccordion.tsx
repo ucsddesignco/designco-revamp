@@ -1,14 +1,20 @@
 import * as React from 'react';
-import { Accordion } from 'radix-ui';
+import * as Accordion from '@radix-ui/react-accordion';
 import classNames from 'classnames';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 
-import { EventItem } from '@/(non-home)/events/EventsList';
 import EventCard from '@/components/EventCard/EventCard';
 
 import './EventAccordion.scss';
-import { LargeScaleEventItem } from '@/(non-home)/events/LargeScaleEvents';
-import LargeScaleEventCard from '../LargeScaleEventCard/LargeScaleEventCard';
+import { LargeEvent, NormalEvent } from '@/(non-home)/events/types';
+import {
+  SectionBoundary,
+  SectionStart,
+  buildSectionBoundaries,
+  formatDateFromInt,
+  isDateInSection,
+  toComparableDate
+} from './utils';
 
 type AccordionTriggerProps = {
   children: React.ReactNode;
@@ -53,242 +59,106 @@ const AccordionContent = React.forwardRef<
 
 AccordionContent.displayName = 'AccordionContent';
 
+type EventAccordionProps =
+  | { eventSource: 'GBMs'; events: NormalEvent[] }
+  | { eventSource: 'LargeScale'; events: LargeEvent[] };
+
 export default function EventAccordion({
   events,
   eventSource
-}: {
-  events: EventItem[] | LargeScaleEventItem[];
-  eventSource: string;
-}) {
-  function formatDate(dateInt: number) {
-    const dateStr = dateInt.toString();
-    const year = parseInt(dateStr.slice(0, 4), 10);
-    const month = parseInt(dateStr.slice(4, 6), 10) - 1; // Months are 0-indexed
-    const day = parseInt(dateStr.slice(6), 10);
+}: EventAccordionProps) {
+  // Get comparable numeric date (yyyymmdd) for sorting/filtering
+  const normalizeDate = (item: NormalEvent | LargeEvent): number => {
+    return toComparableDate(item.date as unknown as number | string);
+  };
 
-    const date = new Date(year, month, day);
-    return date.toLocaleDateString('en-US', {
-      weekday: 'long',
-      month: 'short',
-      day: 'numeric'
-    });
-  }
-
-  // Sort events (most recent first by date + time)
+  // Sort by date desc, then by time (GBMs only)
   const sortedEvents = [...events].sort((a, b) => {
-    const dateA = typeof a.date === 'string' ? parseInt(a.date, 10) : a.date;
-    const dateB = typeof b.date === 'string' ? parseInt(b.date, 10) : b.date;
-
-    if (dateA === dateB) {
-      const timeA = typeof a.time === 'number' ? a.time : 0;
-      const timeB = typeof b.time === 'number' ? b.time : 0;
+    const dateA = normalizeDate(a);
+    const dateB = normalizeDate(b);
+    if (dateA !== dateB) return dateB - dateA;
+    if (eventSource === 'GBMs') {
+      const timeA =
+        typeof (a as NormalEvent).time === 'number'
+          ? (a as NormalEvent).time
+          : 0;
+      const timeB =
+        typeof (b as NormalEvent).time === 'number'
+          ? (b as NormalEvent).time
+          : 0;
       return timeB - timeA;
     }
-
-    return dateB - dateA;
+    return 0;
   });
+
+  // Define school year starts; end boundaries are derived from the next start
+  const sectionStarts: SectionStart[] = [
+    { id: 'item-1', title: '2024-2025', start: 20241002 },
+    { id: 'item-2', title: '2023-2024', start: 20231004 },
+    { id: 'item-3', title: '2022-2023', start: 20220928 }
+  ];
+  const derivedBoundaries = buildSectionBoundaries(sectionStarts);
+  const archiveSection: SectionBoundary = {
+    id: 'item-archive',
+    title: 'Archive',
+    start: 0,
+    endExclusive: derivedBoundaries[derivedBoundaries.length - 1]?.start
+  };
+  const sections: SectionBoundary[] = [...derivedBoundaries, archiveSection];
+
+  const renderEvent = (item: NormalEvent | LargeEvent) => {
+    if (eventSource === 'GBMs') {
+      const event = item as NormalEvent;
+      const dateInt = toComparableDate(event.date);
+
+      return (
+        <EventCard
+          key={event._id}
+          variant="normal"
+          title={event.title}
+          image={event.image}
+          link={event.link}
+          date={formatDateFromInt(dateInt)}
+          location={event.location}
+          slides={event.slides}
+        />
+      );
+    }
+    const event = item as LargeEvent;
+    return (
+      <EventCard
+        key={event._id}
+        variant="large"
+        title={event.title}
+        image={event.image}
+        link={event.link}
+        date={event.displayDate}
+      />
+    );
+  };
 
   return (
     <Accordion.Root
       className="AccordionRoot"
       type="multiple"
-      defaultValue={['item-1', 'item-2', 'item-3', 'item-4']}
+      defaultValue={sections.map(s => s.id)}
     >
-      <Accordion.Item className="AccordionItem" value="item-1">
-        <AccordionTrigger>2024-2025</AccordionTrigger>
-        <AccordionContent>
-          <div className="events-container">
-            {eventSource === 'GBMs'
-              ? sortedEvents.reduce<React.JSX.Element[]>((acc, item) => {
-                  const dateInt =
-                    typeof item.date === 'string'
-                      ? parseInt(item.date, 10)
-                      : item.date;
-
-                  if (dateInt >= 20241002) {
-                    acc.push(
-                      <EventCard
-                        key={item.imageURL}
-                        event_title={item.title}
-                        imgLink={item.imageURL}
-                        event_link={item.link}
-                        date={formatDate(dateInt)}
-                        location={item.location ?? 'TBD'}
-                      />
-                    );
-                  }
-
-                  return acc;
-                }, [])
-              : sortedEvents
-                  .slice()
-                  .sort((a, b) => parseInt(b.image, 10) - parseInt(a.image, 10))
-                  .reduce<React.JSX.Element[]>((acc, item) => {
-                    const dateInt = parseInt(item.image, 10);
-
-                    if (dateInt >= 20241002) {
-                      acc.push(
-                        <LargeScaleEventCard
-                          key={item.imageURL}
-                          event_title={item.title}
-                          imgLink={item.imageURL}
-                          event_link={item.link}
-                          date={item.date}
-                        />
-                      );
-                    }
-
-                    return acc;
-                  }, [])}
-          </div>
-        </AccordionContent>
-      </Accordion.Item>
-
-      <Accordion.Item className="AccordionItem" value="item-2">
-        <AccordionTrigger>2023-2024</AccordionTrigger>
-        <AccordionContent>
-          <div className="events-container">
-            {eventSource === 'GBMs'
-              ? sortedEvents.reduce<React.JSX.Element[]>((acc, item) => {
-                  const dateInt =
-                    typeof item.date === 'string'
-                      ? parseInt(item.date, 10)
-                      : item.date;
-
-                  if (dateInt >= 20231004 && dateInt <= 20240702) {
-                    acc.push(
-                      <EventCard
-                        key={item.imageURL}
-                        event_title={item.title}
-                        imgLink={item.imageURL}
-                        event_link={item.link}
-                        date={formatDate(dateInt)}
-                        location={item.location ?? 'TBD'}
-                      />
-                    );
-                  }
-                  return acc;
-                }, [])
-              : sortedEvents
-                  .slice()
-                  .sort((a, b) => parseInt(b.image, 10) - parseInt(a.image, 10))
-                  .reduce<React.JSX.Element[]>((acc, item) => {
-                    const dateInt = parseInt(item.image, 10);
-
-                    if (dateInt >= 20231004 && dateInt <= 20240702) {
-                      acc.push(
-                        <LargeScaleEventCard
-                          key={item.imageURL}
-                          event_title={item.title}
-                          imgLink={item.imageURL}
-                          event_link={item.link}
-                          date={item.date}
-                        />
-                      );
-                    }
-
-                    return acc;
-                  }, [])}
-          </div>
-        </AccordionContent>
-      </Accordion.Item>
-
-      <Accordion.Item className="AccordionItem" value="item-3">
-        <AccordionTrigger>2022-2023</AccordionTrigger>
-        <Accordion.Content className="AccordionContent">
-          <div className="events-container">
-            {eventSource === 'GBMs'
-              ? sortedEvents.reduce<React.JSX.Element[]>((acc, item) => {
-                  const dateInt =
-                    typeof item.date === 'string'
-                      ? parseInt(item.date, 10)
-                      : item.date;
-
-                  if (dateInt >= 20220928 && dateInt <= 20230702) {
-                    acc.push(
-                      <EventCard
-                        key={item.imageURL}
-                        event_title={item.title}
-                        imgLink={item.imageURL}
-                        event_link={item.link}
-                        date={formatDate(dateInt)}
-                        location={item.location ?? 'TBD'}
-                      />
-                    );
-                  }
-                  return acc;
-                }, [])
-              : sortedEvents
-                  .slice()
-                  .sort((a, b) => parseInt(b.image, 10) - parseInt(a.image, 10))
-                  .reduce<React.JSX.Element[]>((acc, item) => {
-                    const dateInt = parseInt(item.image, 10);
-
-                    if (dateInt >= 20220928 && dateInt <= 20230702) {
-                      acc.push(
-                        <LargeScaleEventCard
-                          key={item.imageURL}
-                          event_title={item.title}
-                          imgLink={item.imageURL}
-                          event_link={item.link}
-                          date={item.date}
-                        />
-                      );
-                    }
-
-                    return acc;
-                  }, [])}
-          </div>
-        </Accordion.Content>
-      </Accordion.Item>
-      <Accordion.Item className="AccordionItem" value="item-4">
-        <AccordionTrigger>Archive</AccordionTrigger>
-        <Accordion.Content className="AccordionContent">
-          <div className="events-container">
-            {eventSource === 'GBMs'
-              ? sortedEvents.reduce<React.JSX.Element[]>((acc, item) => {
-                  const dateInt =
-                    typeof item.date === 'string'
-                      ? parseInt(item.date, 10)
-                      : item.date;
-
-                  if (dateInt <= 20220804) {
-                    acc.push(
-                      <EventCard
-                        key={item.imageURL}
-                        event_title={item.title}
-                        imgLink={item.imageURL}
-                        event_link={item.link}
-                        date={formatDate(dateInt)}
-                        location={item.location ?? 'TBD'}
-                      />
-                    );
-                  }
-                  return acc;
-                }, [])
-              : sortedEvents
-                  .slice()
-                  .sort((a, b) => parseInt(b.image, 10) - parseInt(a.image, 10))
-                  .reduce<React.JSX.Element[]>((acc, item) => {
-                    const dateInt = parseInt(item.image, 10);
-
-                    if (dateInt <= 20220804) {
-                      acc.push(
-                        <LargeScaleEventCard
-                          key={item.imageURL}
-                          event_title={item.title}
-                          imgLink={item.imageURL}
-                          event_link={item.link}
-                          date={item.date}
-                        />
-                      );
-                    }
-
-                    return acc;
-                  }, [])}
-          </div>
-        </Accordion.Content>
-      </Accordion.Item>
+      {sections.map(section => (
+        <Accordion.Item
+          className="AccordionItem"
+          value={section.id}
+          key={section.id}
+        >
+          <AccordionTrigger>{section.title}</AccordionTrigger>
+          <AccordionContent>
+            <div className="events-container">
+              {sortedEvents
+                .filter(item => isDateInSection(normalizeDate(item), section))
+                .map(item => renderEvent(item))}
+            </div>
+          </AccordionContent>
+        </Accordion.Item>
+      ))}
     </Accordion.Root>
   );
 }

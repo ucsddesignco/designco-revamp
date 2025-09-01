@@ -1,3 +1,5 @@
+@use 'sass:list';
+
 $mobile-ratio: 1.3;
 $mobile-padding: 15px;
 $desktop-padding: 30px;
@@ -50,8 +52,8 @@ $image-sizes: (
 
       @each $index, $sizes in $image-sizes {
         &:nth-child(#{$index}) .keen-slider__slide {
-          --slide-width: #{nth($sizes, 1)};
-          --slide-height: #{nth($sizes, 2)};
+          --slide-width: #{list.nth($sizes, 1)};
+          --slide-height: #{list.nth($sizes, 2)};
         }
       }
 

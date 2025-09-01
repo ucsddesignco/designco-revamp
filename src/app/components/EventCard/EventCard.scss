@@ -1,6 +1,4 @@
 .event-card {
-  margin-block: 2rem;
-
   .event-image {
     display: inline-block;
     vertical-align: middle;
@@ -23,14 +21,24 @@
   }
 
   .event-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
     .event-card-title {
-      padding: 1rem 0;
+      padding-top: 1.25rem;
       font-size: 15px;
       font-weight: bold;
+      text-wrap: pretty;
     }
 
     .event-card-description {
       font-size: 15px;
+    }
+
+    .event-card-slides {
+      font-size: 15px;
+      font-family: var(--font-nbinternational-mono);
     }
   }
 }

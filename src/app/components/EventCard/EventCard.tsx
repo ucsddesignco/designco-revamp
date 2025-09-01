@@ -1,29 +1,42 @@
 import Image from 'next/image';
 import './EventCard.scss';
 
-interface EventCardProps {
-  event_title: string;
-  imgLink: string;
-  event_link: string;
+type BaseEventCardProps = {
+  title: string;
+  image: string;
+  link: string;
+};
+
+type NormalEventCardProps = BaseEventCardProps & {
+  variant: 'normal';
   date: string;
   location: string;
-}
+  slides: string | null;
+};
 
-export default function EventCard({
-  event_title,
-  imgLink,
-  event_link,
-  date,
-  location
-}: EventCardProps) {
+type LargeEventCardProps = BaseEventCardProps & {
+  variant: 'large';
+  date: string | number;
+};
+
+type EventCardProps = NormalEventCardProps | LargeEventCardProps;
+
+export default function EventCard(props: EventCardProps) {
+  const { title, image, link } = props;
+  const dateText = String(props.date);
+  const anchorProps =
+    props.variant === 'normal'
+      ? { target: '_blank', rel: 'noopener noreferrer' }
+      : {};
+
   return (
     <div className="event-card">
       <div className="svg-container">
-        <a href={event_link}>
+        <a href={link} {...anchorProps}>
           <Image
             className="event-image"
-            src={imgLink}
-            alt={`graphic for ${event_title}`}
+            src={image}
+            alt={`graphic for ${title}`}
             width="500"
             height="500"
           />
@@ -31,12 +44,19 @@ export default function EventCard({
       </div>
       <div className="event-card-content">
         <div className="event-card-title">
-          <h3>{event_title}</h3>
+          <h3>{title}</h3>
         </div>
         <div className="event-card-description">
-          <p>{date}</p>
-          <p>{location}</p>
+          <p>{dateText}</p>
+          {props.variant === 'normal' && <p>{props.location}</p>}
         </div>
+        <p className="event-card-slides">
+          {props.variant === 'normal' && props.slides && (
+            <a href={props.slides} target="_blank" rel="noopener noreferrer">
+              SLIDES
+            </a>
+          )}
+        </p>
       </div>
     </div>
   );
