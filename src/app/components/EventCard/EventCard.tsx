@@ -33,12 +33,14 @@ export default function EventCard(props: EventCardProps) {
     <div className="event-card">
       <div className="svg-container">
         <a href={link} {...anchorProps}>
+          {/* Unoptimized because of Netlify issue that doesn't cache the images */}
           <Image
             className="event-image"
             src={image}
             alt={`graphic for ${title}`}
             width="500"
             height="500"
+            unoptimized
           />
         </a>
       </div>
