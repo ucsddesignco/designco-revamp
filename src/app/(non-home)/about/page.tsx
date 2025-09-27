@@ -60,7 +60,7 @@ export default function About() {
             Wednesdays at 6:30pm at the Design & Innovation Building Room 208.
             Sometimes things change, so we suggest following our{' '}
             <a
-              href="https://www.instagram.com/ucsddesignco/"
+              href="https://www.instagram.com/designcoatucsd/"
               target="_blank"
               rel="noopener noreferrer"
             >

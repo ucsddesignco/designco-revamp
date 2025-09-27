@@ -4,7 +4,7 @@ import localFont from 'next/font/local';
 import React from 'react';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ucsddesign.co/'),
+  metadataBase: new URL('https://designatucsd.com/'),
   title: 'Design Co',
   description: `We're a strong and scrappy design community at UC San Diego, bridging the gap between young designers and industry. Previously known as Design at UCSD.`,
   keywords: 'Design Co, Design at UCSD, UCSD, UC San Diego, design, HCI, HCD',
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Design Co',
     description: `We're a strong and scrappy design community at UC San Diego, bridging the gap between young designers and industry. Previously known as Design at UCSD.`,
     images: '/opengraph-image.png',
-    url: 'https://ucsddesign.co/',
+    url: 'https://designatucsd.com/',
     siteName: 'UCSD Design Co',
     locale: 'en_US',
     type: 'website'

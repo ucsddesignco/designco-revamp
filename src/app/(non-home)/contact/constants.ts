@@ -5,14 +5,14 @@ export const CONTACT_LINKS = [
     handle: '/ucsddesignco'
   },
   {
-    href: 'https://www.instagram.com/ucsddesignco/',
+    href: 'https://www.instagram.com/designcoatucsd/',
     text: 'Instagram',
-    handle: '@ucsddesignco'
+    handle: '@designcoatucsd'
   },
   {
-    href: 'https://www.linkedin.com/company/ucsddesignco/',
+    href: 'https://www.linkedin.com/company/designcoatucsd/',
     text: 'Linkedin',
-    handle: '/ucsddesignco'
+    handle: '/designcoatucsd'
   },
   {
     href: 'mailto:designatucsd@gmail.com',

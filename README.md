@@ -1,8 +1,6 @@
 # UCSD Design Co Website Revamp
 
-**Old Website:** https://ucsddesign.co/
-
-**New Website:**
+https://designatucsd.com/
 
 ## Getting Started
 

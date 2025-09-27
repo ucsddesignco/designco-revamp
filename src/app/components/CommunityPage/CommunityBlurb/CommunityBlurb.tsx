@@ -24,7 +24,7 @@ export default function CommunityBlurb({
           Design Co! It’s like LinkedIn, but exclusively for our UCSD community.
         </p>
         <Button
-          link="https://community.ucsddesign.co/"
+          link="https://community.designatucsd.com/"
           text="Meet the Community"
           bgColor="white"
           color="var(--community-bg-color)"

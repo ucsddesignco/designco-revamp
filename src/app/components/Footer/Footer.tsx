@@ -9,9 +9,9 @@ export default function Footer() {
   let bgColor = 'white';
   const links = [
     { href: 'https://www.facebook.com/ucsddesignco', text: 'Facebook' },
-    { href: 'https://www.instagram.com/ucsddesignco/', text: 'Instagram' },
+    { href: 'https://www.instagram.com/designcoatucsd/', text: 'Instagram' },
     {
-      href: 'https://www.linkedin.com/company/ucsddesignco/',
+      href: 'https://www.linkedin.com/company/designcoatucsd/',
       text: 'LinkedIn'
     },
     { href: 'https://medium.com/ucsddesignco', text: 'Medium' },
