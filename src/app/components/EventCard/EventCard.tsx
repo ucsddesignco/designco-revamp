@@ -13,6 +13,7 @@ type NormalEventCardProps = BaseEventCardProps & {
   date: string;
   location: string;
   slides: string | null;
+  newAspectRatio?: boolean;
 };
 
 type LargeEventCardProps = BaseEventCardProps & {
@@ -27,11 +28,20 @@ export default function EventCard(props: EventCardProps) {
   const { title, image, link } = props;
   const dateText = String(props.date);
   const isNormal = props.variant === 'normal';
+  const isNewAspectRatio = isNormal && props.newAspectRatio;
+
+  const getAspectRatio = () => {
+    if (isNormal) {
+      return isNewAspectRatio ? '4/5' : '1';
+    }
+    // Large events
+    return '2';
+  };
   return (
     <div className="event-card">
       <a
         href={link}
-        style={{ aspectRatio: isNormal ? '1' : '236/119' }}
+        style={{ aspectRatio: getAspectRatio() }}
         target="_blank"
         rel="noopener noreferrer"
         className={`event-image-container ${loaded ? 'loaded' : ''}`}
@@ -40,8 +50,8 @@ export default function EventCard(props: EventCardProps) {
           className="event-image"
           src={image}
           alt={`graphic for ${title}`}
-          width="500"
-          height="500"
+          width={isNewAspectRatio ? '400' : '500'}
+          height={isNewAspectRatio ? '500' : '500'}
           onLoad={() => {
             setLoaded(true);
           }}

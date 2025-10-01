@@ -93,6 +93,7 @@ export default function EventAccordion({
 
   // Define school year starts; end boundaries are derived from the next start
   const sectionStarts: SectionStart[] = [
+    { id: 'item-0', title: '2025-2026', start: 20251001 },
     { id: 'item-1', title: '2024-2025', start: 20241002 },
     { id: 'item-2', title: '2023-2024', start: 20231004 },
     { id: 'item-3', title: '2022-2023', start: 20220928 }
@@ -105,6 +106,8 @@ export default function EventAccordion({
     endExclusive: derivedBoundaries[derivedBoundaries.length - 1]?.start
   };
   const sections: SectionBoundary[] = [...derivedBoundaries, archiveSection];
+
+  const NEW_IG_ASPECT_RATIO_DATE = 20251001;
 
   const renderEvent = (item: NormalEvent | LargeEvent) => {
     if (eventSource === 'GBMs') {
@@ -121,6 +124,7 @@ export default function EventAccordion({
           date={formatDateFromInt(dateInt)}
           location={event.location}
           slides={event.slides}
+          newAspectRatio={dateInt >= NEW_IG_ASPECT_RATIO_DATE ? true : false}
         />
       );
     }
