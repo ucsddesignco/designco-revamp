@@ -52,6 +52,7 @@ export default function EventCard(props: EventCardProps) {
           alt={`graphic for ${title}`}
           width={isNewAspectRatio ? '400' : '500'}
           height={isNewAspectRatio ? '500' : '500'}
+          quality={90}
           onLoad={() => {
             setLoaded(true);
           }}
