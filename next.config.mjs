@@ -15,7 +15,7 @@ const nextConfig = {
         pathname: '/design-co-ucsd/**'
       }
     ],
-    qualities: [50, 100]
+    qualities: [50, 90, 100]
   }
 };
 

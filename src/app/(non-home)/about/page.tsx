@@ -95,11 +95,11 @@ export default function About() {
           <div className="right">
             <Image
               className="walkman"
-              src="/images/About/walkman.png"
-              height={320}
-              width={816}
+              src="/images/About/walkman.webp"
+              height={274}
+              width={703}
+              style={{ width: '100%', objectFit: 'cover', height: 'auto' }}
               quality={100}
-              style={{ width: '100%', objectFit: 'contain', height: 'auto' }}
               alt="Design Co Walkman"
             />
           </div>

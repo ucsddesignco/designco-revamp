@@ -38,18 +38,23 @@
   .AccordionTrigger {
     font-family: $mono-font;
     text-transform: uppercase;
-    padding: 25px;
+    padding: 1.5rem;
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 15px;
+    font-size: 0.875rem;
     color: white;
     background-color: black;
     transition:
       opacity 0.3s,
       background-color 0.3s;
     cursor: pointer;
+
+    @media (min-width: $mobile-breakpoint) {
+      font-size: 1rem;
+      padding: 1.75rem;
+    }
 
     &:hover {
       opacity: 0.85;
