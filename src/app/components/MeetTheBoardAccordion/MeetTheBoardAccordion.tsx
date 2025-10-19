@@ -3,22 +3,107 @@
 import * as Accordion from '@radix-ui/react-accordion';
 import './MeetTheBoardAccordion.scss';
 import Image from 'next/image';
-import { BOARD_MEMBER_LIST } from './constants';
+import { BoardMember } from '@/(non-home)/about/page';
 
-export default function MeetTheBoardAccordion() {
+const ROLE_TITLES: Record<string, string> = {
+  CEC: 'Community Engagement',
+  Creative: 'Creative',
+  IR: 'Industry Relations',
+  Ops: 'Operations',
+  Marketing: 'Marketing'
+};
+
+const ROLE_ORDER = ['CEC', 'Creative', 'IR', 'Ops', 'Marketing'];
+
+const CREATIVE_ROLE_ORDER = [
+  'Director of Creative',
+  'Visual + Brand Designer',
+  'Lead Software Developer',
+  'Software Developer'
+];
+
+const MARKETING_ROLE_ORDER = [
+  'Director of Marketing',
+  'Content Writer',
+  'Media Coordinator',
+  'Social Media Coordinator'
+];
+
+function sortMembersWithinRole(
+  members: BoardMember[],
+  role: string
+): BoardMember[] {
+  if (role === 'Creative') {
+    // Special sorting for Creative role
+    const sorted: BoardMember[] = [];
+
+    CREATIVE_ROLE_ORDER.forEach(roleTitle => {
+      const membersWithRole = members
+        .filter(member => member.roleTitle === roleTitle)
+        .sort((a, b) => a.name.localeCompare(b.name));
+      sorted.push(...membersWithRole);
+    });
+
+    return sorted;
+  } else if (role === 'Marketing') {
+    // Special sorting for Marketing role
+    const sorted: BoardMember[] = [];
+
+    MARKETING_ROLE_ORDER.forEach(roleTitle => {
+      const membersWithRole = members
+        .filter(member => member.roleTitle === roleTitle)
+        .sort((a, b) => a.name.localeCompare(b.name));
+      sorted.push(...membersWithRole);
+    });
+
+    return sorted;
+  } else {
+    // General sorting: Directors first, then rest alphabetically by name
+    const directors = members
+      .filter(member => member.roleTitle.includes('Director'))
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    const others = members
+      .filter(member => !member.roleTitle.includes('Director'))
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    return [...directors, ...others];
+  }
+}
+
+export default function MeetTheBoardAccordion({
+  boardMembers
+}: {
+  boardMembers: BoardMember[];
+}) {
+  const groupedMembers = ROLE_ORDER.reduce(
+    (acc, role) => {
+      const membersInRole = boardMembers.filter(member => member.role === role);
+      if (membersInRole.length > 0) {
+        acc.push({
+          role,
+          title: ROLE_TITLES[role],
+          members: sortMembersWithinRole(membersInRole, role)
+        });
+      }
+      return acc;
+    },
+    [] as { role: string; title: string; members: BoardMember[] }[]
+  );
+
   return (
     <div className="meet_the_board">
       <h2>Meet the Board</h2>
       <Accordion.Root className="AccordionRoot" type="single" collapsible>
-        {BOARD_MEMBER_LIST.map(role => (
+        {groupedMembers.map(roleGroup => (
           <Accordion.Item
             className="AccordionItem"
-            value={role.title}
-            key={role.title}
+            value={roleGroup.title}
+            key={roleGroup.title}
           >
             <Accordion.Header className="AccordionHeader">
               <Accordion.Trigger className="AccordionTrigger">
-                <span>{role.title}</span>
+                <span>{roleGroup.title}</span>
                 <svg
                   className="icon"
                   xmlns="http://www.w3.org/2000/svg"
@@ -37,10 +122,10 @@ export default function MeetTheBoardAccordion() {
             </Accordion.Header>
             <Accordion.Content className="AccordionContent">
               <div className="member-container">
-                {role.members.map(member => (
-                  <div className="member" key={member.id}>
+                {roleGroup.members.map(member => (
+                  <div className="member" key={member.name}>
                     <a
-                      href={member.link}
+                      href={member.personalLink}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -49,16 +134,16 @@ export default function MeetTheBoardAccordion() {
                         onLoad={e => {
                           e.currentTarget.setAttribute('data-loaded', 'true');
                         }}
-                        src={member.img}
-                        width={372}
-                        height={464}
+                        src={member.image}
+                        width={300}
+                        height={450}
                         alt={member.name}
                         className="member_img"
                         quality={100}
                       />
                     </a>
                     <h3>{member.name}</h3>
-                    <p className="role">{member.role}</p>
+                    <p className="role">{member.roleTitle}</p>
                     <p className="gradYear">{member.gradYear}</p>
                   </div>
                 ))}

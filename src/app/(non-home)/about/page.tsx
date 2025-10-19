@@ -4,8 +4,26 @@ import Button from '@/components/Button/Button';
 import Image from 'next/image';
 import ImageCarousel from '@/components/ImageCarousel/ImageCarousel';
 import { ABOUT_IMAGES_LIST } from './constants';
+import client from '@/lib/mongodb';
+import { serializeDocs } from '@/lib/serializeDocs';
 
-export default function About() {
+export type BoardMember = {
+  _id: string;
+  name: string;
+  role: 'CEC' | 'Creative' | 'IR' | 'Ops' | 'Marketing';
+  roleTitle: string;
+  gradYear: number;
+  image: string;
+  personalLink: string;
+};
+
+export default async function About() {
+  const db = client.db('DCo-Board');
+  const boardMembersCollection = db.collection<BoardMember>('members');
+  const boardMembersPromise = boardMembersCollection.find().toArray();
+  const boardMembers = await boardMembersPromise;
+  const serializedBoardMembers = serializeDocs<BoardMember>(boardMembers);
+
   return (
     <main className="about_page">
       <h1>
@@ -78,7 +96,7 @@ export default function About() {
           </p>
         </li>
       </ul>
-      <MeetTheBoardAccordion />
+      <MeetTheBoardAccordion boardMembers={serializedBoardMembers} />
       <section className="spotify">
         <h2>What our board is listening to</h2>
         <div className="spotify_container">

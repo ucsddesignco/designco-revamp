@@ -75,13 +75,13 @@
 
       @media screen and (min-width: $mobile-breakpoint) {
         display: grid;
-        gap: 3rem;
+        gap: 2.5rem;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         padding: 1rem 3rem 3rem 3rem;
       }
 
       .member {
-        aspect-ratio: 4/5;
+        aspect-ratio: 2/3;
         margin-bottom: 1.5rem;
 
         @media screen and (min-width: $mobile-breakpoint) {
