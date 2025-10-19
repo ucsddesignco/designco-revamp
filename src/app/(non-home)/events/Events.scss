@@ -21,12 +21,19 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
     display: grid;
-    gap: 2.5rem;
-    row-gap: 4rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    row-gap: 3rem;
 
+    // The issue with commented code below is if there is only a single event card in a section, it will expand to take up full width for mobile
+    // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    @media (min-width: 650px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      row-gap: 4rem;
+    }
     // Prevents it from expanding to 4 cards per row
-    @media (min-width: 1500px) {
+    @media (min-width: 1200px) {
       grid-template-columns: repeat(3, 1fr);
     }
   }

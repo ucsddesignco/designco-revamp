@@ -4,10 +4,13 @@
   }
 
   .AccordionRoot {
-    margin-bottom: 6rem;
     display: flex;
     flex-direction: column;
-    gap: 6rem;
+    gap: 3rem;
+
+    @media (min-width: $mobile-breakpoint) {
+      gap: 6rem;
+    }
   }
 
   .AccordionItem {

@@ -5,6 +5,9 @@
     flex-direction: column;
     justify-content: center;
 
+    // Fix firefox mobile bug where the image is too tall
+    max-height: 80vh;
+
     @media (min-width: 350px) {
       height: 80vh;
     }
