@@ -3,7 +3,7 @@ import * as Accordion from '@radix-ui/react-accordion';
 import classNames from 'classnames';
 import { PlusIcon } from '@radix-ui/react-icons';
 import './FAQAccordion.scss';
-import { faq } from '@/components/ApplyPage/faqList';
+import { faq } from './utils';
 
 type AccordionTriggerProps = {
   children: React.ReactNode;
@@ -25,8 +25,8 @@ const AccordionTrigger = React.forwardRef<
       {...props}
       ref={forwardedRef}
     >
-      {children}
       <PlusIcon className="AccordionChevron" aria-hidden />
+      {children}
     </Accordion.Trigger>
   </Accordion.Header>
 ));
@@ -53,11 +53,7 @@ AccordionContent.displayName = 'AccordionContent';
 
 export default function FAQAccordion() {
   return (
-    <Accordion.Root
-      className="AccordionRoot"
-      type="multiple"
-      defaultValue={faq.map(item => String(item.id))}
-    >
+    <Accordion.Root className="AccordionRoot" type="multiple">
       {faq.map(item => (
         <Accordion.Item
           className="AccordionItem"

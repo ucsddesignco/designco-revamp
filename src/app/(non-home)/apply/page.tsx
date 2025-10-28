@@ -2,7 +2,7 @@ import './Apply.scss';
 
 import FAQAccordion from '@/components/ApplyPage/FAQAccordion/FAQAccordion';
 
-import { roles } from '@/components/ApplyPage/roles';
+import { roles } from '@/components/ApplyPage/PositionsList/utils';
 
 export default function Apply() {
   const roleList = roles.map(item => item.duty);
