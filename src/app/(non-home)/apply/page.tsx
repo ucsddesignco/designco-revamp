@@ -1,3 +1,4 @@
+import ApplyHero from '@/components/ApplyPage/ApplyHero/ApplyHero';
 import './Apply.scss';
 
 import FAQAccordion from '@/components/ApplyPage/FAQAccordion/FAQAccordion';
@@ -21,6 +22,7 @@ export default function Apply() {
 
   return (
     <main id="apply-page">
+      <ApplyHero />
       <div>
         <p className="steps">1st</p>
         <div className="stepCopy">
@@ -58,7 +60,7 @@ export default function Apply() {
           </p>
         </div>
       </div>
-      <div className="innerContainer">
+      <div className="innerContainer" id="roles">
         <h1>Open Roles</h1>
         {roleList}
       </div>

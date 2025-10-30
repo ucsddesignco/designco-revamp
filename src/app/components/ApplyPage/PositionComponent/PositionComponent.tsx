@@ -26,15 +26,12 @@ export default function Position(props: Role) {
         (panels[i] as HTMLElement).scrollTop = 0;
       }
 
-      // Update body overflow based on new state
       document.body.style.overflow = newPanelState ? 'scroll' : 'hidden';
     }
 
-    // Show and hide panel
     setHideSidePanel(newPanelState);
   };
 
-  // Enables HTML styling for text input from roles.js
   const htmlDecode = (input: string) => {
     if (typeof document === 'undefined') return input;
     const e = document.createElement('div');
