@@ -10,27 +10,28 @@ const spacer3 = '24px';
 
 export default function Position(props: Role) {
   const [hideSidePanel, setHideSidePanel] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
-  const handleScroll = () => {
-    // Enable/disable document page from scrolling
-    if (typeof document !== 'undefined') {
-      document.body.style.overflow = hideSidePanel ? 'hidden' : 'scroll';
-    }
-  };
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handlePanel = () => {
-    // Show and hide panel
-    setHideSidePanel(!hideSidePanel);
+    const newPanelState = !hideSidePanel;
 
-    // Reset panel scroll position to the top
+    // Reset panel scroll position to the top BEFORE toggling
     if (typeof document !== 'undefined') {
       const panels = document.getElementsByClassName('panel');
       for (let i = 0; i < panels.length; i++) {
         (panels[i] as HTMLElement).scrollTop = 0;
       }
+
+      // Update body overflow based on new state
+      document.body.style.overflow = newPanelState ? 'scroll' : 'hidden';
     }
 
-    handleScroll();
+    // Show and hide panel
+    setHideSidePanel(newPanelState);
   };
 
   // Enables HTML styling for text input from roles.js
@@ -58,13 +59,16 @@ export default function Position(props: Role) {
   useEffect(() => {
     if (typeof document !== 'undefined') {
       document.addEventListener('keydown', escFunction, false);
-      console.log(props);
 
       return () => {
         document.removeEventListener('keydown', escFunction, false);
       };
     }
-  }, [escFunction, props]);
+  }, [escFunction]);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div>
@@ -78,13 +82,12 @@ export default function Position(props: Role) {
           <Image
             src="/images/Apply/arrow.svg"
             alt="arrow"
-            width="250"
-            height="250"
+            width={32}
+            height={32}
           />
         </a>
       </Col>
 
-      {/* Background brightness */}
       <div
         className={
           hideSidePanel
@@ -94,7 +97,6 @@ export default function Position(props: Role) {
         onClick={handlePanel}
       ></div>
 
-      {/* Side panel */}
       <div
         className={
           hideSidePanel

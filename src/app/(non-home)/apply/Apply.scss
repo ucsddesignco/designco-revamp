@@ -94,7 +94,6 @@
   }
 }
 
-// Side panel overlay
 .panel-darken {
   position: fixed;
   top: 0;
@@ -115,13 +114,12 @@
   }
 }
 
-// Side panel wrapper
 .panel-wrap {
   position: fixed;
   top: 0;
   right: 0;
-  width: 700px;
-  max-width: 90%;
+  width: 1250px;
+  max-width: 95%;
   height: 100%;
   background: #000;
   color: #fff;
@@ -138,9 +136,8 @@
   }
 }
 
-// Panel content
 .panel {
-  padding: 60px;
+  padding: 80px;
   min-height: 100%;
 }
 
@@ -221,7 +218,6 @@
   }
 }
 
-// FAQ section
 #faq {
   .container {
     max-width: 900px;
