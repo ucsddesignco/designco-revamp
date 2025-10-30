@@ -1,0 +1,44 @@
+#apply-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 60px;
+
+  > div {
+    position: relative;
+    margin-bottom: 120px;
+    padding-left: 60px;
+  }
+
+  .steps {
+    position: absolute;
+    left: -10px;
+    top: -40px;
+    font-size: 200px;
+    font-weight: 700;
+    color: #e5e5e5;
+    line-height: 1;
+    margin: 0;
+    z-index: -1;
+  }
+
+  .stepCopy {
+    max-width: 900px;
+    position: relative;
+    z-index: 1;
+
+    h1 {
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 0 0 24px 0;
+      color: #000;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+    }
+  }
+}
