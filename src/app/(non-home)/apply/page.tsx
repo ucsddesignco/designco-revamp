@@ -5,6 +5,7 @@ import FAQAccordion from '@/components/ApplyPage/FAQAccordion/FAQAccordion';
 import Position from '@/components/ApplyPage/PositionComponent/PositionComponent';
 
 import { roles } from '@/components/ApplyPage/PositionComponent/utils';
+import Image from 'next/image';
 
 export default function Apply() {
   const roleList = roles.map(item => (
@@ -58,6 +59,30 @@ export default function Apply() {
             ideas, and experimenting. We fail together and grow together, so
             come along with us for the journey!
           </p>
+        </div>
+      </div>
+      <div className="scrollWrapper">
+        <div className="scrollContainer">
+          <div className="imageDiv">
+            <Image
+              src="/images/Apply/12.webp"
+              alt="image 1"
+              width="500"
+              height="100"
+            />
+            <Image
+              src="/images/Apply/13.webp"
+              alt="image 2"
+              width="500"
+              height="100"
+            />
+            <Image
+              src="/images/Apply/11.jpg"
+              alt="image 3"
+              width="500"
+              height="100"
+            />
+          </div>
         </div>
       </div>
       <div className="innerContainer" id="roles">

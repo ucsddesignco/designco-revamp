@@ -218,6 +218,46 @@
   }
 }
 
+.scrollWrapper {
+  overflow-y: hidden;
+  height: 40rem;
+}
+
+.scrollContainer {
+  overflow-y: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+  cursor: ew-resize;
+  height: 41.5rem;
+  margin-left: 16px;
+  @media screen and (min-width: 768px) {
+    margin-left: calc(#{16px + 24px});
+  }
+}
+
+.imageDiv {
+  height: 100%;
+  display: flex;
+  img {
+    height: 100%;
+    margin-right: 16px;
+    &:nth-child(3n -1) {
+      height: 70%;
+    }
+    &:nth-child(3n) {
+      height: 85%;
+    }
+    &:last-child {
+      padding-right: 16px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    img:last-child {
+      padding-right: calc(#{16px + 24px});
+    }
+  }
+}
+
 #faq {
   .container {
     max-width: 900px;
