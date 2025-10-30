@@ -1,11 +1,23 @@
 import './Apply.scss';
 
 import FAQAccordion from '@/components/ApplyPage/FAQAccordion/FAQAccordion';
+import Position from '@/components/ApplyPage/PositionComponent/PositionComponent';
 
 import { roles } from '@/components/ApplyPage/PositionComponent/utils';
 
 export default function Apply() {
-  const roleList = roles.map(item => item.duty);
+  const roleList = roles.map(item => (
+    <Position
+      key={item.key}
+      team={item.team}
+      position={item.position}
+      description={item.description}
+      duty={item.duty}
+      general={item.general}
+      offer={item.offer}
+      ec={item.ec}
+    />
+  ));
 
   return (
     <main id="apply-page">

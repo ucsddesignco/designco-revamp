@@ -1,5 +1,6 @@
 export const roles: Role[] = [
   {
+    key: '1',
     team: 'Community',
     position: 'Community Engagement Coordinator',
     description:
@@ -26,6 +27,7 @@ export const roles: Role[] = [
       &lt;li&gt; Knowing funny jokes, can teach sick dance moves, and have great food or music recommendations &lt;/li&gt; &lt;/ol&gt;'
   },
   {
+    key: '2',
     team: 'Creative',
     position: 'Web Developer',
     description:
@@ -53,7 +55,8 @@ export const roles: Role[] = [
   }
 ];
 
-interface Role {
+export interface Role {
+  key: string;
   team: string;
   position: string;
   description: string;
