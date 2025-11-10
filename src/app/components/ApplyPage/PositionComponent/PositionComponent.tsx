@@ -1,5 +1,7 @@
 'use client';
 
+import './PositionComponent.scss';
+
 import { useState, useEffect, useCallback } from 'react';
 import { Col } from 'react-grid-system';
 import { Role } from '@/components/ApplyPage/PositionComponent/utils';
