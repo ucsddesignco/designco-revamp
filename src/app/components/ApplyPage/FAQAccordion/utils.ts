@@ -39,18 +39,18 @@ export const faq: faq[] = [
     id: 7,
     question: 'How do board members collaborate together?',
     answer:
-      "We're split into five highly cross-functional and collaborative teams. Now that's a lot of corporate jargon, what does that mean? It's easier for us to explain through the lens of planning an event. &lt;br/&gt;&lt;br/&gt;\
+      "We're split into five highly cross-functional and collaborative teams. Now that's a lot of corporate jargon, what does that mean? It's easier for us to explain through the lens of planning an event. <br/><br/>\
     \
-    Let's say Design Co wants to set up a huge recruiting session with multiple industry partners. &lt;br/&gt;&lt;br/&gt;\
-    &lt;ol&gt; \
-    &lt;li&gt; Our industry relations team will be tasked with finding the industry partners and managing communications. They then communicate everything industry partners want/need to the community team, creative team, and marketing. &lt;/li&gt;\
-    &lt;li&gt; Our community team works with the community to figure out what students actually want. What they want to learn, what they want to hear, see, do. This may involve surveying our community on Discord, crafting the actual day-of experience etc. &lt;/li&gt;\
-    &lt;li&gt; Our operations team is involved with the logistics of the recruiting session, which includes budgeting for the event, booking event spaces etc. They will be in contact with all the teams to ensure our event caters towards our growing community and runs smoothly. &lt;/li&gt;\
-    &lt;li&gt; The designers on the creative team create all the visual and brand collateral for the event. From digital to print, they do all of the pixel pushing. &lt;/li&gt;\
-    &lt;li&gt; The developers on the creative team will build a website for the event, and update it when needed. &lt;/li&gt \
-    &lt;li&gt; Finally the marketing team uses social media, emailing, ads, posters and a ton of other tactics to ensure that you and all your friends know about the event and want to come out. This is how we collaborate at a high level, but it changes from day to day. &lt;/li&gt; &lt;/li&gt;&lt;br/&gt;\
-    &lt;/ol&gt; \
-    If you want us to get into more specifics, we meet weekly to chat, we use Google Drive to organize things, and Slack message each other. And yes, we have a ton of cool custom reactions, and we'll make one for you too if you join ;) &lt;br/&gt;&lt;br/&gt;\
+    Let's say Design Co wants to set up a huge recruiting session with multiple industry partners. <br/><br/>\
+    <ol> \
+    <li> Our industry relations team will be tasked with finding the industry partners and managing communications. They then communicate everything industry partners want/need to the community team, creative team, and marketing. </li>\
+    <li> Our community team works with the community to figure out what students actually want. What they want to learn, what they want to hear, see, do. This may involve surveying our community on Discord, crafting the actual day-of experience etc. </li>\
+    <li> Our operations team is involved with the logistics of the recruiting session, which includes budgeting for the event, booking event spaces etc. They will be in contact with all the teams to ensure our event caters towards our growing community and runs smoothly. </li>\
+    <li> The designers on the creative team create all the visual and brand collateral for the event. From digital to print, they do all of the pixel pushing. </li>\
+    <li> The developers on the creative team will build a website for the event, and update it when needed. </li>\
+    <li> Finally the marketing team uses social media, emailing, ads, posters and a ton of other tactics to ensure that you and all your friends know about the event and want to come out. This is how we collaborate at a high level, but it changes from day to day. </li></ol><br/>\
+    \
+    If you want us to get into more specifics, we meet weekly to chat, we use Google Drive to organize things, and Slack message each other. And yes, we have a ton of cool custom reactions, and we'll make one for you too if you join ;) <br/><br/>\
     \
     While you'll be serving in your role, all our board members wear multiple hats, and get the opportunities to try new things and learn. We hope that this allows you to grow as designers, professionals, and humans."
   },
