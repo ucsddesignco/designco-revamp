@@ -29,8 +29,11 @@ export default function ApplyHero() {
           <Image
             src="/images/Apply/board.gif"
             alt="board gif"
-            width={600}
-            height={600}
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: '100%', height: 'auto' }}
+            unoptimized
           />
         </Col>
       </Row>

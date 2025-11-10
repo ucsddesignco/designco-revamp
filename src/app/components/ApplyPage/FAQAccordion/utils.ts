@@ -20,7 +20,7 @@ export const faq: faq[] = [
     id: 4,
     question: "I'm interested in multiple roles, what should I do?",
     answer:
-      "While our board is made up of people who wear multiple hats, we believe that you should be committed and passionate about the role(s) you are applying to. &lt;b style='font-weight: 900'&gt;Because of that you may apply to 3 roles maximum&lt;/b&gt;."
+      "While our board is made up of people who wear multiple hats, we believe that you should be committed and passionate about the role(s) you are applying to. <b style='font-weight: 900'>Because of that you may apply to 3 roles maximum</b>."
   },
   {
     id: 5,

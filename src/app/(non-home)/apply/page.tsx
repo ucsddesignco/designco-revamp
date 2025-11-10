@@ -67,20 +67,23 @@ export default function Apply() {
             <Image
               src="/images/Apply/12.webp"
               alt="image 1"
-              width="500"
-              height="100"
+              width={1200}
+              height={800}
+              unoptimized
             />
             <Image
               src="/images/Apply/13.webp"
               alt="image 2"
-              width="500"
-              height="100"
+              width={1200}
+              height={800}
+              unoptimized
             />
             <Image
               src="/images/Apply/11.jpg"
               alt="image 3"
-              width="500"
-              height="100"
+              width={1200}
+              height={800}
+              unoptimized
             />
           </div>
         </div>
