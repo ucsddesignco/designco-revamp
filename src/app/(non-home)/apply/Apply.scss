@@ -1,0 +1,280 @@
+#apply-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 60px;
+
+  > div {
+    position: relative;
+    margin-bottom: 120px;
+    padding-left: 60px;
+  }
+
+  .steps {
+    position: absolute;
+    left: -2.5px;
+    top: -40px;
+    font-size: 200px;
+    font-weight: 700;
+    color: #e5e5e5;
+    line-height: 1;
+    margin: 0;
+    z-index: -1;
+    font-family: var(--font-neueplak);
+  }
+
+  .stepCopy {
+    max-width: 900px;
+    position: relative;
+    z-index: 1;
+
+    h1 {
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin: 0 0 24px 0;
+      color: #000;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
+    }
+  }
+
+  .innerContainer {
+    padding-left: 0;
+
+    h1 {
+      font-size: 64px;
+      font-weight: 800;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.roles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 0;
+  border-bottom: 2px solid #e0e0e0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.6;
+
+    img {
+      transform: translateX(8px);
+    }
+  }
+
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+
+    &:first-child {
+      flex: 1;
+    }
+  }
+
+  span {
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease;
+  }
+}
+
+.panel-darken {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  transition: opacity 0.3s ease;
+
+  &.panel-darken-close {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &.panel-darken-open {
+    opacity: 1;
+  }
+}
+
+.panel-wrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 1250px;
+  max-width: 95%;
+  height: 100%;
+  background: #000;
+  color: #fff;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+
+  &.panel-wrap-close {
+    transform: translateX(100%);
+  }
+
+  &.panel-wrap-open {
+    transform: translateX(0);
+  }
+}
+
+.panel {
+  padding: 80px;
+  min-height: 100%;
+}
+
+.panelNav {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 60px;
+
+  .x {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      top: 50%;
+      left: 0;
+    }
+
+    &:before {
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.panel-content-container {
+  h1 {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #fff;
+  }
+
+  h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #e0e0e0;
+  }
+
+  .apply-v2 {
+    display: inline-block;
+    padding: 16px 40px;
+    background: #fff;
+    color: #000;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background: #f0f0f0;
+    }
+  }
+}
+
+.scrollWrapper {
+  overflow: hidden;
+  height: 40rem;
+  width: 100%;
+}
+
+.scrollContainer {
+  overflow-y: hidden;
+  overflow-x: auto;
+  height: 40rem;
+  margin-left: 16px;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-left: calc(#{16px + 24px});
+  }
+}
+
+.imageDiv {
+  height: 40rem;
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 16px;
+
+  img {
+    height: 100% !important;
+    width: auto !important;
+    max-height: 40rem !important;
+    object-fit: contain !important;
+
+    &:nth-child(3n - 1) {
+      height: 70% !important;
+      max-height: 28rem !important;
+    }
+    &:nth-child(3n) {
+      height: 85% !important;
+      max-height: 34rem !important;
+    }
+    &:last-child {
+      margin-right: 16px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    img:last-child {
+      margin-right: calc(#{16px + 24px});
+    }
+  }
+}
+
+#faq {
+  .container {
+    max-width: 100%;
+  }
+}

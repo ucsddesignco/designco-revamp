@@ -25,6 +25,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-draggable": "^4.5.0",
+    "react-grid-system": "^8.2.1",
     "sass-migrator": "^2.4.2"
   },
   "devDependencies": {

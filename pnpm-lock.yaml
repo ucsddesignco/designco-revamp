@@ -47,6 +47,9 @@ importers:
       react-draggable:
         specifier: ^4.5.0
         version: 4.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-grid-system:
+        specifier: ^8.2.1
+        version: 8.2.1(react@18.3.1)
       sass-migrator:
         specifier: ^2.4.2
         version: 2.4.2
@@ -2571,6 +2574,11 @@ packages:
       react: '>= 16.3.0'
       react-dom: '>= 16.3.0'
 
+  react-grid-system@8.2.1:
+    resolution: {integrity: sha512-VVWLiNZhy1xmLmfhLt4nKgLog/5MdSTccVYEMYHVWOQH8BeOaC5PTHggSY17CwLwR80WJ//2qOhRGhJd2xhbvw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.x || ^18.x
+
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -4802,7 +4810,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.1(@typescript-eslint/parser@8.41.0(eslint@9.34.0)(typescript@5.9.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0)(eslint@9.34.0))(eslint@9.34.0):
+  eslint-module-utils@2.12.1(@typescript-eslint/parser@8.41.0(eslint@9.34.0)(typescript@5.9.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1)(eslint@9.34.0):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
@@ -4824,7 +4832,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 9.34.0
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.1(@typescript-eslint/parser@8.41.0(eslint@9.34.0)(typescript@5.9.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0)(eslint@9.34.0))(eslint@9.34.0)
+      eslint-module-utils: 2.12.1(@typescript-eslint/parser@8.41.0(eslint@9.34.0)(typescript@5.9.2))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.10.1)(eslint@9.34.0)
       hasown: 2.0.2
       is-core-module: 2.16.1
       is-glob: 4.0.3
@@ -5653,6 +5661,11 @@ snapshots:
       prop-types: 15.8.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+
+  react-grid-system@8.2.1(react@18.3.1):
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.3.1
 
   react-is@16.13.1: {}
 
