@@ -5,7 +5,7 @@ import path from 'path';
 const nextConfig = {
   sassOptions: {
     includePaths: [path.join(process.cwd(), 'src', 'app', 'styles')],
-    additionalData: `@use "variables" as *;`
+    additionalData: `@use "@/styles/variables" as *;`
   },
   images: {
     remotePatterns: [

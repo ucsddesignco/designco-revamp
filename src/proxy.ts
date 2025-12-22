@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { COLORS } from './app/(home)/constants';
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const COLOR_LENGTH = COLORS.length;
   const { cookies } = request;
 
@@ -27,7 +27,7 @@ export function middleware(request: NextRequest) {
   return response;
 }
 
-// Middleware only runs on home page
+// Middleware (proxy) only runs on home page
 export const config = {
   matcher: '/'
 };
