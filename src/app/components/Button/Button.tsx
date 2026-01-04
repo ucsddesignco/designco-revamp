@@ -3,6 +3,7 @@ import './Button.scss';
 import { CSSProperties } from 'react';
 
 type ButtonProps = {
+  onClick?: () => void;
   text: string;
   link: string;
   color?: string;
@@ -15,6 +16,7 @@ type ButtonProps = {
 };
 
 export default function Button({
+  onClick,
   text,
   link,
   color = 'white',
@@ -27,6 +29,7 @@ export default function Button({
 }: ButtonProps) {
   return (
     <Link
+      onClick={onClick}
       href={link}
       passHref
       className={hasShadow ? 'link-button' : 'link-button--no-shadow'}

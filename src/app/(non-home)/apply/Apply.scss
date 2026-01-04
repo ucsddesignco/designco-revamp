@@ -20,6 +20,7 @@
     margin: 0;
     z-index: -1;
     font-family: var(--font-neueplak);
+    opacity: 0.7;
   }
 
   .stepCopy {
@@ -47,7 +48,7 @@
     padding-left: 0;
 
     h1 {
-      font-size: 64px;
+      font-size: 50px;
       font-weight: 800;
       margin-bottom: 40px;
     }
@@ -58,7 +59,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 0;
+  padding: 16px 0;
   border-bottom: 2px solid #e0e0e0;
   cursor: pointer;
   transition: opacity 0.2s ease;
@@ -181,7 +182,7 @@
 
 .panel-content-container {
   h1 {
-    font-size: 48px;
+    font-size: 40px;
     font-weight: 800;
     line-height: 1.2;
     color: #fff;
@@ -201,7 +202,7 @@
 
   .apply-v2 {
     display: inline-block;
-    padding: 16px 40px;
+    padding: 12px 40px 16px 40px;
     background: #fff;
     color: #000;
     font-weight: 700;

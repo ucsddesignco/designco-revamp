@@ -27,6 +27,16 @@
 
   .AccordionHeader {
     display: flex;
+
+    button {
+      // background-color: rgb(138, 138, 240);
+      // padding-top: 0.2rem;
+      // font-size: 1.5rem;
+
+      .AccordionChevron {
+        margin-top: 0.4rem;
+      }
+    }
   }
 
   .AccordionTrigger {
