@@ -65,22 +65,36 @@ export default function Apply() {
         <div className="scrollContainer">
           <div className="imageDiv">
             <Image
-              src="/images/Apply/12.webp"
+              src="/images/Apply/2026Board/Img1.webp"
               alt="image 1"
               width={1200}
               height={800}
               unoptimized
             />
             <Image
-              src="/images/Apply/13.webp"
+              src="/images/Apply/2026Board/Img2.webp"
               alt="image 2"
               width={1200}
               height={800}
               unoptimized
             />
             <Image
-              src="/images/Apply/11.jpg"
+              src="/images/Apply/2026Board/Img3.webp"
               alt="image 3"
+              width={1200}
+              height={800}
+              unoptimized
+            />
+            <Image
+              src="/images/Apply/2026Board/Img4.webp"
+              alt="image 4"
+              width={1200}
+              height={800}
+              unoptimized
+            />
+            <Image
+              src="/images/Apply/2026Board/Img5.webp"
+              alt="image 5"
               width={1200}
               height={800}
               unoptimized

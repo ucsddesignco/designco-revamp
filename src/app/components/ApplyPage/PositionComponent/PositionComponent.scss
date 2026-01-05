@@ -5,3 +5,16 @@
 .apply-v2 {
   font-family: var(--font-neueplak);
 }
+
+.roles-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-label {
+  font-size: 24px;
+}
+
+.position-label {
+  font-size: 32px;
+}

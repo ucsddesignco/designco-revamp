@@ -73,9 +73,10 @@ export default function Position(props: Role) {
     <div>
       <Col className="roles" style={{ marginBottom: spacer2 }}>
         <a onClick={handlePanel}>
-          <span>
-            {props.team} Team – {props.position}
-          </span>
+          <div className="roles-dropdown">
+            <div className="team-label">{props.team} Team</div>
+            <div className="position-label">{props.position}</div>
+          </div>
         </a>
         <a onClick={handlePanel}>
           <Image
