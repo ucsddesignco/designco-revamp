@@ -10,13 +10,24 @@ const spacer3 = '24px';
 export default function ApplyHero() {
   return (
     <div className="innerContainer">
-      <Row>
+      <Row align="center">
+        <Col md={6}>
+          <Image
+            src="/images/Apply/board.gif"
+            alt="board gif"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: '100%', height: 'auto' }}
+            unoptimized
+          />
+        </Col>
         <Col md={6}>
           <h1 style={{ marginBottom: spacer2, lineHeight: '1' }}>
             So many boards, here&apos;s why you should choose ours.
           </h1>
           <p style={{ marginBottom: spacer3 }}>
-            Applications open until Sunday, January 19th at 11:59PM
+            Applications open until Sunday, January 18th at 11:59PM
           </p>
           <Button
             onClick={() => {
@@ -28,17 +39,6 @@ export default function ApplyHero() {
             link="/apply#roles"
             ariaLabel="Learn more about Design Co's history, board and more!"
             hasShadow
-          />
-        </Col>
-        <Col md={6}>
-          <Image
-            src="/images/Apply/board.gif"
-            alt="board gif"
-            width={0}
-            height={0}
-            sizes="100vw"
-            style={{ width: '100%', height: 'auto' }}
-            unoptimized
           />
         </Col>
       </Row>

@@ -46,9 +46,10 @@
 
   .innerContainer {
     padding-left: 0;
+    align-items: center;
 
     h1 {
-      font-size: 50px;
+      font-size: clamp(32px, calc(30px + 2.4vw), 80px);
       font-weight: 800;
       margin-bottom: 40px;
     }
@@ -222,14 +223,14 @@
 
 .scrollWrapper {
   overflow: hidden;
-  height: 40rem;
+  height: 32rem;
   width: 100%;
 }
 
 .scrollContainer {
   overflow-y: hidden;
   overflow-x: auto;
-  height: 40rem;
+  height: 32rem;
   margin-left: 16px;
   cursor: grab;
 
@@ -243,7 +244,7 @@
 }
 
 .imageDiv {
-  height: 40rem;
+  height: 32rem;
   display: inline-flex;
   align-items: flex-end;
   gap: 16px;
@@ -251,16 +252,16 @@
   img {
     height: 100% !important;
     width: auto !important;
-    max-height: 40rem !important;
+    max-height: 32rem !important;
     object-fit: contain !important;
 
     &:nth-child(3n - 1) {
       height: 70% !important;
-      max-height: 28rem !important;
+      max-height: 22.4rem !important;
     }
     &:nth-child(3n) {
       height: 85% !important;
-      max-height: 34rem !important;
+      max-height: 27.2rem !important;
     }
     &:last-child {
       margin-right: 16px;
@@ -277,5 +278,87 @@
 #faq {
   .container {
     max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #apply-page {
+    padding: 40px 20px;
+
+    > div {
+      padding-left: 20px;
+      margin-bottom: 60px;
+    }
+
+    .steps {
+      font-size: 100px;
+      top: -20px;
+    }
+
+    .stepCopy {
+      h1 {
+        font-size: 32px;
+        margin-bottom: 16px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+
+    .innerContainer {
+      h1 {
+        font-size: clamp(32px, calc(30px + 2.4vw), 80px);
+        margin-bottom: 24px;
+      }
+    }
+  }
+
+  .roles {
+    span {
+      font-size: 20px;
+    }
+  }
+
+  .panel {
+    padding: 40px 20px;
+  }
+
+  .panel-content-container {
+    h1 {
+      font-size: 28px;
+    }
+
+    h2 {
+      font-size: 22px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    .apply-v2 {
+      font-size: 14px;
+      padding: 10px 32px 14px 32px;
+    }
+  }
+
+  .scrollWrapper {
+    width: 100vw;
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+  .scrollContainer {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .imageDiv {
+    padding-left: 20px;
+
+    img:last-child {
+      margin-right: 20px;
+    }
   }
 }
