@@ -49,17 +49,9 @@
     align-items: center;
 
     h1 {
-      font-size: 50px;
+      font-size: clamp(32px, calc(30px + 2.4vw), 80px);
       font-weight: 800;
       margin-bottom: 40px;
-    }
-
-    &:first-child {
-      margin-bottom: 120px;
-
-      h1 {
-        font-size: 48px;
-      }
     }
   }
 }
@@ -316,7 +308,7 @@
 
     .innerContainer {
       h1 {
-        font-size: 28px;
+        font-size: clamp(32px, calc(30px + 2.4vw), 80px);
         margin-bottom: 24px;
       }
     }
