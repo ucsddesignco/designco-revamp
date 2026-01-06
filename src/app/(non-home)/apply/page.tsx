@@ -30,7 +30,7 @@ export default function Apply() {
           <h1>We&apos;re cool people.</h1>
           <p>
             Like you, we&apos;re aspiring designers. We&apos;re the ones who
-            plan GBMs, Stride, Build Up, Design Frontiers, and all that other
+            plan GBMs, Stride, Up-Grade, Design Frontiers, and all that other
             cool stuff. At the end of the day we&apos;re tired and our necks are
             sore from pushing pixels, but we&apos;re students, we&apos;re happy,
             and we&apos;re a family.

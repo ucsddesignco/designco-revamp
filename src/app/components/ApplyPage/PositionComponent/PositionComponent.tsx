@@ -115,7 +115,7 @@ export default function Position(props: Role) {
             <p style={{ marginBottom: spacer3 }}>{props.description}</p>
             <a
               className="apply-v2"
-              href="https://docs.google.com/forms/d/e/1FAIpQLScn2ySA1EJqUEZUIRCyMeuOkgT0gN1kMeYhHIW8DdyWl34Jsg/viewform"
+              href="https://forms.gle/AN6inDekYvsY4Fuf8"
               target="_blank"
               rel="noreferrer"
             >
