@@ -3,9 +3,9 @@ import './Apply.scss';
 
 import FAQAccordion from '@/components/ApplyPage/FAQAccordion/FAQAccordion';
 import Position from '@/components/ApplyPage/PositionComponent/PositionComponent';
+import BoardImageScroll from '@/components/ApplyPage/BoardImageScroll/BoardImageScroll';
 
 import { roles } from '@/components/ApplyPage/PositionComponent/utils';
-import Image from 'next/image';
 
 export default function Apply() {
   const roleList = roles.map(item => (
@@ -20,6 +20,14 @@ export default function Apply() {
       ec={item.ec}
     />
   ));
+
+  const boardImages = [
+    { src: '/images/Apply/2026Board/Img1.webp', alt: 'image 1' },
+    { src: '/images/Apply/2026Board/Img2.webp', alt: 'image 2' },
+    { src: '/images/Apply/2026Board/Img3.webp', alt: 'image 3' },
+    { src: '/images/Apply/2026Board/Img4.webp', alt: 'image 4' },
+    { src: '/images/Apply/2026Board/Img5.webp', alt: 'image 5' }
+  ];
 
   return (
     <main id="apply-page">
@@ -61,47 +69,7 @@ export default function Apply() {
           </p>
         </div>
       </div>
-      <div className="scrollWrapper">
-        <div className="scrollContainer">
-          <div className="imageDiv">
-            <Image
-              src="/images/Apply/2026Board/Img1.webp"
-              alt="image 1"
-              width={1200}
-              height={800}
-              unoptimized
-            />
-            <Image
-              src="/images/Apply/2026Board/Img2.webp"
-              alt="image 2"
-              width={1200}
-              height={800}
-              unoptimized
-            />
-            <Image
-              src="/images/Apply/2026Board/Img3.webp"
-              alt="image 3"
-              width={1200}
-              height={800}
-              unoptimized
-            />
-            <Image
-              src="/images/Apply/2026Board/Img4.webp"
-              alt="image 4"
-              width={1200}
-              height={800}
-              unoptimized
-            />
-            <Image
-              src="/images/Apply/2026Board/Img5.webp"
-              alt="image 5"
-              width={1200}
-              height={800}
-              unoptimized
-            />
-          </div>
-        </div>
-      </div>
+      <BoardImageScroll images={boardImages} />
       <div className="innerContainer" id="roles">
         <h1>Open Roles</h1>
         {roleList}
@@ -117,7 +85,3 @@ export default function Apply() {
     </main>
   );
 }
-
-export const metadata = {
-  title: 'Apply | Design Co'
-};

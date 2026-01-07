@@ -1,0 +1,104 @@
+.scrollWrapper {
+  overflow: hidden;
+  height: 32rem;
+  width: 100%;
+}
+
+.scrollContainer {
+  overflow-y: hidden;
+  overflow-x: auto;
+  height: 32rem;
+  margin-left: 16px;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-x;
+
+  // Hide scrollbar
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // IE and Edge
+
+  &::-webkit-scrollbar {
+    display: none; // Chrome, Safari, Opera
+  }
+
+  &:active,
+  &.dragging {
+    cursor: grabbing;
+  }
+
+  // Disable wheel scrolling and native momentum
+  overscroll-behavior-x: contain;
+  scroll-behavior: auto; // Disable smooth scroll to prevent conflicts
+
+  @media screen and (min-width: 768px) {
+    margin-left: calc(#{16px + 24px});
+  }
+}
+
+.imageDiv {
+  height: 32rem;
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 16px;
+
+  img {
+    height: 100% !important;
+    width: auto !important;
+    max-height: 32rem !important;
+    object-fit: contain !important;
+
+    &:nth-child(3n - 1) {
+      height: 70% !important;
+      max-height: 22.4rem !important;
+    }
+    &:nth-child(3n) {
+      height: 85% !important;
+      max-height: 27.2rem !important;
+    }
+    &:last-child {
+      margin-right: 16px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    img:last-child {
+      margin-right: calc(#{16px + 24px});
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .scrollWrapper {
+    width: 100vw;
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+  .scrollContainer {
+    margin-left: 0;
+    width: 100%;
+    cursor: grab;
+    user-select: none;
+
+    // Hide scrollbar
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &:active,
+    &.dragging {
+      cursor: grabbing;
+    }
+  }
+
+  .imageDiv {
+    padding-left: 20px;
+
+    img:last-child {
+      margin-right: 20px;
+    }
+  }
+}
