@@ -11,7 +11,7 @@ export const roles: Role[] = [
       &lt;li&gt; Facilitating large scale board social events/activities such as board retreat &lt;/li&gt; &lt;/ol&gt;',
     general:
       '&lt;ol&gt; &lt;li&gt; Take the initiative to prepare and lead one or more GBMs per quarter, either on your own, or in collaboration with another board member or others in the design community &lt;/li&gt; \
-      &lt;li&gt; Attend weekly GBMs, board meetings, large scale events, and other Industry Relations Team functions (~7 to 10 hours per week) &lt;/li&gt; \
+      &lt;li&gt; Attend weekly GBMs, board meetings, large scale events, and other Community Team functions (~7 to 10 hours per week) &lt;/li&gt; \
       &lt;li&gt; Serve as a student leader within the design community at UC San Diego &lt;/li&gt; &lt;/ol&gt;',
     offer:
       '&lt;ol&gt; &lt;li&gt; Prior experience with event planning &lt;/li&gt; \
@@ -36,10 +36,10 @@ export const roles: Role[] = [
       &lt;li&gt; Working within an established and maturing brand and visual identity &lt;/li&gt; \
       &lt;li&gt; Working with the Creative team to strengthen our brand and establish clear guidelines &lt;/li&gt; \
       &lt;li&gt; Designing and evolving new and existing sub-brands (e.g. Design Frontiers, Stride, Pixels & Cursors etc) &lt;/li&gt; \
-      &lt;li&gt; Creating website mockups and collaborate with web developers to design and execute new websites &lt;/li&gt; &lt;/ol&gt;',
+      &lt;li&gt; Creating website mockups and collaborate with software developers to design and execute new websites &lt;/li&gt; &lt;/ol&gt;',
     general:
       '&lt;ol&gt; &lt;li&gt; Take the initiative to prepare and lead one or more GBMs per quarter, either on your own, or in collaboration with another board member or others in the design community &lt;/li&gt; \
-      &lt;li&gt; Attend weekly GBMs, board meetings, large scale events, and other Industry Relations Team functions (~7 to 10 hours per week) &lt;/li&gt; \
+      &lt;li&gt; Attend weekly GBMs, board meetings, large scale events, and other Creative Team functions (~10 to 15 hours per week) &lt;/li&gt; \
       &lt;li&gt; Serve as a student leader within the design community at UC San Diego &lt;/li&gt; &lt;/ol&gt;',
     offer:
       '&lt;ol&gt; &lt;li&gt; Knowledge of basic graphic design principles &lt;/li&gt; \
@@ -58,14 +58,14 @@ export const roles: Role[] = [
   {
     key: '3',
     team: 'Creative',
-    position: 'Web Developer',
+    position: 'Software Developer',
     description:
       'You are fascinated with pushing pixels to code. You are always up for a challenge. You aspire to push the boundaries of your own skills to build amazing digital experiences for our design community.',
-    duty: '&lt;ol&gt; &lt;li&gt; Building and maintaining all Design Co websites (e.g. ucsddesign.co, Design Frontiers, Build Up, Stride, VDA, etc) &lt;/li&gt; \
-      &lt;li&gt; Work closely with our visual designers to bring their visions to life (aka implementing Figma mockups and cool interactions) &lt;/li&gt; &lt;/ol&gt;',
+    duty: '&lt;ol&gt; &lt;li&gt; Building and maintaining all Design Co websites (e.g. designatucsd.com, Design Frontiers, UP-Grade, Stride, VDA, etc) &lt;/li&gt; \
+      &lt;li&gt; Working closely with our visual designers to bring their visions to life (aka implementing Figma mockups and cool interactions) &lt;/li&gt; &lt;/ol&gt;',
     general:
       '&lt;ol&gt; &lt;li&gt; Take the initiative to prepare and lead one or more GBMs per quarter, either on your own, or in collaboration with another board member or others in the design community &lt;/li&gt; \
-      &lt;li&gt; Attend weekly GBMs, board meetings, large scale events, and other Industry Relations Team functions (~7 to 10 hours per week) &lt;/li&gt; \
+      &lt;li&gt; Attend weekly GBMs, board meetings, large scale events, and other Creative Team functions (~7 to 10 hours per week) &lt;/li&gt; \
       &lt;li&gt; Serve as a student leader within the design community at UC San Diego &lt;/li&gt; &lt;/ol&gt;',
     offer:
       '&lt;ol&gt; &lt;li&gt; Fluent in basic front-end web development technologies such as HTML/CSS/JavaScript &lt;/li&gt; \
@@ -88,7 +88,7 @@ export const roles: Role[] = [
     position: 'Industry Relations Coordinator',
     description:
       'You are bold and personable. You are an individual deeply interested in helping Design Co curate strong industry partnerships and events. At Design Co, we believe that creating opportunities for students to interface with industry is key in preparing our community for life in the industry.',
-    duty: '&lt;ol&gt; &lt;li&gt; Working in collaboration with the industry relations team to develop and maintain partnerships with a wide range of different companies &lt;/li&gt; \
+    duty: '&lt;ol&gt; &lt;li&gt; Working in collaboration with the Industry Relations team to develop and maintain partnerships with a wide range of different companies &lt;/li&gt; \
       &lt;li&gt; Conversing with and pitching to new and partner companies over video calls to ensure that the needs of both the companies’ and our community are met as soon as possible &lt;/li&gt; \
       &lt;li&gt; Helping to continuously discover, build, and improve event and sponsorship offerings for industry partners &lt;/li&gt; \
       &lt;li&gt; Pitching event ideas and sponsorship packages to companies and delivering attractive events for students and companies weeks in advance the event date &lt;/li&gt; \
@@ -107,10 +107,11 @@ export const roles: Role[] = [
     ec: '&lt;ol&gt; &lt;li&gt; Prior experience securing and maintaining industry partnerships &lt;/li&gt; \
       &lt;li&gt; Prior experience in creating marketing professional pitches &lt;/li&gt; \
       &lt;li&gt; Prior experience working in a role where you interface with multiple partners, departments, and student organizations across UC San Diego and the greater San Diego community &lt;/li&gt; &lt;/li&gt; \
+      &lt;li&gt; Attention-grabbing, avant-garde ideas for future industry events! &lt;/li&gt; \
+      &lt;li&gt; Knowledge of the process behind gaining non-profit status and any experience securing sponsorships with companies through this model  &lt;/li&gt; \
       &lt;li&gt; Relevant design experience in a professional setting &lt;/li&gt; \
       &lt;li&gt; Knowledge of the design recruiting and job search process &lt;/li&gt; \
-      &lt;li&gt; Attention-grabbing, avant-garde ideas for future industry events! &lt;/li&gt; \
-      &lt;li&gt; Knowledge of the process behind gaining non-profit status and any experience securing sponsorships with companies through this model &lt;/li&gt; &lt;/ol&gt;'
+      &lt;li&gt; Knowing funny jokes, can teach sick dance moves, and have great food or music recommendations  &lt;/li&gt; &lt;/ol&gt;'
   },
   {
     key: '5',
@@ -118,25 +119,33 @@ export const roles: Role[] = [
     position: 'Operations Coordinator',
     description:
       'You are detail oriented and motivated. You are excited to help Design Co grow as a pre-professional organization and better support student designers. You see yourself as a huge backbone to Design Co’s operations and will play an important part in shaping the way Design Co runs. ',
-    duty: '&lt;ol&gt; &lt;li&gt; Working closely with all teams in Design Co to help kickstart initiatives that may require advanced logistics &lt;/li&gt; \
-      &lt;ol&gt; &lt;li&gt; Executing logistics including TAP forms, tabling, room reservations, booking flights (for retreats, Bay Area trip, etc), merchandise details, inventory &lt;/li&gt; \
-      &lt;ol&gt; &lt;li&gt; Coordinating with Finance Coordinators to ensure logistics and costs are well aligned &lt;/li&gt; \
-      &lt;ol&gt; &lt;li&gt; Assisting with general event planning (securing rooms/booking spaces, catering, etc) &lt;/li&gt; &lt;/ol&gt',
+    duty: '&lt;ol&gt; \
+      &lt;li&gt; Working closely with all teams in Design Co to help kickstart initiatives that may require advanced logistics &lt;/li&gt; \
+      &lt;li&gt; Executing logistics including TAP forms, tabling, room reservations, booking flights (for retreats, Bay Area trip, etc), merchandise details, inventory &lt;/li&gt; \
+      &lt;li&gt; Coordinating with Finance Coordinators to ensure logistics and costs are well aligned &lt;/li&gt; \
+      &lt;li&gt; Assisting with general event planning (securing rooms/booking spaces, catering, etc) &lt;/li&gt; \
+      &lt;/ol&gt;',
     general:
-      '&lt;ol&gt; &lt;li&gt; Take the initiative to prepare and lead one or more GBM per quarter, either on your own, or in collaboration with another board member or others in the design community &lt;/li&gt; \
-      &lt;ol&gt; &lt;li&gt; Attend weekly GBMs, board meetings, and large scale events (~7 to 10 hours per week) &lt;/li&gt; \
-      &lt;li&gt; Serve as a student leader within the design community at UC San Diego &lt;/li&gt;',
+      '&lt;ol&gt; \
+      &lt;li&gt; Take the initiative to prepare and lead one or more GBM per quarter, either on your own, or in collaboration with another board member or others in the design community &lt;/li&gt; \
+      &lt;li&gt; Attend weekly GBMs, board meetings, large scale events, and other Operations Team functions (~7 to 10 hours per week) &lt;/li&gt; \
+      &lt;li&gt; Serve as a student leader within the design community at UC San Diego &lt;/li&gt; \
+      &lt;/ol&gt;',
     offer:
-      '&lt;ol&gt; &lt;li&gt; Attention to detail and a love for Google Sheets &lt;/li&gt; \
+      '&lt;ol&gt; \
+      &lt;li&gt; Attention to detail and a love for Google Sheets &lt;/li&gt; \
       &lt;li&gt; Prior experience with event planning &lt;/li&gt; \
       &lt;li&gt; Organization skills and the ability to stay on top of deadlines &lt;/li&gt; \
-      &lt;li&gt; Knowledge of design thinking and the human-centered design process &lt;/li&gt;',
-    ec: '&lt;ol&gt; &lt;li&gt; Prior exposure to student org operations (completing TAP forms, reserving spaces through OneStop & applying for AS funding) &lt;/li&gt; \
+      &lt;li&gt; Knowledge of design thinking and the human-centered design process &lt;/li&gt; \
+      &lt;/ol&gt;',
+    ec: '&lt;ol&gt; \
+      &lt;li&gt; Prior exposure to student org operations (completing TAP forms, reserving spaces through OneStop & applying for AS funding) &lt;/li&gt; \
       &lt;li&gt; Prior experience with large scale event planning (100+ attendees) &lt;/li&gt; \
       &lt;li&gt; Prior experience working with multiple partners, departments, and student organizations across UC San Diego and the greater San Diego community &lt;/li&gt; \
       &lt;li&gt; Relevant design experience in a professional setting &lt;/li&gt; \
-      &lt;ol&gt; &lt;li&gt; Knowledge of the design recruiting and job search process &lt;/li&gt; \
-      &lt;li&gt; Knowing funny jokes, can teach sick dance moves, and have great food or music recommendations &lt;/li&gt;'
+      &lt;li&gt; Knowledge of the design recruiting and job search process &lt;/li&gt; \
+      &lt;li&gt; Knowing funny jokes, can teach sick dance moves, and have great food or music recommendations &lt;/li&gt; \
+      &lt;/ol&gt;'
   },
   {
     key: '6',
@@ -149,7 +158,7 @@ export const roles: Role[] = [
       &lt;li&gt; Coordinating with Operations Coordinators to ensure logistics and costs are well aligned &lt;/li&gt; &lt;/ol&gt;',
     general:
       '&lt;ol&gt; &lt;li&gt; Take the initiative to prepare and lead one or more GBMs per quarter, either on your own, or in collaboration with another board member or others in the design community &lt;/li&gt; \
-      &lt;li&gt; Attend weekly GBMs, board meetings, and large scale events (~7 to 10 hours per week) &lt;/li&gt; \
+      &lt;li&gt; Attend weekly GBMs, board meetings, large scale events, and other Operations Team functions (~7 to 10 hours per week) &lt;/li&gt; \
       &lt;li&gt; Serve as a student leader within the design community at UC San Diego &lt;/li&gt; &lt;/ol&gt;',
     offer:
       '&lt;ol&gt; &lt;li&gt; Attention to detail and a love for Google Sheets &lt;/li&gt; \
@@ -177,7 +186,7 @@ export const roles: Role[] = [
       &lt;li&gt; Creating marketing plans for small to large scale events &lt;/li&gt; &lt;/ol&gt;  ',
     general:
       '&lt;ol&gt; &lt;li&gt; Take the initiative to prepare and lead one or more GBMs per quarter, either on your own or in collaboration with another board member or others in the design community &lt;/li&gt; \
-      &lt;li&gt; Attend weekly GBMs, board meetings, large scale events, and other Industry Relations Team functions (~7 to 10 hours per week) &lt;/li&gt; \
+      &lt;li&gt; Attend weekly GBMs, board meetings, large scale events, and other Marketing Team functions (~7 to 10 hours per week) &lt;/li&gt; \
       &lt;li&gt; Serve as a student leader within the design community at UC San Diego &lt;/li&gt; &lt;/ol&gt;',
     offer:
       '&lt;ol&gt; &lt;li&gt; Experience managing social media platforms &lt;/li&gt; \
@@ -233,7 +242,7 @@ export const roles: Role[] = [
       &lt;li&gt; Creating and editing short-form videos &lt;/ol&gt;',
     general:
       '&lt;ol&gt; &lt;li&gt; Take the initiative to prepare and lead one or more GBMs per quarter, either on your own, or in collaboration with another board member or others in the design community &lt;/li&gt; \
-      &lt;li&gt; Attend weekly GBMs, board meetings, large scale events, and other Industry Relations Team functions (~7 to 10 hours per week) &lt;/li&gt; \
+      &lt;li&gt; Attend weekly GBMs, board meetings, large scale events, and other Marketing Team functions (~7 to 10 hours per week) &lt;/li&gt; \
       &lt;li&gt; Serve as a student leader within the design community at UC San Diego &lt;/li&gt; &lt;/ol&gt;',
     offer:
       '&lt;ol&gt; &lt;li&gt; Knowledge with DSLR cameras is required. You’re not required to have your own DSLR but you need to have access to one for all our events (GBMs, Design Frontiers, Stride) &lt;/li&gt; \

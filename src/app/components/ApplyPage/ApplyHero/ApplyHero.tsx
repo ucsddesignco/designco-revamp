@@ -10,7 +10,7 @@ const spacer3 = '24px';
 export default function ApplyHero() {
   return (
     <div className="innerContainer">
-      <Row align="center">
+      <Row align="center" gutterWidth={64}>
         <Col md={6}>
           <Image
             src="/images/Apply/board.gif"
@@ -22,7 +22,7 @@ export default function ApplyHero() {
             unoptimized
           />
         </Col>
-        <Col md={6}>
+        <Col md={6} className="apply-hero-text">
           <h1 style={{ marginBottom: spacer2, lineHeight: '1' }}>
             So many boards, here&apos;s why you should choose ours.
           </h1>
