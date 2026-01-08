@@ -42,10 +42,13 @@
   gap: 16px;
 
   img {
+    display: block;
     height: 100% !important;
     width: auto !important;
     max-height: 32rem !important;
     object-fit: contain !important;
+    align-self: flex-end;
+    object-position: bottom;
 
     &:nth-child(3n - 1) {
       height: 70% !important;
@@ -96,6 +99,8 @@
 
   .imageDiv {
     padding-left: 20px;
+    display: inline-flex;
+    align-items: flex-end;
 
     img:last-child {
       margin-right: 20px;

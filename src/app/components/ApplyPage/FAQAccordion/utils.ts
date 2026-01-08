@@ -9,12 +9,12 @@ export const faq: faq[] = [
     id: 2,
     question: 'How long is the role period?',
     answer:
-      'If selected, you will be serving in your role, on the Design Co Board for the entirety of the Spring 2025 quarter and the 2025-26 school year (4 quarters total).'
+      'If selected, you will be serving in your role, on the Design Co Board for the entirety of the Spring 2026 quarter and the 2026-27 school year (4 quarters total).'
   },
   {
     id: 3,
     question: 'When is the application due?',
-    answer: 'Applications are due Sunday, January 19th at 11:59PM.'
+    answer: 'Applications are due Sunday, January 18th at 11:59PM.'
   },
   {
     id: 4,
@@ -26,7 +26,7 @@ export const faq: faq[] = [
     id: 5,
     question: 'What is the application & interview process like?',
     answer:
-      "Our board will review all applications thoroughly and holistically. All applicants will be updated on the status of their application by Monday 1/27 (Week 3) latest. If you're a good fit for one or some of the roles, our team will reach out to you via email to set up an interview. Interviews will take place between Monday 2/3 - Friday 2/7 (Week 5) over Zoom, and some roles will require a design challenge. Offers will be sent out shortly after."
+      "Our board will review all applications thoroughly and holistically. All applicants will be updated on the status of their application by Monday 1/26 (Week 4) latest. If you're a good fit for one or some of the roles, our team will reach out to you via email to set up an interview. Interviews will take place between Monday 2/2 - Friday 2/6 (Week 5) over Zoom, and some roles will require a design challenge. Offers will be sent out shortly after."
   },
   {
     id: 6,
