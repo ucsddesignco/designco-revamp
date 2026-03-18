@@ -54,7 +54,7 @@ export default async function About() {
             everyone.
           </p>
           <Button
-            text="Join Our Commununity"
+            text="Join Our Community"
             link="community"
             bgColor="white"
             borderColor="black"
